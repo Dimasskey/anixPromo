@@ -1,0 +1,33 @@
+.info-block-container {
+  display: flex;
+  grid-area: infoBlock;
+  background-color: #fff;
+  margin-top: 2vw;
+  border-radius: 1vw;
+  height: 24vw;
+}
+
+.wrapper-suppliers {
+  width: 60%;
+}
+
+.suppliers {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
+  grid-template-rows: 0.4fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "heading heading heading heading";
+  align-items: center;
+  justify-items: center;
+  height: 100%;
+
+  &__heading {
+    grid-area: heading;
+    color: var(--background-color-el);
+    font-size: 2vw;
+  }
+
+  &__image {
+    object-fit: contain;
+    height: 5vw;
+  }
+}

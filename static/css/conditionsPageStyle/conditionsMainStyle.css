@@ -3,8 +3,8 @@
  * 6 |     margin- bottom: 1%;
  *   |                       ^
  *   '
- *   _header.scss 6:23  @import
- *   style.scss 4:9     root stylesheet */
+ *   ..\_header.scss 6:23          @import
+ *   conditionsMainStyle.scss 6:9  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -14,5 +14,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: 'Error: expected "{".\a   \2577 \a 6 \2502      margin- bottom: 1%;\d\a   \2502                        ^\a   \2575 \a   _header.scss 6:23  @import\a   style.scss 4:9     root stylesheet';
+  content: 'Error: expected "{".\a   \2577 \a 6 \2502      margin- bottom: 1%;\d\a   \2502                        ^\a   \2575 \a   ..\\_header.scss 6:23          @import\a   conditionsMainStyle.scss 6:9  root stylesheet';
 }

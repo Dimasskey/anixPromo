@@ -1,0 +1,41 @@
+.week-prizes-container {
+  background-color: var(--background-color-alt);
+  border-radius: 1vw;
+  grid-area: weekPrizes;
+  margin-top: 1vw;
+}
+
+.week-prizes-heading-container {
+  display: flex;
+}
+
+.week-prizes-icon-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+          "grill aerogrill biggrill"
+          "yandex robot biggrill"
+;
+  justify-items: center;
+  align-items: end;
+}
+
+.week-icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.week-grill-prize-container { grid-area: grill;}
+.week-aerogrill-prize-container { grid-area: aerogrill;}
+.week-yandex-prize-container { grid-area: yandex;}
+.week-robot-prize-container { grid-area: robot;}
+.week-biggrill-prize-container { grid-area: biggrill;}
+
+.week-grill-prize-container img { }
+.week-aerogrill-prize-container img { }
+.week-yandex-prize-container img { }
+.week-robot-prize-container img { }
+.week-biggrill-prize-container img { }
