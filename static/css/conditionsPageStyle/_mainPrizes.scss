@@ -1,0 +1,60 @@
+.main-prizes-container {
+  grid-area: mainPrizes;
+  background-color: var(--background-color-alt);
+  border-radius: 1vw;
+  margin-top: 1vw;
+  padding-bottom: 1vw;
+}
+
+.main-prizes-heading-container {
+  display: flex;
+
+  .main-prizes-snake-icon {
+    margin-top: 2vw;
+    width: 21vw;
+    object-fit: contain;
+  }
+
+  .main-prizes-text-container {
+    margin-top: 3vw;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    .main-prizes-heading {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 3vw;
+    }
+
+    .main-prizes-text {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 1.5vw;
+    }
+  }
+
+}
+
+.main-prizes-icon-container {
+  display: flex;
+  align-items: flex-end;
+
+  .icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5vw;
+  }
+
+  .main-prizes-icon-text {
+    margin-top: 2vw;
+  }
+
+  .main-prizes-tvIcon { width: 26vw; object-fit: contain; }
+  .main-prizes-playIcon { width: 17vw; object-fit: contain; }
+  .main-prizes-holodilnikIcon { width: 13vw; object-fit: contain; }
+}
+
+
+
+

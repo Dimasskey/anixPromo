@@ -1,0 +1,44 @@
+.guide-container {
+  background-color: var(--background-color-alt);
+  grid-area: guide;
+  border-radius: 1vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1vw;
+  height: 14vw;
+}
+
+.guide-heading {
+  font-size: 1.5vw;
+  margin-top: 0.7vw;
+}
+
+.guide-steps-container {
+  display: flex;
+  column-gap: 1vw;
+  justify-content: center;
+
+  .guide-steps-icon {
+    object-fit: contain;
+    width: 5vw;
+  }
+
+  .guide-arrow-icon {
+    object-fit: contain;
+    width: 12vw;
+  }
+}
+
+.guide-text-container {
+  display: flex;
+  font-size: 0.8vw;
+  width: 51vw;
+  text-align: center;
+  justify-content: space-between;
+
+  .guide-text {
+    width: 14vw;
+  }
+}
+
