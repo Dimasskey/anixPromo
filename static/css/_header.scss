@@ -7,6 +7,10 @@
     border-radius: 1dvw;
     font-size: 1dvw;
     background-color: var(--background-color-el);
+
+    @include mobile {
+      font-size: 2vw;
+    }
   }
   &-inner {
     padding: 1% 3%;
@@ -15,6 +19,10 @@
 
     &__logo img {
       width: 6vw;
+
+      @include mobile {
+        width: 10vw;
+      }
     }
   }
 }
@@ -28,3 +36,4 @@
     column-gap: 4vw;
   }
 }
+

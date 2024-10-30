@@ -3,11 +3,39 @@
   border-radius: 1vw;
   grid-area: weekPrizes;
   margin-top: 1vw;
+  padding-bottom: 2vw;
+  height: 44vw;
 }
 
 .week-prizes-heading-container {
   display: flex;
 }
+
+.week-prizes-snake-icon {
+  width: 13vw;
+  object-fit: contain;
+}
+.week-prizes-text-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3vw 4vw;
+  width: 73%;
+}
+
+.week-prizes-heading {
+  font-size: 3vw;
+}
+
+.week-prizes-text {
+  font-size: 1.2vw;
+  padding: 0 7vw;
+}
+
+
+
+
 
 .week-prizes-icon-container {
   display: grid;
@@ -25,6 +53,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  font-size: 1vw;
+}
+
+.week-prize-text {
+  margin-top: 1.5vw;
+  padding: 0 5vw;
 }
 
 
@@ -34,8 +69,8 @@
 .week-robot-prize-container { grid-area: robot;}
 .week-biggrill-prize-container { grid-area: biggrill;}
 
-.week-grill-prize-container img { }
-.week-aerogrill-prize-container img { }
-.week-yandex-prize-container img { }
-.week-robot-prize-container img { }
-.week-biggrill-prize-container img { }
+.week-grill-prize-container img {height: 10vw }
+.week-aerogrill-prize-container img {height: 10vw }
+.week-yandex-prize-container img {height: 8vw }
+.week-robot-prize-container img {height: 8vw }
+.week-biggrill-prize-container img {height: 24vw }

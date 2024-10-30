@@ -26,6 +26,7 @@ body {
     ". mainGame .";
 
   //@include mobile {
+  //  justify-content: center;
   //  grid-template-columns: 95vw;
   //  grid-template-areas:
   //  "header"
@@ -35,5 +36,16 @@ body {
   //}
 }
 
+@media (max-width: 700px) {
+  .main {
+    justify-content: center;
+    grid-template-columns: 95vw;
+    grid-template-areas:
+    "header"
+    "mainLogo"
+    "infoBlock"
+    "mainGame";
+  }
+}
 
 
