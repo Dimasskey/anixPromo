@@ -9,17 +9,17 @@
   align-items: center;
   column-gap: 5vw;
   padding: 1%;
-  margin-top: 1.5vw;
 
   @include mobile {
     height: 12vw;
   }
 
   &__heading {
-    font-size: 4vw;
+    font-size: 6vw;
+    font-family: "Bebas Neue", sans-serif;
 
     @include mobile {
-      font-size: 6vw;
+      font-size: 9vw;
     }
   }
 

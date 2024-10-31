@@ -6,18 +6,22 @@
 @import "../header",
         "guide",
         "mainPrizes",
-        "weekPrizes";
+        "weekPrizes",
+        "prizesInAll",
+        "firstFinalists",
+        "fromSuppliers",
+        "../footer";
 
 body {
   background-color: var(--background-color);
-  font-family: Inter, sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   color: #fff;
 }
 
 .main-conditions-wrapper {
   display: grid;
   grid-template-columns: 1fr calc(100dvw/1.55) 1fr;
-  grid-template-rows: auto;
+  grid-template-rows: auto auto auto auto auto auto auto 1fr;
   grid-template-areas:
     ". header ."
     ". guide ."
@@ -25,14 +29,21 @@ body {
     ". weekPrizes ."
     ". prizesInAll ."
     ". firstFinalists ."
-    ". prizesFromPartners .";
+    ". prizesFromPartners ."
+    "footer footer footer";
+  row-gap: 1.5vw;
 
-  //@include mobile {
-  //  grid-template-columns: 95vw;
-  //  grid-template-areas:
-  //  "header"
-  //  "mainLogo"
-  //  "infoBlock"
-  //  "mainGame";
-  //}
+  @include mobile {
+    justify-content: center;
+    grid-template-columns: 95vw;
+    grid-template-areas:
+    "header"
+    "guide"
+    "mainPrizes"
+    "weekPrizes"
+    "prizesInAll"
+    "firstFinalists"
+    "prizesFromPartners";
+    row-gap: 2vw;
+  }
 }

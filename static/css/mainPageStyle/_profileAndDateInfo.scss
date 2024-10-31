@@ -22,7 +22,7 @@
     display: flex;
     align-items: center;
     padding-top: 5%;
-    padding-left: 5%;
+    padding-left: 8%;
 
     @include mobile {
       padding-top: 7%;
@@ -32,10 +32,10 @@
     &-image {
       border: 0.2vw solid white;
       border-radius: 50%;
-      width: 5vw;
-      height: 5vw;
+      width: 7vw;
+      height: 7vw;
       background-size: cover;
-      background-image: url("../../images/mainPageIcons/avatarPhoto.jpg");
+      background-image: url("../../images/mainPageImages/avatarPhoto.jpg");
 
       @include mobile {
         width: 10vw;
@@ -45,9 +45,9 @@
     }
 
     &-fio {
-      font-size: 1vw ;
+      font-size: 1.5vw ;
       margin-left: 5%;
-      font-weight: bold;
+      line-height: 1.25;
 
       @include mobile {
         font-size: 1.8vw;
@@ -77,11 +77,15 @@
   }
 }
 
+.toys-count {
+  font-size: 2vw;
+  font-weight: bold;
+}
+
 .complete-progress {
   grid-area: progres;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 
   &-count {
@@ -94,28 +98,30 @@
 
   &-bar {
     border-radius: 1vw;
-    height: 0.5vw;
-    width: 90%;
+    height: 0.35vw;
+    width: 75%;
     background-color: pink;
-    margin-top: 1vw;
+    margin-top: 0.5vw;
 
     @include mobile {
-      height: 0.7vw;
-      margin-bottom: 1vw;
+      height: 0.5vw;
     }
   }
 }
 
 .draw-date-container {
   padding-top: 5%;
-  font-size: 1.5vw;
+  font-size: 1.25vw;
   padding-left: 6%;
   display: flex;
   flex-direction: column;
   color: #000;
+  row-gap: 0.5vw;
+
 
   @include mobile {
     font-size: 2vw;
+    row-gap: 0.1vw;
   }
 }
 
@@ -125,20 +131,19 @@
   align-items: center;
   column-gap: 4%;
 
-  @include mobile {
-    margin-bottom: 1%;
-  }
+
 
   &-checkbox {
     display: flex;
     background-color: #D9D9D9;
     height: 2vw;
     width: 2vw;
-    padding: 1%;
+    padding: 1.5%;
 
     @include mobile {
-      height: 3vw;
-      width: 3vw;
+      height: 2.5vw;
+      width: 2.5vw;
+      padding: 1%;
     }
 
     &-icon {

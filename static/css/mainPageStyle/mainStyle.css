@@ -170,41 +170,45 @@ svg * {
 
 @font-face {
   font-family: "Bebas Neue";
-  src: url("../../fonts/BebasNeue-Regular.woff2") format("woff2");
-  font-weight: 500;
+  src: url("../../fonts/Bebas Neue.ttf");
+  font-weight: 400;
 }
 .header {
   grid-area: header;
+  font-family: Inter, sans-serif;
 }
 .header-container {
   margin-top: 1%;
-  margin-bottom: 1%;
   border-radius: 1dvw;
-  font-size: 1dvw;
+  font-size: 2dvw;
   background-color: var(--background-color-el);
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .header-container {
-    font-size: 2.5vw;
+    font-size: 3.5vw;
+    border-radius: 2vw;
   }
 }
 .header-inner {
   padding: 1% 3%;
   display: flex;
-  justify-content: space-between;
 }
 .header-inner__logo img {
-  width: 6vw;
+  width: 10vw;
+  margin-top: 2%;
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .header-inner__logo img {
     width: 20vw;
+    margin: 0;
   }
 }
 
 .navigation {
   display: flex;
   align-items: center;
+  width: 100%;
+  justify-content: space-around;
 }
 .navigation-menu {
   display: flex;
@@ -222,26 +226,26 @@ svg * {
   align-items: center;
   column-gap: 5vw;
   padding: 1%;
-  margin-top: 1.5vw;
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .main-logo {
     height: 12vw;
   }
 }
 .main-logo__heading {
-  font-size: 4vw;
+  font-size: 6vw;
+  font-family: "Bebas Neue", sans-serif;
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .main-logo__heading {
-    font-size: 6vw;
+    font-size: 9vw;
   }
 }
 .main-logo__image {
   width: 14vw;
   object-fit: contain;
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .main-logo__image {
     width: 20vw;
   }
@@ -251,11 +255,10 @@ svg * {
   display: flex;
   grid-area: infoBlock;
   background-color: #fff;
-  margin-top: 2vw;
   border-radius: 1vw;
   height: 24vw;
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .info-block-container {
     height: 32vw;
   }
@@ -278,8 +281,9 @@ svg * {
   grid-area: heading;
   color: var(--background-color-el);
   font-size: 2vw;
+  font-weight: bold;
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .suppliers__heading {
     font-size: 2.5vw;
   }
@@ -288,7 +292,7 @@ svg * {
   object-fit: contain;
   height: 5vw;
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .suppliers__image {
     height: 7vw;
   }
@@ -316,9 +320,9 @@ svg * {
   display: flex;
   align-items: center;
   padding-top: 5%;
-  padding-left: 5%;
+  padding-left: 8%;
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .profile-avatar {
     padding-top: 7%;
     padding-left: 9%;
@@ -327,23 +331,23 @@ svg * {
 .profile-avatar-image {
   border: 0.2vw solid white;
   border-radius: 50%;
-  width: 5vw;
-  height: 5vw;
+  width: 7vw;
+  height: 7vw;
   background-size: cover;
-  background-image: url("../../images/mainPageIcons/avatarPhoto.jpg");
+  background-image: url("../../images/mainPageImages/avatarPhoto.jpg");
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .profile-avatar-image {
     width: 10vw;
     height: 10vw;
   }
 }
 .profile-avatar-fio {
-  font-size: 1vw;
+  font-size: 1.5vw;
   margin-left: 5%;
-  font-weight: bold;
+  line-height: 1.25;
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .profile-avatar-fio {
     font-size: 1.8vw;
   }
@@ -356,7 +360,7 @@ svg * {
   align-items: center;
   font-size: 1.3vw;
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .toys-container {
     font-size: 2vw;
   }
@@ -366,52 +370,57 @@ svg * {
   width: 2.5vw;
   position: relative;
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .toys-icon {
     width: 4vw;
   }
+}
+
+.toys-count {
+  font-size: 2vw;
+  font-weight: bold;
 }
 
 .complete-progress {
   grid-area: progres;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 .complete-progress-count {
   font-size: 2vw;
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .complete-progress-count {
     font-size: 2.5vw;
   }
 }
 .complete-progress-bar {
   border-radius: 1vw;
-  height: 0.5vw;
-  width: 90%;
+  height: 0.35vw;
+  width: 75%;
   background-color: pink;
-  margin-top: 1vw;
+  margin-top: 0.5vw;
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .complete-progress-bar {
-    height: 0.7vw;
-    margin-bottom: 1vw;
+    height: 0.5vw;
   }
 }
 
 .draw-date-container {
   padding-top: 5%;
-  font-size: 1.5vw;
+  font-size: 1.25vw;
   padding-left: 6%;
   display: flex;
   flex-direction: column;
   color: #000;
+  row-gap: 0.5vw;
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .draw-date-container {
     font-size: 2vw;
+    row-gap: 0.1vw;
   }
 }
 
@@ -420,22 +429,18 @@ svg * {
   align-items: center;
   column-gap: 4%;
 }
-@media (max-width: 767px) {
-  .draw-date {
-    margin-bottom: 1%;
-  }
-}
 .draw-date-checkbox {
   display: flex;
   background-color: #D9D9D9;
   height: 2vw;
   width: 2vw;
-  padding: 1%;
+  padding: 1.5%;
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .draw-date-checkbox {
-    height: 3vw;
-    width: 3vw;
+    height: 2.5vw;
+    width: 2.5vw;
+    padding: 1%;
   }
 }
 .draw-date-checkbox-icon {
@@ -443,9 +448,9 @@ svg * {
 }
 
 .main-game {
-  margin-top: 5%;
   grid-area: mainGame;
   position: relative;
+  margin-bottom: 20vw;
 }
 .main-game-snake {
   width: 100%;
@@ -461,10 +466,11 @@ svg * {
   align-items: center;
   justify-content: center;
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .main-game-step {
     width: 9vw;
     height: 9vw;
+    font-size: 3vw;
   }
 }
 
@@ -668,7 +674,7 @@ svg * {
   left: 20.9vw;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   #step_1 {
     top: 2.7vw;
     left: 13.7vw;
@@ -830,6 +836,24 @@ svg * {
     left: 30.66vw;
   }
 }
+.footer {
+  grid-area: footer;
+  height: 20vw;
+  background-color: var(--background-color-alt);
+  position: relative;
+}
+@media (max-width: 900px) {
+  .footer {
+    width: 100vw; /* Задаем ширину футера 100vw */
+  }
+}
+.footer-elka {
+  width: 25vw;
+  top: -15vw;
+  left: 37.5vw;
+  position: absolute;
+}
+
 body {
   background-color: var(--background-color);
   font-family: Inter, sans-serif;
@@ -840,13 +864,15 @@ body {
   display: grid;
   grid-template-columns: 1fr 64.5161290323dvw 1fr;
   grid-template-rows: auto auto auto 1fr;
-  grid-template-areas: ". header ." ". mainLogo ." ". infoBlock ." ". mainGame .";
+  grid-template-areas: ". header ." ". mainLogo ." ". infoBlock ." ". mainGame ." "footer footer footer";
+  row-gap: 1.5vw;
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .main {
     justify-content: center;
     grid-template-columns: 95vw;
     grid-template-areas: "header" "mainLogo" "infoBlock" "mainGame";
+    row-gap: 2vw;
   }
 }
 

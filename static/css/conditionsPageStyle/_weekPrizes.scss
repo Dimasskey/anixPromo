@@ -2,9 +2,12 @@
   background-color: var(--background-color-alt);
   border-radius: 1vw;
   grid-area: weekPrizes;
-  margin-top: 1vw;
   padding-bottom: 2vw;
-  height: 44vw;
+  height: 47vw;
+
+  @include mobile {
+    height: 66vw;
+  }
 }
 
 .week-prizes-heading-container {
@@ -12,8 +15,12 @@
 }
 
 .week-prizes-snake-icon {
-  width: 13vw;
+  width: 16vw;
   object-fit: contain;
+
+  @include mobile {
+    width: 18vw;
+  }
 }
 .week-prizes-text-container {
   text-align: center;
@@ -21,21 +28,34 @@
   flex-direction: column;
   align-items: center;
   padding: 3vw 4vw;
-  width: 73%;
+  width: 67%;
+
+  @include mobile {
+    width: 73%;
+  }
+
 }
 
 .week-prizes-heading {
   font-family: "Bebas Neue", sans-serif;
-  font-size: 3vw;
+  font-size: 4vw;
+
+  @include mobile {
+    font-size: 4.5vw;
+  }
 }
 
 .week-prizes-text {
-  font-size: 1.2vw;
-  padding: 0 7vw;
+  font-size: 1.5vw;
+  padding: 0 2vw;
+  font-family: Inter, sans-serif;
+  line-height: 1.25;
+
+  @include mobile {
+    font-size: 2.5vw;
+    padding: 0 5vw;
+  }
 }
-
-
-
 
 
 .week-prizes-icon-container {
@@ -48,6 +68,7 @@
 ;
   justify-items: center;
   align-items: end;
+  margin-top: 1vw;
 }
 
 .week-icon-container {
@@ -56,11 +77,17 @@
   align-items: center;
   text-align: center;
   font-size: 1vw;
+
+  @include mobile {
+    font-size: 1.8vw;
+  }
 }
 
 .week-prize-text {
   margin-top: 1.5vw;
   padding: 0 5vw;
+  font-family: Inter, sans-serif;
+  line-height: 1.25;
 }
 
 
@@ -70,8 +97,8 @@
 .week-robot-prize-container { grid-area: robot;}
 .week-biggrill-prize-container { grid-area: biggrill;}
 
-.week-grill-prize-container img {height: 10vw }
-.week-aerogrill-prize-container img {height: 10vw }
-.week-yandex-prize-container img {height: 8vw }
-.week-robot-prize-container img {height: 8vw }
-.week-biggrill-prize-container img {height: 24vw }
+.week-grill-prize-container img {height: 10vw; @include mobile {height: 15vw;}}
+.week-aerogrill-prize-container img {height: 10vw; @include mobile {height: 14vw;}}
+.week-yandex-prize-container img {height: 8vw; @include mobile {height: 11vw;}}
+.week-robot-prize-container img {height: 8vw; @include mobile {height: 11vw;}}
+.week-biggrill-prize-container img {height: 24vw; @include mobile {height: 36vw;}}

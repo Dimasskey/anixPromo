@@ -1,8 +1,8 @@
 
 .main-game {
-  margin-top: 5%;
   grid-area: mainGame;
   position: relative;
+  margin-bottom: 20vw;
 
   &-snake {
     width: 100%;
@@ -21,6 +21,7 @@
     @include mobile {
       width: 9vw;
       height: 9vw;
+      font-size: 3vw;
     }
   }
 }

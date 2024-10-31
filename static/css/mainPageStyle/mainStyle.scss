@@ -7,7 +7,8 @@
         "../mainPageStyle/mainLogo",
         "../mainPageStyle/suppliersPreview",
         "../mainPageStyle/profileAndDateInfo",
-        "../mainPageStyle/mainGame";
+        "../mainPageStyle/mainGame",
+        "../footer";
 
 body {
   background-color: var(--background-color);
@@ -23,7 +24,9 @@ body {
     ". header ."
     ". mainLogo ."
     ". infoBlock ."
-    ". mainGame .";
+    ". mainGame ."
+    "footer footer footer";
+  row-gap: 1.5vw;
 
   @include mobile {
     justify-content: center;
@@ -33,6 +36,7 @@ body {
     "mainLogo"
     "infoBlock"
     "mainGame";
+    row-gap: 2vw;
   }
 }
 

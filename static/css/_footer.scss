@@ -1,0 +1,17 @@
+.footer {
+  grid-area: footer;
+  height: 20vw;
+  background-color: var(--background-color-alt);
+  position: relative;
+
+  @include mobile {
+    width: 100vw; /* Задаем ширину футера 100vw */
+  }
+
+  &-elka {
+    width: 25vw;
+    top: -15vw;
+    left: 37.5vw;
+    position: absolute;
+  }
+}

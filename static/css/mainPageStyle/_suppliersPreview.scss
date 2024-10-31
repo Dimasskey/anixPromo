@@ -2,7 +2,6 @@
   display: flex;
   grid-area: infoBlock;
   background-color: #fff;
-  margin-top: 2vw;
   border-radius: 1vw;
   height: 24vw;
 
@@ -29,6 +28,7 @@
     grid-area: heading;
     color: var(--background-color-el);
     font-size: 2vw;
+    font-weight: bold;
 
     @include mobile {
       font-size: 2.5vw;
