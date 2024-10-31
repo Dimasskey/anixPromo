@@ -3,7 +3,6 @@
   background-color: #EEE;
   border-radius: 1vw;
   box-shadow: -1vw 1vw 1vw 0px rgba(0, 0, 0, 0.25);
-
 }
 
 .profile {
@@ -25,13 +24,23 @@
     padding-top: 5%;
     padding-left: 5%;
 
+    @include mobile {
+      padding-top: 7%;
+      padding-left: 9%;
+    }
+
     &-image {
       border: 0.2vw solid white;
       border-radius: 50%;
       width: 5vw;
       height: 5vw;
       background-size: cover;
-      background-image: url("../../icons/mainPageIcons/avatarPhoto.jpg");
+      background-image: url("../../images/mainPageIcons/avatarPhoto.jpg");
+
+      @include mobile {
+        width: 10vw;
+        height: 10vw;
+      }
 
     }
 
@@ -39,6 +48,10 @@
       font-size: 1vw ;
       margin-left: 5%;
       font-weight: bold;
+
+      @include mobile {
+        font-size: 1.8vw;
+      }
     }
   }
 }
@@ -48,13 +61,20 @@
   grid-area: toys;
   flex-direction: column;
   align-items: center;
-  font-size: 1.3vw
+  font-size: 1.3vw;
+
+  @include mobile {
+    font-size: 2vw;
+  }
 }
 
 .toys-icon {
-
   width: 2.5vw;
   position: relative;
+
+  @include mobile {
+    width: 4vw;
+  }
 }
 
 .complete-progress {
@@ -66,6 +86,10 @@
 
   &-count {
     font-size: 2vw;
+
+    @include mobile {
+      font-size: 2.5vw;
+    }
   }
 
   &-bar {
@@ -74,6 +98,11 @@
     width: 90%;
     background-color: pink;
     margin-top: 1vw;
+
+    @include mobile {
+      height: 0.7vw;
+      margin-bottom: 1vw;
+    }
   }
 }
 
@@ -84,13 +113,21 @@
   display: flex;
   flex-direction: column;
   color: #000;
+
+  @include mobile {
+    font-size: 2vw;
+  }
 }
 
 
 .draw-date {
   display: flex;
   align-items: center;
-  column-gap: 7%;
+  column-gap: 4%;
+
+  @include mobile {
+    margin-bottom: 1%;
+  }
 
   &-checkbox {
     display: flex;
@@ -98,6 +135,11 @@
     height: 2vw;
     width: 2vw;
     padding: 1%;
+
+    @include mobile {
+      height: 3vw;
+      width: 3vw;
+    }
 
     &-icon {
       object-fit: contain;

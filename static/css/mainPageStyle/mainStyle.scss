@@ -25,19 +25,7 @@ body {
     ". infoBlock ."
     ". mainGame .";
 
-  //@include mobile {
-  //  justify-content: center;
-  //  grid-template-columns: 95vw;
-  //  grid-template-areas:
-  //  "header"
-  //  "mainLogo"
-  //  "infoBlock"
-  //  "mainGame";
-  //}
-}
-
-@media (max-width: 700px) {
-  .main {
+  @include mobile {
     justify-content: center;
     grid-template-columns: 95vw;
     grid-template-areas:

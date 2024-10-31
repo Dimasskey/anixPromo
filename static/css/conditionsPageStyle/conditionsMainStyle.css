@@ -185,7 +185,7 @@ svg * {
 }
 @media (max-width: 767px) {
   .header-container {
-    font-size: 2vw;
+    font-size: 2.5vw;
   }
 }
 .header-inner {
@@ -198,7 +198,7 @@ svg * {
 }
 @media (max-width: 767px) {
   .header-inner__logo img {
-    width: 10vw;
+    width: 20vw;
   }
 }
 
@@ -340,6 +340,7 @@ svg * {
 }
 
 .week-prizes-heading {
+  font-family: "Bebas Neue", sans-serif;
   font-size: 3vw;
 }
 

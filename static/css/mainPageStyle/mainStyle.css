@@ -185,7 +185,7 @@ svg * {
 }
 @media (max-width: 767px) {
   .header-container {
-    font-size: 2vw;
+    font-size: 2.5vw;
   }
 }
 .header-inner {
@@ -198,7 +198,7 @@ svg * {
 }
 @media (max-width: 767px) {
   .header-inner__logo img {
-    width: 10vw;
+    width: 20vw;
   }
 }
 
@@ -318,18 +318,35 @@ svg * {
   padding-top: 5%;
   padding-left: 5%;
 }
+@media (max-width: 767px) {
+  .profile-avatar {
+    padding-top: 7%;
+    padding-left: 9%;
+  }
+}
 .profile-avatar-image {
   border: 0.2vw solid white;
   border-radius: 50%;
   width: 5vw;
   height: 5vw;
   background-size: cover;
-  background-image: url("../../icons/mainPageIcons/avatarPhoto.jpg");
+  background-image: url("../../images/mainPageIcons/avatarPhoto.jpg");
+}
+@media (max-width: 767px) {
+  .profile-avatar-image {
+    width: 10vw;
+    height: 10vw;
+  }
 }
 .profile-avatar-fio {
   font-size: 1vw;
   margin-left: 5%;
   font-weight: bold;
+}
+@media (max-width: 767px) {
+  .profile-avatar-fio {
+    font-size: 1.8vw;
+  }
 }
 
 .toys-container {
@@ -339,10 +356,20 @@ svg * {
   align-items: center;
   font-size: 1.3vw;
 }
+@media (max-width: 767px) {
+  .toys-container {
+    font-size: 2vw;
+  }
+}
 
 .toys-icon {
   width: 2.5vw;
   position: relative;
+}
+@media (max-width: 767px) {
+  .toys-icon {
+    width: 4vw;
+  }
 }
 
 .complete-progress {
@@ -355,12 +382,23 @@ svg * {
 .complete-progress-count {
   font-size: 2vw;
 }
+@media (max-width: 767px) {
+  .complete-progress-count {
+    font-size: 2.5vw;
+  }
+}
 .complete-progress-bar {
   border-radius: 1vw;
   height: 0.5vw;
   width: 90%;
   background-color: pink;
   margin-top: 1vw;
+}
+@media (max-width: 767px) {
+  .complete-progress-bar {
+    height: 0.7vw;
+    margin-bottom: 1vw;
+  }
 }
 
 .draw-date-container {
@@ -371,11 +409,21 @@ svg * {
   flex-direction: column;
   color: #000;
 }
+@media (max-width: 767px) {
+  .draw-date-container {
+    font-size: 2vw;
+  }
+}
 
 .draw-date {
   display: flex;
   align-items: center;
-  column-gap: 7%;
+  column-gap: 4%;
+}
+@media (max-width: 767px) {
+  .draw-date {
+    margin-bottom: 1%;
+  }
 }
 .draw-date-checkbox {
   display: flex;
@@ -383,6 +431,12 @@ svg * {
   height: 2vw;
   width: 2vw;
   padding: 1%;
+}
+@media (max-width: 767px) {
+  .draw-date-checkbox {
+    height: 3vw;
+    width: 3vw;
+  }
 }
 .draw-date-checkbox-icon {
   object-fit: contain;
@@ -406,6 +460,12 @@ svg * {
   border-radius: 50%;
   align-items: center;
   justify-content: center;
+}
+@media (max-width: 767px) {
+  .main-game-step {
+    width: 9vw;
+    height: 9vw;
+  }
 }
 
 #step_1 {
@@ -608,6 +668,168 @@ svg * {
   left: 20.9vw;
 }
 
+@media (max-width: 767px) {
+  #step_1 {
+    top: 2.7vw;
+    left: 13.7vw;
+  }
+  #step_2 {
+    top: 2.7vw;
+    left: 30.68vw;
+  }
+  #step_3 {
+    top: 2.7vw;
+    left: 47.7vw;
+  }
+  #step_4 {
+    top: 2.7vw;
+    left: 64.75vw;
+  }
+  #step_5 {
+    top: 13.6vw;
+    left: 81.94vw;
+  }
+  #step_6 {
+    top: 24.5vw;
+    left: 64.75vw;
+  }
+  #step_7 {
+    top: 24.5vw;
+    left: 47.7vw;
+  }
+  #step_8 {
+    top: 24.5vw;
+    left: 30.68vw;
+  }
+  #step_9 {
+    top: 35.4vw;
+    left: 13.6vw;
+  }
+  #step_10 {
+    top: 46.2vw;
+    left: 30.68vw;
+  }
+  #step_11 {
+    top: 46.2vw;
+    left: 47.7vw;
+  }
+  #step_12 {
+    top: 46.2vw;
+    left: 64.75vw;
+  }
+  #step_13 {
+    top: 57.1vw;
+    left: 81.9vw;
+  }
+  #step_14 {
+    top: 68.05vw;
+    left: 64.75vw;
+  }
+  #step_15 {
+    top: 68.05vw;
+    left: 47.7vw;
+  }
+  #step_16 {
+    top: 68.05vw;
+    left: 30.68vw;
+  }
+  #step_17 {
+    top: 79vw;
+    left: 13.57vw;
+  }
+  #step_18 {
+    top: 89.8vw;
+    left: 30.68vw;
+  }
+  #step_19 {
+    top: 89.8vw;
+    left: 47.7vw;
+  }
+  #step_20 {
+    top: 89.8vw;
+    left: 64.75vw;
+  }
+  #step_21 {
+    top: 100.75vw;
+    left: 81.9vw;
+  }
+  #step_22 {
+    top: 111.6vw;
+    left: 64.75vw;
+  }
+  #step_23 {
+    top: 111.6vw;
+    left: 47.7vw;
+  }
+  #step_24 {
+    top: 111.6vw;
+    left: 30.68vw;
+  }
+  #step_25 {
+    top: 122.6vw;
+    left: 13.55vw;
+  }
+  #step_26 {
+    top: 133.5vw;
+    left: 30.67vw;
+  }
+  #step_27 {
+    top: 133.5vw;
+    left: 47.7vw;
+  }
+  #step_28 {
+    top: 133.5vw;
+    left: 64.75vw;
+  }
+  #step_29 {
+    top: 144.45vw;
+    left: 81.9vw;
+  }
+  #step_30 {
+    top: 155.3vw;
+    left: 64.75vw;
+  }
+  #step_31 {
+    top: 155.3vw;
+    left: 47.7vw;
+  }
+  #step_32 {
+    top: 155.3vw;
+    left: 30.67vw;
+  }
+  #step_33 {
+    top: 166.3vw;
+    left: 13.55vw;
+  }
+  #step_34 {
+    top: 177.1vw;
+    left: 30.67vw;
+  }
+  #step_35 {
+    top: 177.1vw;
+    left: 47.7vw;
+  }
+  #step_36 {
+    top: 177.1vw;
+    left: 64.75vw;
+  }
+  #step_37 {
+    top: 188vw;
+    left: 81.9vw;
+  }
+  #step_38 {
+    top: 198.95vw;
+    left: 64.75vw;
+  }
+  #step_39 {
+    top: 198.95vw;
+    left: 47.7vw;
+  }
+  #step_40 {
+    top: 198.8vw;
+    left: 30.66vw;
+  }
+}
 body {
   background-color: var(--background-color);
   font-family: Inter, sans-serif;
@@ -620,8 +842,7 @@ body {
   grid-template-rows: auto auto auto 1fr;
   grid-template-areas: ". header ." ". mainLogo ." ". infoBlock ." ". mainGame .";
 }
-
-@media (max-width: 700px) {
+@media (max-width: 767px) {
   .main {
     justify-content: center;
     grid-template-columns: 95vw;
