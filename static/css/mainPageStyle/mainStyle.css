@@ -8,6 +8,11 @@
   box-sizing: border-box;
 }
 
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
 /**
   Убираем внутренние отступы слева тегам списков,
   у которых есть атрибут class
@@ -171,6 +176,11 @@ svg * {
 @font-face {
   font-family: "Bebas Neue";
   src: url("../../fonts/Bebas Neue.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../../fonts/Inter-VariableFont_opsz,wght.ttf");
   font-weight: 400;
 }
 .header {
@@ -856,11 +866,11 @@ svg * {
 
 body {
   background-color: var(--background-color);
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
   color: #fff;
 }
 
-.main {
+.main-page-wrapper {
   display: grid;
   grid-template-columns: 1fr 64.5161290323dvw 1fr;
   grid-template-rows: auto auto auto 1fr;
@@ -868,7 +878,7 @@ body {
   row-gap: 1.5vw;
 }
 @media (max-width: 900px) {
-  .main {
+  .main-page-wrapper {
     justify-content: center;
     grid-template-columns: 95vw;
     grid-template-areas: "header" "mainLogo" "infoBlock" "mainGame";

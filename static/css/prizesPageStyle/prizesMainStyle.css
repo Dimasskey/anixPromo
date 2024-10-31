@@ -8,6 +8,11 @@
   box-sizing: border-box;
 }
 
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
 /**
   Убираем внутренние отступы слева тегам списков,
   у которых есть атрибут class
@@ -171,6 +176,11 @@ svg * {
 @font-face {
   font-family: "Bebas Neue";
   src: url("../../fonts/Bebas Neue.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../../fonts/Inter-VariableFont_opsz,wght.ttf");
   font-weight: 400;
 }
 .header {
@@ -817,7 +827,7 @@ body {
   color: #fff;
 }
 
-.main-conditions-wrapper {
+.main-prizes-wrapper {
   display: grid;
   grid-template-columns: 1fr 64.5161290323dvw 1fr;
   grid-template-rows: auto auto auto auto auto auto auto 1fr;
@@ -825,7 +835,7 @@ body {
   row-gap: 1.5vw;
 }
 @media (max-width: 900px) {
-  .main-conditions-wrapper {
+  .main-prizes-wrapper {
     justify-content: center;
     grid-template-columns: 95vw;
     grid-template-areas: "header" "guide" "mainPrizes" "weekPrizes" "prizesInAll" "firstFinalists" "prizesFromPartners";
@@ -833,4 +843,4 @@ body {
   }
 }
 
-/*# sourceMappingURL=conditionsMainStyle.css.map */
+/*# sourceMappingURL=prizesMainStyle.css.map */
