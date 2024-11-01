@@ -9,13 +9,16 @@
   background-color: var(--background-color-el);
   border-radius: 1vw;
   height: 60%;
-  display: grid;
+  display: none;
   box-shadow: -1vw 1vw 1vw 0px rgba(0, 0, 0, 0.25);
   grid-template-columns: 0.7fr 0.3fr;
   grid-template-rows: auto 1fr;
   grid-template-areas:
           "avatar toys"
           "progres progres";
+
+
+
 
   &-avatar {
     grid-area: avatar;
@@ -105,6 +108,57 @@
 
     @include mobile {
       height: 0.5vw;
+    }
+  }
+}
+
+
+.profile-authorization {
+  background-color: var(--background-color-el);
+  border-radius: 1vw;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1vw;
+
+
+  @include mobile {
+    height: 60%;
+    row-gap: 1.5vw;
+  }
+}
+
+.profile-registration {
+  &__button {
+    height: 3vw;
+    width: 15vw;
+    background-color: #FF4A15;
+    border-radius: 3vw;
+    font-size: 1.5vw;
+
+    @include mobile {
+      height: 4.5vw;
+      width: 25vw;
+      font-size: 2.5vw;
+    }
+  }
+}
+
+.profile-entrance {
+
+  &__button {
+    background-color: #D92446;
+    border-radius: 3vw;
+    font-size: 1.5vw;
+    height: 3vw;
+    width: 15vw;
+
+    @include mobile {
+      height: 4.5vw;
+      width: 25vw;
+      font-size: 2.5vw;
     }
   }
 }

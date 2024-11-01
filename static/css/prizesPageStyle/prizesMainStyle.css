@@ -104,6 +104,7 @@ select,
 button {
   font: inherit;
   padding: 0;
+  color: currentColor;
 }
 
 html {
@@ -818,6 +819,12 @@ svg * {
   width: 25vw;
   top: -15vw;
   left: 37.5vw;
+  position: absolute;
+}
+.footer-elka-stage-two {
+  width: 40vw;
+  top: -16vw;
+  left: 27.5vw;
   position: absolute;
 }
 
