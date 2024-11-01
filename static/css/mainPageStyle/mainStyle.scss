@@ -10,6 +10,13 @@
         "../mainPageStyle/mainGame",
         "../footer";
 
+@import "../miniGamesStyle/treasureGame",
+        "../miniGamesStyle/ticTacGame",
+        "../miniGamesStyle/puzzleGame",
+        "../miniGamesStyle/casikStyle";
+
+@import "../shared/soundSwitch";
+
 body {
   background-color: var(--background-color);
   font-family: "Inter", sans-serif;

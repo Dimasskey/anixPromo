@@ -184,6 +184,11 @@ svg * {
   src: url("../../fonts/Inter-VariableFont_opsz,wght.ttf");
   font-weight: 400;
 }
+@font-face {
+  font-family: "Akshar";
+  src: url("../../fonts/Akshar-Regular.ttf");
+  font-weight: 400;
+}
 .header {
   grid-area: header;
   font-family: Inter, sans-serif;
@@ -802,6 +807,30 @@ svg * {
   .prizes-from-suppliers-text {
     font-size: 2.5vw;
   }
+}
+
+.sound-switch {
+  display: flex;
+  position: fixed;
+  width: 5vw;
+  height: 5vw;
+  border-radius: 50%;
+  bottom: 1.5vw;
+  right: 1.5vw;
+  z-index: 10;
+  background-color: var(--background-color-el);
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 900px) {
+  .sound-switch {
+    width: 8vw;
+    height: 8vw;
+  }
+}
+.sound-switch-icon {
+  object-fit: contain;
+  width: 50%;
 }
 
 .footer {

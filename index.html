@@ -148,8 +148,104 @@
             <div class="main-game-step" id="step_40">40</div>
         </div>
     </div>
+    <div class="treasure-game-wrapper" id="treasureGame" style="display: none">
+        <div class="treasure-game-container">
+            <div class="treasure-game-heading">
+                <span class="treasure-game-heading-text">
+                    Сундуки везения
+                </span>
+                <img class="treasure-game-heading-cross" src="static/images/miniGameImages/crossIcon.png" />
+            </div>
+            <div class="treasure-game-chest-container">
+                <img class="treasure-game-chest" id="chest1" src="static/images/miniGameImages/chest1.png">
+                <img class="treasure-game-chest" id="chest2" src="static/images/miniGameImages/chest2.png">
+                <img class="treasure-game-chest" id="chest3" src="static/images/miniGameImages/chest3.png">
+            </div>
+        </div>
+    </div>
+    <div class="tic-tac-game-wrapper" id="ticTacGame" style="display: none">
+        <div class="tic-tac-game-container">
+            <div class="tic-tac-game-heading">
+                <span class="tic-tac-game-heading-text">
+                    Крестики нолики
+                </span>
+                <img class="tic-tac-game-heading-cross" src="static/images/miniGameImages/crossIcon.png" />
+            </div>
+            <div class="tic-tac-game">
+                <div class="tic-tac-board" id="ticTacBoard">
+                    <div class="tic-tac-row">
+                        <div class="tic-tac-cell" id="cell-1"></div>
+                        <div class="tic-tac-cell" id="cell-2"></div>
+                        <div class="tic-tac-cell" id="cell-3"></div>
+                    </div>
+                    <div class="tic-tac-row">
+                        <div class="tic-tac-cell" id="cell-4"></div>
+                        <div class="tic-tac-cell" id="cell-5"></div>
+                        <div class="tic-tac-cell" id="cell-6"></div>
+                    </div>
+                    <div class="tic-tac-row">
+                        <div class="tic-tac-cell" id="cell-7"></div>
+                        <div class="tic-tac-cell" id="cell-8"></div>
+                        <div class="tic-tac-cell" id="cell-9"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="puzzle-game-wrapper" id="puzzleGame" style="display: none">
+        <div class="puzzle-game-container">
+            <div class="puzzle-game-heading">
+                <span class="puzzle-game-heading-text">
+                    Паззл
+                </span>
+                <img class="puzzle-game-heading-cross" src="static/images/miniGameImages/crossIcon.png" />
+            </div>
+            <div class="puzzle-game">
+                <div class="puzzle-board" id="puzzleContainer">
+                    <div class="puzzle-piece" draggable="true" id="piece-1" style="background-image: url('./static/images/miniGameImages/puzzleImage.jpg/1.jpg')"></div>
+                    <div class="puzzle-piece" draggable="true" id="piece-2" style="background-image: url('./static/images/miniGameImages/puzzleImage.jpg/2.jpg')"></div>
+                    <div class="puzzle-piece" draggable="true" id="piece-3" style="background-image: url('./static/images/miniGameImages/puzzleImage.jpg/3.jpg')"></div>
+                    <div class="puzzle-piece" draggable="true" id="piece-4" style="background-image: url('./static/images/miniGameImages/puzzleImage.jpg/4.jpg')"></div>
+                    <div class="puzzle-piece" draggable="true" id="piece-5" style="background-image: url('./static/images/miniGameImages/puzzleImage.jpg/5.jpg')"></div>
+                    <div class="puzzle-piece" draggable="true" id="piece-6" style="background-image: url('./static/images/miniGameImages/puzzleImage.jpg/6.jpg')"></div>
+                    <div class="puzzle-piece" draggable="true" id="piece-7" style="background-image: url('./static/images/miniGameImages/puzzleImage.jpg/7.jpg')"></div>
+                    <div class="puzzle-piece" draggable="true" id="piece-8" style="background-image: url('./static/images/miniGameImages/puzzleImage.jpg/8.jpg')"></div>
+                    <div class="puzzle-piece" draggable="true" id="piece-9" style="background-image: url('./static/images/miniGameImages/puzzleImage.jpg/9.jpg')"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="casik-game-wrapper">
+        <div class="casik-game-container">
+            <div class="casik-game-heading">
+                <span class="casik-game-heading-text">
+                    казик
+                </span>
+                <img class="casik-game-heading-cross" src="static/images/miniGameImages/crossIcon.png" />
+            </div>
+            <div class="сasik-game">
+                <div class="deal-wheel">
+                    <!-- блок с призами -->
+                    <ul class="spinner"></ul>
+                    <!-- язычок барабана -->
+                    <div class="ticker"></div>
+                    <!-- кнопка -->
+                    <button class="btn-spin">Испытай удачу</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sound-switch">
+        <img class="sound-switch-icon" id="soundSwitch" src="static/images/soundOnIcon.png"/>
+    </div>
     <footer class="footer" id="footer">
         <img class="footer-elka" src="static/images/elkaImage.png" />
     </footer>
+    <script src="static/js/puzzleGame.js"></script>
+    <script src="static/js/treasureGame.js"></script>
+    <script src="static/js/soundSwitch.js"></script>
+    <script src="static/js/ticTacGame.js"></script>
+    <script src="static/js/casik.js"></script>
 </body>
 </html>
+
