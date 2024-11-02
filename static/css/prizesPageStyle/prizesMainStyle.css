@@ -841,7 +841,7 @@ svg * {
 }
 @media (max-width: 900px) {
   .footer {
-    width: 100vw; /* Задаем ширину футера 100vw */
+    width: 100vw;
   }
 }
 .footer-elka {
@@ -850,11 +850,33 @@ svg * {
   left: 37.5vw;
   position: absolute;
 }
+@media (max-width: 900px) {
+  .footer-elka {
+    width: 33vw;
+    top: -20vw;
+    left: 35.5vw;
+    position: absolute;
+  }
+}
 .footer-elka-stage-two {
   width: 40vw;
   top: -16vw;
   left: 27.5vw;
   position: absolute;
+}
+.footer-gifts {
+  width: 44vw;
+  top: -12vw;
+  left: 29.5vw;
+  position: absolute;
+}
+@media (max-width: 900px) {
+  .footer-gifts {
+    width: 53vw;
+    top: -15vw;
+    left: 27.5vw;
+    position: absolute;
+  }
 }
 
 body {

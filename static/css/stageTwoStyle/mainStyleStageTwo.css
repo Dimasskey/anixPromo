@@ -417,27 +417,42 @@ svg * {
 .profile .toys-container {
   display: flex;
   grid-area: toys;
+  column-gap: 0.5vw;
+}
+.profile .toys-container .toy-gold-container {
+  display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 1.3vw;
+}
+.profile .toys-container .toy-gold-container .toy-gold-icon {
+  width: 3vw;
 }
 @media (max-width: 900px) {
-  .profile .toys-container {
-    font-size: 2vw;
+  .profile .toys-container .toy-gold-container .toy-gold-icon {
+    width: 5vw;
   }
 }
-.profile .toys-icon {
-  width: 2.5vw;
-  position: relative;
+.profile .toys-container .toy-red-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile .toys-container .toy-red-container .toy-red-icon {
+  width: 3vw;
 }
 @media (max-width: 900px) {
-  .profile .toys-icon {
-    width: 4vw;
+  .profile .toys-container .toy-red-container .toy-red-icon {
+    width: 5vw;
   }
 }
-.profile .toys-count {
-  font-size: 2vw;
+.profile .toys-container .toys-count {
+  font-size: 1vw;
   font-weight: bold;
+}
+@media (max-width: 900px) {
+  .profile .toys-container .toys-count {
+    font-size: 1.75vw;
+  }
 }
 .profile .complete-progress {
   grid-area: progres;
@@ -1136,7 +1151,7 @@ svg * {
 }
 @media (max-width: 900px) {
   .footer {
-    width: 100vw; /* Задаем ширину футера 100vw */
+    width: 100vw;
   }
 }
 .footer-elka {
@@ -1145,11 +1160,33 @@ svg * {
   left: 37.5vw;
   position: absolute;
 }
+@media (max-width: 900px) {
+  .footer-elka {
+    width: 33vw;
+    top: -20vw;
+    left: 35.5vw;
+    position: absolute;
+  }
+}
 .footer-elka-stage-two {
   width: 40vw;
   top: -16vw;
   left: 27.5vw;
   position: absolute;
+}
+.footer-gifts {
+  width: 44vw;
+  top: -12vw;
+  left: 29.5vw;
+  position: absolute;
+}
+@media (max-width: 900px) {
+  .footer-gifts {
+    width: 53vw;
+    top: -15vw;
+    left: 27.5vw;
+    position: absolute;
+  }
 }
 
 body {

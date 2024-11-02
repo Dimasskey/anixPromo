@@ -112,27 +112,44 @@
   .toys-container {
     display: flex;
     grid-area: toys;
-    flex-direction: column;
-    align-items: center;
-    font-size: 1.3vw;
+    column-gap: 0.5vw;
 
-    @include mobile {
-      font-size: 2vw;
+    .toy-gold-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .toy-gold-icon {
+        width: 3vw;
+
+        @include mobile {
+          width: 5vw;
+        }
+      }
     }
-  }
 
-  .toys-icon {
-    width: 2.5vw;
-    position: relative;
+    .toy-red-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-    @include mobile {
-      width: 4vw;
+      .toy-red-icon {
+        width: 3vw;
+
+        @include mobile {
+          width: 5vw;
+        }
+      }
     }
-  }
 
-  .toys-count {
-    font-size: 2vw;
-    font-weight: bold;
+    .toys-count {
+      font-size: 1vw;
+      font-weight: bold;
+
+      @include mobile {
+        font-size: 1.75vw;
+      }
+    }
   }
 
   .complete-progress {

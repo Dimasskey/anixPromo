@@ -5,7 +5,7 @@
   position: relative;
 
   @include mobile {
-    width: 100vw; /* Задаем ширину футера 100vw */
+    width: 100vw;
   }
 
   &-elka {
@@ -13,6 +13,13 @@
     top: -15vw;
     left: 37.5vw;
     position: absolute;
+
+    @include mobile {
+      width: 33vw;
+      top: -20vw;
+      left: 35.5vw;
+      position: absolute;
+    }
   }
 
   &-elka-stage-two {
@@ -20,5 +27,19 @@
     top: -16vw;
     left: 27.5vw;
     position: absolute;
+  }
+
+  &-gifts {
+    width: 44vw;
+    top: -12vw;
+    left: 29.5vw;
+    position: absolute;
+
+    @include mobile {
+      width: 53vw;
+      top: -15vw;
+      left: 27.5vw;
+      position: absolute;
+    }
   }
 }

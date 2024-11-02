@@ -417,27 +417,42 @@ svg * {
 .profile .toys-container {
   display: flex;
   grid-area: toys;
+  column-gap: 0.5vw;
+}
+.profile .toys-container .toy-gold-container {
+  display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 1.3vw;
+}
+.profile .toys-container .toy-gold-container .toy-gold-icon {
+  width: 3vw;
 }
 @media (max-width: 900px) {
-  .profile .toys-container {
-    font-size: 2vw;
+  .profile .toys-container .toy-gold-container .toy-gold-icon {
+    width: 5vw;
   }
 }
-.profile .toys-icon {
-  width: 2.5vw;
-  position: relative;
+.profile .toys-container .toy-red-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile .toys-container .toy-red-container .toy-red-icon {
+  width: 3vw;
 }
 @media (max-width: 900px) {
-  .profile .toys-icon {
-    width: 4vw;
+  .profile .toys-container .toy-red-container .toy-red-icon {
+    width: 5vw;
   }
 }
-.profile .toys-count {
-  font-size: 2vw;
+.profile .toys-container .toys-count {
+  font-size: 1vw;
   font-weight: bold;
+}
+@media (max-width: 900px) {
+  .profile .toys-container .toys-count {
+    font-size: 1.75vw;
+  }
 }
 .profile .complete-progress {
   grid-area: progres;
@@ -911,7 +926,7 @@ svg * {
 }
 @media (max-width: 900px) {
   .footer {
-    width: 100vw; /* Задаем ширину футера 100vw */
+    width: 100vw;
   }
 }
 .footer-elka {
@@ -920,11 +935,33 @@ svg * {
   left: 37.5vw;
   position: absolute;
 }
+@media (max-width: 900px) {
+  .footer-elka {
+    width: 33vw;
+    top: -20vw;
+    left: 35.5vw;
+    position: absolute;
+  }
+}
 .footer-elka-stage-two {
   width: 40vw;
   top: -16vw;
   left: 27.5vw;
   position: absolute;
+}
+.footer-gifts {
+  width: 44vw;
+  top: -12vw;
+  left: 29.5vw;
+  position: absolute;
+}
+@media (max-width: 900px) {
+  .footer-gifts {
+    width: 53vw;
+    top: -15vw;
+    left: 27.5vw;
+    position: absolute;
+  }
 }
 
 .treasure-game-wrapper {
@@ -1081,7 +1118,6 @@ svg * {
     width: 5vw;
     height: 5vw;
     right: -12vw;
-    top: 4vw;
   }
 }
 
@@ -1153,6 +1189,13 @@ svg * {
   flex-direction: column;
   align-items: center;
 }
+@media (max-width: 900px) {
+  .puzzle-game-container {
+    width: 90vw;
+    height: 96vw;
+    border-radius: 4vw;
+  }
+}
 
 .puzzle-game-heading {
   display: flex;
@@ -1160,10 +1203,20 @@ svg * {
   position: relative;
   padding-top: 1vw;
 }
+@media (max-width: 900px) {
+  .puzzle-game-heading {
+    padding-top: 3vw;
+  }
+}
 .puzzle-game-heading-text {
   font-size: 2vw;
   font-family: "Akshar", sans-serif;
   font-weight: 600;
+}
+@media (max-width: 900px) {
+  .puzzle-game-heading-text {
+    font-size: 7vw;
+  }
 }
 .puzzle-game-heading-cross {
   width: 2vw;
@@ -1172,9 +1225,24 @@ svg * {
   cursor: pointer;
   right: -13vw;
 }
+@media (max-width: 900px) {
+  .puzzle-game-heading-cross {
+    width: 5vw;
+    height: 5vw;
+    right: -30vw;
+  }
+}
 
 .puzzle-game {
-  margin-top: 2vw;
+  display: flex;
+  height: 94%;
+  justify-content: center;
+  flex-direction: column;
+}
+@media (max-width: 900px) {
+  .puzzle-game {
+    height: 83%;
+  }
 }
 
 .puzzle-board {
@@ -1189,6 +1257,15 @@ svg * {
   justify-content: center;
   align-content: center;
 }
+@media (max-width: 900px) {
+  .puzzle-board {
+    width: 75vw;
+    height: 75vw;
+    border-radius: 4vw;
+    grid-template-columns: repeat(3, 22vw);
+    grid-template-rows: repeat(3, 22vw);
+  }
+}
 
 .puzzle-piece {
   width: 5vw;
@@ -1199,6 +1276,12 @@ svg * {
   background-color: #007bff;
   cursor: pointer;
   background-size: contain;
+}
+@media (max-width: 900px) {
+  .puzzle-piece {
+    width: 22vw;
+    height: 22vw;
+  }
 }
 
 .empty {
@@ -1227,6 +1310,13 @@ svg * {
   flex-direction: column;
   align-items: center;
 }
+@media (max-width: 900px) {
+  .wheel-game-container {
+    width: 77vw;
+    height: 91vw;
+    border-radius: 4vw;
+  }
+}
 
 .wheel-game-heading {
   display: flex;
@@ -1234,10 +1324,20 @@ svg * {
   position: relative;
   padding-top: 1vw;
 }
+@media (max-width: 900px) {
+  .wheel-game-heading {
+    padding-top: 3vw;
+  }
+}
 .wheel-game-heading-text {
   font-size: 2vw;
   font-family: "Akshar", sans-serif;
   font-weight: 600;
+}
+@media (max-width: 900px) {
+  .wheel-game-heading-text {
+    font-size: 6vw;
+  }
 }
 .wheel-game-heading-cross {
   width: 2vw;
@@ -1246,14 +1346,26 @@ svg * {
   cursor: pointer;
   right: -8vw;
 }
+@media (max-width: 900px) {
+  .wheel-game-heading-cross {
+    width: 5vw;
+    height: 5vw;
+  }
+}
 
 .wheel-game {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   position: relative;
+}
+@media (max-width: 900px) {
+  .wheel-game {
+    height: 81%;
+    justify-content: center;
+  }
 }
 
 .wheel-container {
@@ -1262,6 +1374,12 @@ svg * {
   height: 20vw;
   border-radius: 50%;
   overflow: hidden;
+}
+@media (max-width: 900px) {
+  .wheel-container {
+    width: 63vw;
+    height: 63vw;
+  }
 }
 
 .wheel {
@@ -1331,6 +1449,15 @@ button {
   font-size: 1.2vw;
   font-family: "Akshar", sans-serif;
 }
+@media (max-width: 900px) {
+  button {
+    width: 41vw;
+    height: 7vw;
+    border-radius: 3vw;
+    margin-top: 2vw;
+    font-size: 4.2vw;
+  }
+}
 
 .icon-segment {
   width: 5vw;
@@ -1342,11 +1469,19 @@ button {
 
 .pointer {
   display: flex;
-  position: relative;
-  top: 10.5vw;
-  left: -10.25vw;
+  position: absolute;
+  top: 11vw;
+  left: -1vw;
   border: 0.5vw solid transparent;
   border-left: 1vw solid #ff0000;
+}
+@media (max-width: 900px) {
+  .pointer {
+    top: 30vw;
+    left: -5vw;
+    border: 2.5vw solid transparent;
+    border-left: 5vw solid #ff0000;
+  }
 }
 
 .sound-switch {

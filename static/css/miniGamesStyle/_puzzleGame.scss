@@ -19,6 +19,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @include mobile {
+    width: 90vw;
+    height: 96vw;
+    border-radius: 4vw;
+  }
 }
 
 .puzzle-game-heading {
@@ -27,10 +33,18 @@
   position: relative;
   padding-top: 1vw;
 
+  @include mobile {
+    padding-top: 3vw;
+  }
+
   &-text {
     font-size: 2vw;
     font-family: "Akshar", sans-serif;
     font-weight: 600;
+
+    @include mobile {
+      font-size: 7vw;
+    }
   }
 
   &-cross {
@@ -39,11 +53,24 @@
     position: absolute;
     cursor: pointer;
     right: -13vw;
+
+    @include mobile {
+      width: 5vw;
+      height: 5vw;
+      right: -30vw;
+    }
   }
 }
 
 .puzzle-game {
-  margin-top: 2vw;
+  display: flex;
+  height: 94%;
+  justify-content: center;
+  flex-direction: column;
+
+  @include mobile {
+    height: 83%;
+  }
 }
 
 .puzzle-board {
@@ -57,6 +84,14 @@
   gap: 0.1vw;
   justify-content: center;
   align-content: center;
+
+  @include mobile {
+    width: 75vw;
+    height: 75vw;
+    border-radius: 4vw;
+    grid-template-columns: repeat(3, 22vw);
+    grid-template-rows: repeat(3, 22vw);
+  };
 }
 
 .puzzle-piece {
@@ -68,6 +103,11 @@
   background-color: #007bff;
   cursor: pointer;
   background-size: contain;
+
+  @include mobile {
+    width: 22vw;
+    height: 22vw;
+  }
 }
 
 .empty {
