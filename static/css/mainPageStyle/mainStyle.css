@@ -321,12 +321,58 @@ svg * {
   box-shadow: -1vw 1vw 1vw 0px rgba(0, 0, 0, 0.25);
 }
 
+.profile-authorization {
+  border-radius: 1vw;
+  height: 50%;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1vw;
+}
+@media (max-width: 900px) {
+  .profile-authorization {
+    height: 60%;
+    row-gap: 1.5vw;
+  }
+}
+.profile-authorization .profile-entrance__button {
+  background-color: #D92446;
+  border-radius: 3vw;
+  font-size: 1.5vw;
+  height: 3vw;
+  width: 15vw;
+}
+@media (max-width: 900px) {
+  .profile-authorization .profile-entrance__button {
+    height: 4.5vw;
+    width: 25vw;
+    font-size: 2.5vw;
+  }
+}
+.profile-authorization .profile-registration__button {
+  height: 3vw;
+  width: 15vw;
+  background-color: #FF4A15;
+  border-radius: 3vw;
+  font-size: 1.5vw;
+}
+@media (max-width: 900px) {
+  .profile-authorization .profile-registration__button {
+    height: 4.5vw;
+    width: 25vw;
+    font-size: 2.5vw;
+  }
+}
+
 .profile {
   background-color: var(--background-color-el);
   border-radius: 1vw;
-  height: 60%;
-  display: none;
   box-shadow: -1vw 1vw 1vw 0px rgba(0, 0, 0, 0.25);
+}
+.profile-container {
+  height: 60%;
+  display: grid;
   grid-template-columns: 0.7fr 0.3fr;
   grid-template-rows: auto 1fr;
   grid-template-areas: "avatar toys" "progres progres";
@@ -368,8 +414,7 @@ svg * {
     font-size: 1.8vw;
   }
 }
-
-.toys-container {
+.profile .toys-container {
   display: flex;
   grid-area: toys;
   flex-direction: column;
@@ -377,41 +422,38 @@ svg * {
   font-size: 1.3vw;
 }
 @media (max-width: 900px) {
-  .toys-container {
+  .profile .toys-container {
     font-size: 2vw;
   }
 }
-
-.toys-icon {
+.profile .toys-icon {
   width: 2.5vw;
   position: relative;
 }
 @media (max-width: 900px) {
-  .toys-icon {
+  .profile .toys-icon {
     width: 4vw;
   }
 }
-
-.toys-count {
+.profile .toys-count {
   font-size: 2vw;
   font-weight: bold;
 }
-
-.complete-progress {
+.profile .complete-progress {
   grid-area: progres;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.complete-progress-count {
+.profile .complete-progress-count {
   font-size: 2vw;
 }
 @media (max-width: 900px) {
-  .complete-progress-count {
+  .profile .complete-progress-count {
     font-size: 2.5vw;
   }
 }
-.complete-progress-bar {
+.profile .complete-progress-bar {
   border-radius: 1vw;
   height: 0.35vw;
   width: 75%;
@@ -419,55 +461,8 @@ svg * {
   margin-top: 0.5vw;
 }
 @media (max-width: 900px) {
-  .complete-progress-bar {
+  .profile .complete-progress-bar {
     height: 0.5vw;
-  }
-}
-
-.profile-authorization {
-  background-color: var(--background-color-el);
-  border-radius: 1vw;
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  row-gap: 1vw;
-}
-@media (max-width: 900px) {
-  .profile-authorization {
-    height: 60%;
-    row-gap: 1.5vw;
-  }
-}
-
-.profile-registration__button {
-  height: 3vw;
-  width: 15vw;
-  background-color: #FF4A15;
-  border-radius: 3vw;
-  font-size: 1.5vw;
-}
-@media (max-width: 900px) {
-  .profile-registration__button {
-    height: 4.5vw;
-    width: 25vw;
-    font-size: 2.5vw;
-  }
-}
-
-.profile-entrance__button {
-  background-color: #D92446;
-  border-radius: 3vw;
-  font-size: 1.5vw;
-  height: 3vw;
-  width: 15vw;
-}
-@media (max-width: 900px) {
-  .profile-entrance__button {
-    height: 4.5vw;
-    width: 25vw;
-    font-size: 2.5vw;
   }
 }
 
@@ -955,6 +950,14 @@ svg * {
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 900px) {
+  .treasure-game-container {
+    width: 90vw;
+    height: 70vw;
+    border-radius: 2vw;
+    justify-content: normal;
+  }
+}
 
 .treasure-game-heading {
   display: flex;
@@ -962,10 +965,20 @@ svg * {
   position: relative;
   padding-top: 1vw;
 }
+@media (max-width: 900px) {
+  .treasure-game-heading {
+    padding-top: 2vw;
+  }
+}
 .treasure-game-heading-text {
   font-size: 2vw;
   font-family: "Akshar", sans-serif;
   font-weight: 600;
+}
+@media (max-width: 900px) {
+  .treasure-game-heading-text {
+    font-size: 7vw;
+  }
 }
 .treasure-game-heading-cross {
   width: 2vw;
@@ -973,6 +986,13 @@ svg * {
   position: absolute;
   cursor: pointer;
   right: -10vw;
+}
+@media (max-width: 900px) {
+  .treasure-game-heading-cross {
+    width: 5vw;
+    height: 5vw;
+    right: -12vw;
+  }
 }
 
 .treasure-game-chest-container {
@@ -982,10 +1002,20 @@ svg * {
   margin-bottom: 8vw;
   height: 60%;
 }
+@media (max-width: 900px) {
+  .treasure-game-chest-container {
+    margin-bottom: 15vw;
+  }
+}
 .treasure-game-chest-container .treasure-game-chest {
   width: 8vw;
   cursor: pointer;
   object-fit: contain;
+}
+@media (max-width: 900px) {
+  .treasure-game-chest-container .treasure-game-chest {
+    width: 26vw;
+  }
 }
 
 .tic-tac-game-wrapper {
@@ -1010,6 +1040,13 @@ svg * {
   flex-direction: column;
   align-items: center;
 }
+@media (max-width: 900px) {
+  .tic-tac-game-container {
+    width: 90vw;
+    height: 96vw;
+    border-radius: 4vw;
+  }
+}
 
 .tic-tac-game-heading {
   display: flex;
@@ -1017,10 +1054,20 @@ svg * {
   position: relative;
   padding-top: 1vw;
 }
+@media (max-width: 900px) {
+  .tic-tac-game-heading {
+    padding-top: 3vw;
+  }
+}
 .tic-tac-game-heading-text {
   font-size: 2vw;
   font-family: "Akshar", sans-serif;
   font-weight: 600;
+}
+@media (max-width: 900px) {
+  .tic-tac-game-heading-text {
+    font-size: 7vw;
+  }
 }
 .tic-tac-game-heading-cross {
   width: 2vw;
@@ -1029,9 +1076,25 @@ svg * {
   cursor: pointer;
   right: -8vw;
 }
+@media (max-width: 900px) {
+  .tic-tac-game-heading-cross {
+    width: 5vw;
+    height: 5vw;
+    right: -12vw;
+    top: 4vw;
+  }
+}
 
 .tic-tac-game {
-  margin-top: 2vw;
+  display: flex;
+  height: 94%;
+  justify-content: center;
+  flex-direction: column;
+}
+@media (max-width: 900px) {
+  .tic-tac-game {
+    height: 83%;
+  }
 }
 
 .tic-tac-board {
@@ -1043,6 +1106,13 @@ svg * {
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 900px) {
+  .tic-tac-board {
+    width: 75vw;
+    height: 75vw;
+    border-radius: 4vw;
+  }
+}
 .tic-tac-board .tic-tac-cell {
   width: 5.5vw;
   height: 5.5vw;
@@ -1052,6 +1122,13 @@ svg * {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@media (max-width: 900px) {
+  .tic-tac-board .tic-tac-cell {
+    width: 22.5vw;
+    height: 22.5vw;
+    border-radius: 4.75vw;
+  }
 }
 
 .puzzle-game-wrapper {

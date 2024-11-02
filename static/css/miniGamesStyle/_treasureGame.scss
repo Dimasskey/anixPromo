@@ -20,6 +20,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @include mobile {
+    width: 90vw;
+    height: 70vw;
+    border-radius: 2vw;
+    justify-content: normal
+  }
 }
 
 
@@ -29,10 +36,19 @@
   position: relative;
   padding-top: 1vw;
 
+  @include mobile {
+    padding-top: 2vw;
+  }
+
     &-text {
       font-size: 2vw;
       font-family: "Akshar", sans-serif;
       font-weight: 600;
+
+
+      @include mobile {
+        font-size: 7vw;
+      }
     }
 
     &-cross {
@@ -41,6 +57,12 @@
       position: absolute;
       cursor: pointer;
       right: -10vw;
+
+      @include mobile {
+        width: 5vw;
+        height: 5vw;
+        right: -12vw;
+      }
     }
 }
 
@@ -51,9 +73,17 @@
   margin-bottom: 8vw;
   height: 60%;
 
+  @include mobile {
+    margin-bottom: 15vw;
+  }
+
   .treasure-game-chest {
     width: 8vw;
     cursor: pointer;
     object-fit: contain;
+
+    @include mobile {
+      width: 26vw;
+    }
   }
 }

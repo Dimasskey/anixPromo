@@ -19,6 +19,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @include mobile {
+    width: 90vw;
+    height: 96vw;
+    border-radius: 4vw;
+  }
 }
 
 .tic-tac-game-heading {
@@ -27,10 +33,18 @@
   position: relative;
   padding-top: 1vw;
 
+  @include mobile {
+    padding-top: 3vw;
+  }
+
   &-text {
     font-size: 2vw;
     font-family: "Akshar", sans-serif;
     font-weight: 600;
+
+    @include mobile {
+      font-size: 7vw;
+    }
   }
 
   &-cross {
@@ -39,11 +53,25 @@
     position: absolute;
     cursor: pointer;
     right: -8vw;
+
+    @include mobile {
+      width: 5vw;
+      height: 5vw;
+      right: -12vw;
+      top: 4vw;
+    }
   }
 }
 
 .tic-tac-game {
-  margin-top: 2vw;
+  display: flex;
+  height: 94%;
+  justify-content: center;
+  flex-direction: column;
+
+  @include mobile {
+    height: 83%;
+  }
 }
 
 .tic-tac-board {
@@ -55,6 +83,12 @@
   align-items: center;
   justify-content: center;
 
+  @include mobile {
+    width: 75vw;
+    height: 75vw;
+    border-radius: 4vw;
+  }
+
   .tic-tac-cell {
     width: 5.5vw;
     height: 5.5vw;
@@ -64,6 +98,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include mobile {
+      width: 22.5vw;
+      height: 22.5vw;
+      border-radius: 4.75vw;
+    }
   }
 
 }
