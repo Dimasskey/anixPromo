@@ -1,0 +1,14 @@
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 8005;
+
+app.listen(port, () => console.log(`Listening on port ${port}`));
+
+app.use('/static', express.static(__dirname + '/static/'));
+app.get('/', async (req, res) => {
+    res.sendFile('templates/index.html', {root: __dirname });
+});
+
+app.get('/gifts', async (req, res) => {
+    res.sendFile('templates/prizesPage.html', {root: __dirname });
+});
