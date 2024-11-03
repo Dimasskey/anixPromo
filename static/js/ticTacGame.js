@@ -1,6 +1,6 @@
 const cells = document.querySelectorAll('.tic-tac-cell');
-const playerImage = 'static/images/miniGameImages/crossGameIcon.png';
-const computerImage = 'static/images/miniGameImages/circleGameIcon.png';
+const playerImage = '../static/images/miniGameImages/crossGameIcon.png';
+const computerImage = '../static/images/miniGameImages/circleGameIcon.png';
 let currentPlayer = 'player';
 let gameActive = true;
 

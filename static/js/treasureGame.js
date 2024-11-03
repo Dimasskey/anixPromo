@@ -16,18 +16,18 @@ function changeChestImage(chestId, newImageSrc) {
 
 document.getElementById('chest1').addEventListener('click', function() {
     if (!chestOpened) {
-        changeChestImage('chest1', 'static/images/miniGameImages/openChest1.png');
+        changeChestImage('chest1', '../static/images/miniGameImages/openChest1.png');
     }
 });
 
 document.getElementById('chest2').addEventListener('click', function() {
     if (!chestOpened) {
-        changeChestImage('chest2', 'static/images/miniGameImages/openChest2.png');
+        changeChestImage('chest2', '../static/images/miniGameImages/openChest2.png');
     }
 });
 
 document.getElementById('chest3').addEventListener('click', function() {
     if (!chestOpened) {
-        changeChestImage('chest3', 'static/images/miniGameImages/openChest3.png');
+        changeChestImage('chest3', '../static/images/miniGameImages/openChest3.png');
     }
 });
