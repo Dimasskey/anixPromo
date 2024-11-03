@@ -4,10 +4,6 @@ from datetime import datetime
 from main.schemas.user import UserRegular
 
 
-class Config:
-    arbitrary_types_allowed = True
-
-
 class CommentRegular(BaseModel):
     id: int
     comment_text: str

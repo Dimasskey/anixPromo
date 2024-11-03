@@ -88,6 +88,31 @@ class Comments(Base):
     delete = Column(Boolean, default=False, nullable=False, server_default=text('False'))
 
 
+class Gifts(Base):
+    __tablename__ = 'gifts'
+    id = Column(BigInteger, primary_key=True)
+    name = Column(String(length=255), nullable=True)
+    about = Column(Text, nullable=True)
+    attachment_id = Column(
+        UUID(as_uuid=False),
+        nullable=True,
+        server_default=text('uuid(\'00000000-0000-0000-0000-000000000000\')'),
+        autoincrement=False,
+        default='00000000-0000-0000-0000-000000000000'
+    )
+
+
+class Movements(Base):
+    __tablename__ = 'movements'
+    id = Column(BigInteger, primary_key=True)
+    user_id = Column(UUID, ForeignKey(Users.id), nullable=False)
+    gift_id = Column(BigInteger, ForeignKey(Gifts.id), nullable=False)
+    game1 = Column(Boolean, default=False, nullable=False, server_default=text('False'))
+    game2 = Column(Boolean, default=False, nullable=False, server_default=text('False'))
+    game3 = Column(Boolean, default=False, nullable=False, server_default=text('False'))
+    game4 = Column(Boolean, default=False, nullable=False, server_default=text('False'))
+
+
 # alembic init -t async web/alembic
 # alembic revision --autogenerate -m "Init Alembic"
 # alembic upgrade head

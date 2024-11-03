@@ -3,9 +3,10 @@ from main.models.CRUD import CRUD
 from main.models.session import SessionHandler
 from main.schemas.comment import CommentRegular, CommentAdd
 from main.schemas.user import UserRegular
+from fastapi import HTTPException
 
 
-async def get_comments(suppliers_id: int) -> tuple[CommentRegular] | tuple:
+async def get_comments(supplier_id: int) -> tuple[CommentRegular] | tuple:
     from main.utils.user import get_count_steps_user
 
     comments = await CRUD(
@@ -26,7 +27,7 @@ async def get_comments(suppliers_id: int) -> tuple[CommentRegular] | tuple:
         ],
         _where=[
             Comments.delete == False,
-            Comments.supplier_id == suppliers_id
+            Comments.supplier_id == supplier_id
         ],
         _group_by=[],
         _order_by=[],
@@ -58,6 +59,12 @@ async def get_comments(suppliers_id: int) -> tuple[CommentRegular] | tuple:
 
 
 async def add_comment(comment: CommentAdd, user: UserRegular) -> str:
+    if user.fio is None:
+        raise HTTPException(
+            status_code=409,
+            detail={"result": False, "message": "Вы не можете оставить комментарий без своего полного ФИО!", "data": {}}
+        )
+
     await CRUD(
         session=SessionHandler.create(engine=engine), model=Comments
     ).create(

@@ -6,9 +6,9 @@ from main.utils.user import get_current_user
 
 
 @main.get('/api/comments', status_code=200, tags=["Comments"], response_model=DefaultResponse)
-async def api_get_comments(suppliers_id: int):
+async def api_get_comments(supplier_id: int):
     from main.utils.comment import get_comments
-    return DefaultResponse(data=await get_comments(suppliers_id=suppliers_id))
+    return DefaultResponse(data=await get_comments(supplier_id=supplier_id))
 
 
 @main.post('/api/comments', status_code=200, tags=["Comments"], response_model=DefaultResponse)
