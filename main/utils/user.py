@@ -77,11 +77,13 @@ async def get_current_user(token=Cookie(default=None)) -> UserRegular:
 
     user = await get_user(user_id=token, with_except=False)
     if user:
+        from main.utils.user_gift import get_user_gift
         return UserRegular(
             token=user.id,
             fio=user.fio,
             phone_number=user.phone_number,
-            count_steps=await get_count_steps_user(user_id=user.id)
+            count_steps=await get_count_steps_user(user_id=user.id),
+            games=await get_user_gift(user_id=user.id)
         )
     else:
         raise HTTPException(

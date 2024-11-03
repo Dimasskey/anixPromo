@@ -47,3 +47,4 @@ class UserRegular(BaseModel):
     fio: str | None = None
     phone_number: str | int
     count_steps: int
+    games: tuple

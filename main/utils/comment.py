@@ -66,4 +66,5 @@ async def add_comment(comment: CommentAdd, user: UserRegular) -> str:
             comment=comment.comment_text
         )
     )
+
     return "Комментарий был успешно добавлен!"

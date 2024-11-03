@@ -1,4 +1,4 @@
-from sqlalchemy import Column, ForeignKey, BigInteger, Float, String, DateTime, \
+from sqlalchemy import Column, ForeignKey, BigInteger, SmallInteger, Float, String, DateTime, \
     Text, Boolean, func, text, UUID
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.ext.asyncio import AsyncAttrs, create_async_engine
@@ -102,15 +102,12 @@ class Gifts(Base):
     )
 
 
-class Movements(Base):
-    __tablename__ = 'movements'
+class UsersGifts(Base):
+    __tablename__ = 'users_gifts'
     id = Column(BigInteger, primary_key=True)
     user_id = Column(UUID, ForeignKey(Users.id), nullable=False)
     gift_id = Column(BigInteger, ForeignKey(Gifts.id), nullable=False)
-    game_treasure = Column(Boolean, default=False, nullable=False, server_default=text('False'))
-    game_tic_tac = Column(Boolean, default=False, nullable=False, server_default=text('False'))
-    game_puzzle = Column(Boolean, default=False, nullable=False, server_default=text('False'))
-    game_wheel = Column(Boolean, default=False, nullable=False, server_default=text('False'))
+    game_number = Column(SmallInteger, nullable=False)
 
 
 # alembic init -t async web/alembic
