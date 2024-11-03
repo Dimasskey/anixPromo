@@ -22,4 +22,4 @@ async def api_get_current_user(user=Depends(get_current_user)):
 
 @main.post('/api/users/me/fio', status_code=200, tags=["Auth"], response_model=DefaultResponse)
 async def api_add_user_fio(fio: str, user=Depends(get_current_user)):
-    return DefaultResponse(message=await add_user_fio(fio=fio, token=user.id))
+    return DefaultResponse(message=await add_user_fio(fio=fio, token=user.token))

@@ -43,7 +43,7 @@ class UserSignUp(BaseModel):
 
 
 class UserRegular(BaseModel):
-    id: str
+    token: str
     fio: str | None = None
     phone_number: str | int
     count_steps: int

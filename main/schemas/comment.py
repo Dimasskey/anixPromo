@@ -1,7 +1,6 @@
 from pydantic import BaseModel
 from sqlalchemy import UUID
 from datetime import datetime
-from main.schemas.user import UserRegular
 
 
 class CommentRegular(BaseModel):

@@ -60,7 +60,7 @@ async def add_comment(comment: CommentAdd, user: UserRegular) -> str:
         session=SessionHandler.create(engine=engine), model=Comments
     ).create(
         _values=dict(
-            user_id=user.id,
+            user_id=user.token,
             supplier_id=comment.supplier_id,
             attachment_id=comment.attachment_id,
             comment=comment.comment_text

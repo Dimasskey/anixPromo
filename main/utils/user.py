@@ -78,7 +78,7 @@ async def get_current_user(token=Cookie(default=None)) -> UserRegular:
     user = await get_user(user_id=token, with_except=False)
     if user:
         return UserRegular(
-            id=user.id,
+            token=user.id,
             fio=user.fio,
             phone_number=user.phone_number,
             count_steps=await get_count_steps_user(user_id=user.id)
