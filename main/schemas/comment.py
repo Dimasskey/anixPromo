@@ -10,7 +10,7 @@ class CommentRegular(BaseModel):
     supplier_id: int
     attachment_id: str | UUID | None = None
     datetime_create: str | datetime
-    user: UserRegular
+    user_fio: str
 
     class Config:
         arbitrary_types_allowed = True

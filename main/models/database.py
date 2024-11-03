@@ -91,8 +91,8 @@ class Comments(Base):
 class Gifts(Base):
     __tablename__ = 'gifts'
     id = Column(BigInteger, primary_key=True)
-    name = Column(String(length=255), nullable=True)
-    about = Column(Text, nullable=True)
+    name = Column(String(length=255), nullable=False)
+    about = Column(Text, nullable=False)
     attachment_id = Column(
         UUID(as_uuid=False),
         nullable=True,
@@ -107,10 +107,10 @@ class Movements(Base):
     id = Column(BigInteger, primary_key=True)
     user_id = Column(UUID, ForeignKey(Users.id), nullable=False)
     gift_id = Column(BigInteger, ForeignKey(Gifts.id), nullable=False)
-    game1 = Column(Boolean, default=False, nullable=False, server_default=text('False'))
-    game2 = Column(Boolean, default=False, nullable=False, server_default=text('False'))
-    game3 = Column(Boolean, default=False, nullable=False, server_default=text('False'))
-    game4 = Column(Boolean, default=False, nullable=False, server_default=text('False'))
+    game_treasure = Column(Boolean, default=False, nullable=False, server_default=text('False'))
+    game_tic_tac = Column(Boolean, default=False, nullable=False, server_default=text('False'))
+    game_puzzle = Column(Boolean, default=False, nullable=False, server_default=text('False'))
+    game_wheel = Column(Boolean, default=False, nullable=False, server_default=text('False'))
 
 
 # alembic init -t async web/alembic

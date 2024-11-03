@@ -7,8 +7,6 @@ from fastapi import HTTPException
 
 
 async def get_comments(supplier_id: int) -> tuple[CommentRegular] | tuple:
-    from main.utils.user import get_count_steps_user
-
     comments = await CRUD(
         session=SessionHandler.create(engine=engine), model=Comments
     ).extended_query(
@@ -18,9 +16,7 @@ async def get_comments(supplier_id: int) -> tuple[CommentRegular] | tuple:
             Comments.supplier_id,
             Comments.attachment_id,
             Comments.datetime_create,
-            Users.id.label('user_id'),
-            Users.fio.label('user_fio'),
-            Users.phone_number.label('user_phone_number')
+            Users.fio.label('user_fio')
         ],
         _join=[
             [Users, Users.id == Comments.user_id]
@@ -46,12 +42,7 @@ async def get_comments(supplier_id: int) -> tuple[CommentRegular] | tuple:
                 supplier_id=x.supplier_id,
                 attachment_id=x.attachment_id,
                 datetime_create=x.datetime_create.strftime('%Y-%m-%d %H:%M'),
-                user=UserRegular(
-                    id=x.user_id,
-                    fio=x.user_fio,
-                    phone_number=x.user_phone_number,
-                    count_steps=await get_count_steps_user(user_id=x.user_id)
-                )
+                user_fio=x.user_fio
             )
         )
 
