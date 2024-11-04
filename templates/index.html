@@ -6,6 +6,53 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <title>Змейка удачи 2025</title>
     <link rel="stylesheet" href="../static/css/mainPageStyle/mainStyle.css">
+
+    <script>
+        // async function getCurrentUser () {
+        //     try {
+        //         const response = await fetch('http://localhost:8010/api/users/me', {
+        //             method: 'GET',
+        //             credentials: 'include',
+        //             headers: {
+        //                 'Content-Type': 'application/json',
+        //             }
+        //         });
+        //
+        //         if (response.ok) {
+        //             const user = await response.json();
+        //             console.log("Текущий пользователь:", user);
+        //             window.currentUser  = user.data;
+        //             show_steps(window.currentUser.count_steps)
+        //
+        //             updateProgressBar(window.currentUser.count_steps)
+        //         } else {
+        //             window.location.href = "/login";
+        //         }
+        //     } catch (error) {
+        //         console.error("Произошла ошибка:", error);
+        //     }
+        // }
+        //
+        // function updateDOM() {
+        //     const profileAvatar = document.querySelector('.profile-avatar');
+        //     let fio = document.createElement("div")
+        //     let addFio = document.createElement("button")
+        //     console.log(window.currentUser)
+        //     if (currentUser) {
+        //         fio.className = "profile-avatar-fio"
+        //         fio.textContent = window.currentUser.fio
+        //         profileAvatar.append(fio)
+        //     } else {
+        //         addFio.className = "profile-avatar-fio"
+        //         addFio.innerHTML = "Добавить ФИО"
+        //         profileAvatar.append(addFio)
+        //     }
+        // }
+        //
+        // getCurrentUser();
+        //
+        // window.onload = updateDOM
+    </script>
 </head>
 <body>
     <div class="main-page-wrapper">
@@ -63,16 +110,17 @@
                 <div class="profile-container profile">
                     <div class="profile-avatar">
                         <div class="profile-avatar-image"></div>
-                        <span class="profile-avatar-fio">Егор <br/> Черников</span>
+                        <span class="profile-avatar-fio">Егор Черников</span>
+<!--                        <button class="profile-avatar-fio">Добавить ФИО</button>-->
                     </div>
                     <div class="toys-container">
                         <div class="toy-gold-container">
                             <img class="toy-gold-icon" src="../static/images/globalsImages/toyRed0.png" />
-                            <span class="toys-count">0 шт</span>
+                            <span class="toys-count" id="toy-gold-count">0 шт</span>
                         </div>
                         <div class="toy-red-container">
                             <img class="toy-red-icon" src="../static/images/globalsImages/toyRed0.png" />
-                            <span class="toys-count">0 шт</span>
+                            <span class="toys-count" id="toy-red-count">0 шт</span>
                         </div>
                     </div>
                     <div class="complete-progress">
@@ -112,46 +160,46 @@
         </div>
         <div class="main-game">
             <img class="main-game-snake" src="../static/images/mainPageImages/snake.png" />
-            <div class="main-game-step" id="step_1">1</div>
-            <div class="main-game-step" id="step_2">2</div>
-            <div class="main-game-step" id="step_3">3</div>
-            <div class="main-game-step" id="step_4">4</div>
-            <div class="main-game-step" id="step_5">5</div>
-            <div class="main-game-step" id="step_6">6</div>
-            <div class="main-game-step" id="step_7">7</div>
-            <div class="main-game-step" id="step_8">8</div>
-            <div class="main-game-step" id="step_9">9</div>
-            <div class="main-game-step" id="step_10">10</div>
-            <div class="main-game-step" id="step_11">11</div>
-            <div class="main-game-step" id="step_12">12</div>
-            <div class="main-game-step" id="step_13">13</div>
-            <div class="main-game-step" id="step_14">14</div>
-            <div class="main-game-step" id="step_15">15</div>
-            <div class="main-game-step" id="step_16">16</div>
-            <div class="main-game-step" id="step_17">17</div>
-            <div class="main-game-step" id="step_18">18</div>
-            <div class="main-game-step" id="step_19">19</div>
-            <div class="main-game-step" id="step_20">20</div>
-            <div class="main-game-step" id="step_21">21</div>
-            <div class="main-game-step" id="step_22">22</div>
-            <div class="main-game-step" id="step_23">23</div>
-            <div class="main-game-step" id="step_24">24</div>
-            <div class="main-game-step" id="step_25">25</div>
-            <div class="main-game-step" id="step_26">26</div>
-            <div class="main-game-step" id="step_27">27</div>
-            <div class="main-game-step" id="step_28">28</div>
-            <div class="main-game-step" id="step_29">29</div>
-            <div class="main-game-step" id="step_30">30</div>
-            <div class="main-game-step" id="step_31">31</div>
-            <div class="main-game-step" id="step_32">32</div>
-            <div class="main-game-step" id="step_33">33</div>
-            <div class="main-game-step" id="step_34">34</div>
-            <div class="main-game-step" id="step_35">35</div>
-            <div class="main-game-step" id="step_36">36</div>
-            <div class="main-game-step" id="step_37">37</div>
-            <div class="main-game-step" id="step_38">38</div>
-            <div class="main-game-step" id="step_39">39</div>
-            <div class="main-game-step" id="step_40">40</div>
+            <div class="main-game-step" id="step_1" style="display: none;">1</div>
+            <div class="main-game-step" id="step_2" style="display: none">2</div>
+            <div class="main-game-step" id="step_3" style="display: none">3</div>
+            <div class="main-game-step" id="step_4" style="display: none">4</div>
+            <div class="main-game-step" id="step_5" style="display: none">5</div>
+            <div class="main-game-step" id="step_6" style="display: none">6</div>
+            <div class="main-game-step" id="step_7" style="display: none">7</div>
+            <div class="main-game-step" id="step_8" style="display: none">8</div>
+            <div class="main-game-step" id="step_9" style="display: none">9</div>
+            <div class="main-game-step" id="step_10" style="display: none">10</div>
+            <div class="main-game-step" id="step_11" style="display: none">11</div>
+            <div class="main-game-step" id="step_12" style="display: none">12</div>
+            <div class="main-game-step" id="step_13" style="display: none">13</div>
+            <div class="main-game-step" id="step_14" style="display: none">14</div>
+            <div class="main-game-step" id="step_15" style="display: none">15</div>
+            <div class="main-game-step" id="step_16" style="display: none">16</div>
+            <div class="main-game-step" id="step_17" style="display: none">17</div>
+            <div class="main-game-step" id="step_18" style="display: none">18</div>
+            <div class="main-game-step" id="step_19" style="display: none">19</div>
+            <div class="main-game-step" id="step_20" style="display: none">20</div>
+            <div class="main-game-step" id="step_21" style="display: none">21</div>
+            <div class="main-game-step" id="step_22" style="display: none">22</div>
+            <div class="main-game-step" id="step_23" style="display: none">23</div>
+            <div class="main-game-step" id="step_24" style="display: none">24</div>
+            <div class="main-game-step" id="step_25" style="display: none">25</div>
+            <div class="main-game-step" id="step_26" style="display: none">26</div>
+            <div class="main-game-step" id="step_27" style="display: none">27</div>
+            <div class="main-game-step" id="step_28" style="display: none">28</div>
+            <div class="main-game-step" id="step_29" style="display: none">29</div>
+            <div class="main-game-step" id="step_30" style="display: none">30</div>
+            <div class="main-game-step" id="step_31" style="display: none">31</div>
+            <div class="main-game-step" id="step_32" style="display: none">32</div>
+            <div class="main-game-step" id="step_33" style="display: none">33</div>
+            <div class="main-game-step" id="step_34" style="display: none">34</div>
+            <div class="main-game-step" id="step_35" style="display: none">35</div>
+            <div class="main-game-step" id="step_36" style="display: none">36</div>
+            <div class="main-game-step" id="step_37" style="display: none">37</div>
+            <div class="main-game-step" id="step_38" style="display: none">38</div>
+            <div class="main-game-step" id="step_39" style="display: none">39</div>
+            <div class="main-game-step" id="step_40" style="display: none">40</div>
         </div>
     </div>
     <div class="treasure-game-wrapper" id="treasureGame" style="display: none">
@@ -243,7 +291,7 @@
                         <div class="segment" data-value="8"><img class="icon-segment" src="../static/images/prizesPageImages/robotIcon.png"></div>
                     </div>
                 </div>
-                <button onclick="spinWheel()">Вращать</button>
+                <button class="wheel-button" onclick="spinWheel()">Вращать</button>
                 <div id="result"></div>
             </div>
         </div>
@@ -255,6 +303,7 @@
         <img class="footer-elka" src="../static/images/globalsImages/treeZeroGif.gif" />
         <img class="footer-gifts" src="../static/images/globalsImages/giftsImage.png" />
     </footer>
+    <script src="../static/js/onLoad.js"></script>
     <script src="../static/js/puzzleGame.js"></script>
     <script src="../static/js/treasureGame.js"></script>
     <script src="../static/js/soundSwitch.js"></script>

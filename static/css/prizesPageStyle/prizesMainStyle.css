@@ -105,6 +105,11 @@ button {
   font: inherit;
   padding: 0;
   color: currentColor;
+  border: none;
+}
+
+input:focus {
+  outline: none;
 }
 
 html {

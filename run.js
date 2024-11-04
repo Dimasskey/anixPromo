@@ -12,3 +12,6 @@ app.get('/', async (req, res) => {
 app.get('/gifts', async (req, res) => {
     res.sendFile('templates/prizesPage.html', {root: __dirname });
 });
+app.get('/login', async (req, res) => {
+    res.sendFile('templates/login.html', {root: __dirname });
+});

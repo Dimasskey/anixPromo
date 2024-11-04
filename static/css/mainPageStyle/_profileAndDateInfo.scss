@@ -62,44 +62,46 @@
   box-shadow: -1vw 1vw 1vw 0px rgba(0, 0, 0, 0.25);
 
   &-container {
-    height: 60%;
+    height: 50%;
     display: grid;
     grid-template-columns: 0.7fr 0.3fr;
     grid-template-rows: auto 1fr;
     grid-template-areas:
           "avatar toys"
           "progres progres";
+
+    @include mobile {
+      height: 55%;
+    }
   }
+
+
 
   &-avatar {
     grid-area: avatar;
     display: flex;
     align-items: center;
-    padding-top: 5%;
-    padding-left: 8%;
+    margin-left: 1.5vw;
 
-    @include mobile {
-      padding-top: 7%;
-      padding-left: 9%;
-    }
 
     &-image {
       border: 0.2vw solid white;
       border-radius: 50%;
-      width: 7vw;
-      height: 7vw;
+      width: 5vw;
+      height: 5vw;
       background-size: cover;
       background-image: url("../../images/mainPageImages/avatarPhoto.jpg");
 
       @include mobile {
-        width: 10vw;
-        height: 10vw;
+        width: 9vw;
+        height: 9vw;
       }
 
     }
 
     &-fio {
-      font-size: 1.5vw ;
+      width: 7vw;
+      font-size: 1vw;
       margin-left: 5%;
       line-height: 1.25;
 

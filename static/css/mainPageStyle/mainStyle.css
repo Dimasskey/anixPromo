@@ -105,6 +105,11 @@ button {
   font: inherit;
   padding: 0;
   color: currentColor;
+  border: none;
+}
+
+input:focus {
+  outline: none;
 }
 
 html {
@@ -371,41 +376,40 @@ svg * {
   box-shadow: -1vw 1vw 1vw 0px rgba(0, 0, 0, 0.25);
 }
 .profile-container {
-  height: 60%;
+  height: 50%;
   display: grid;
   grid-template-columns: 0.7fr 0.3fr;
   grid-template-rows: auto 1fr;
   grid-template-areas: "avatar toys" "progres progres";
 }
+@media (max-width: 900px) {
+  .profile-container {
+    height: 55%;
+  }
+}
 .profile-avatar {
   grid-area: avatar;
   display: flex;
   align-items: center;
-  padding-top: 5%;
-  padding-left: 8%;
-}
-@media (max-width: 900px) {
-  .profile-avatar {
-    padding-top: 7%;
-    padding-left: 9%;
-  }
+  margin-left: 1.5vw;
 }
 .profile-avatar-image {
   border: 0.2vw solid white;
   border-radius: 50%;
-  width: 7vw;
-  height: 7vw;
+  width: 5vw;
+  height: 5vw;
   background-size: cover;
   background-image: url("../../images/mainPageImages/avatarPhoto.jpg");
 }
 @media (max-width: 900px) {
   .profile-avatar-image {
-    width: 10vw;
-    height: 10vw;
+    width: 9vw;
+    height: 9vw;
   }
 }
 .profile-avatar-fio {
-  font-size: 1.5vw;
+  width: 7vw;
+  font-size: 1vw;
   margin-left: 5%;
   line-height: 1.25;
 }
@@ -1439,7 +1443,7 @@ svg * {
   transform: rotate(315deg);
 }
 
-button {
+.wheel-button {
   width: 10vw;
   height: 2vw;
   cursor: pointer;
@@ -1450,7 +1454,7 @@ button {
   font-family: "Akshar", sans-serif;
 }
 @media (max-width: 900px) {
-  button {
+  .wheel-button {
     width: 41vw;
     height: 7vw;
     border-radius: 3vw;
