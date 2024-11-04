@@ -104,19 +104,19 @@ async def get_current_user(token=Cookie(default=None)) -> UserRegular:
 
 
 async def add_user_fio(fio: str, token: str) -> str:
-    user = await get_user(user_id=token, with_except=False)
-    if user.fio is not None:
-        raise HTTPException(
-            status_code=409,
-            detail={"result": False, "message": "Вы уже указали свое полное ФИО!", "data": {}}
-        )
-
     from main.utils.validation import check_fio
     fio_ = check_fio(fio_=fio)
     if not fio_ or len(fio_.split()) > 3:
         raise HTTPException(
             status_code=400,
             detail={"result": False, "message": "Поле «ФИО» введено некорректно!", "data": {}}
+        )
+
+    user = await get_user(user_id=token, with_except=False)
+    if user.fio is not None:
+        raise HTTPException(
+            status_code=409,
+            detail={"result": False, "message": "Вы уже указали свое полное ФИО!", "data": {}}
         )
 
     await CRUD(

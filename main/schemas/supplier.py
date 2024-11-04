@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from sqlalchemy import UUID
+from main.schemas.response import DefaultResponse
 
 
 class SupplierRegular(BaseModel):
@@ -10,3 +11,7 @@ class SupplierRegular(BaseModel):
 
     class Config:
         arbitrary_types_allowed = True
+
+
+class SupplierDefault(DefaultResponse):
+    data: SupplierRegular | list[SupplierRegular] | list | None

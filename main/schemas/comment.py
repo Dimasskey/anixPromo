@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from sqlalchemy import UUID
 from datetime import datetime
+from main.schemas.response import DefaultResponse
 
 
 class CommentRegular(BaseModel):
@@ -21,3 +22,7 @@ class CommentAdd(BaseModel):
 
     class Config:
         arbitrary_types_allowed = True
+
+
+class CommentDefault(DefaultResponse):
+    data: CommentRegular | list[CommentRegular] | list | None

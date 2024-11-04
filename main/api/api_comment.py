@@ -1,14 +1,14 @@
 from main import main
 from fastapi import Depends
 from main.schemas.response import DefaultResponse
-from main.schemas.comment import CommentAdd
+from main.schemas.comment import CommentAdd, CommentDefault
 from main.utils.user import get_current_user
 
 
-@main.get('/api/comments', status_code=200, tags=["Comments"], response_model=DefaultResponse)
+@main.get('/api/comments', status_code=200, tags=["Comments"], response_model=CommentDefault)
 async def api_get_comments(supplier_id: int):
     from main.utils.comment import get_comments
-    return DefaultResponse(data=await get_comments(supplier_id=supplier_id))
+    return CommentDefault(data=await get_comments(supplier_id=supplier_id))
 
 
 @main.post('/api/comments', status_code=200, tags=["Comments"], response_model=DefaultResponse)
