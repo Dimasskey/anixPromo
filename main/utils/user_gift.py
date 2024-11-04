@@ -42,38 +42,37 @@ async def get_user_gift(user_id: str) -> tuple[UserGiftRegular] | tuple:
                     name=x.gift_name,
                     about=x.gift_about,
                     attachment_id=x.gift_attachment_id
-                )
+                ) if x.gift_id else None
             )
         )
 
     return tuple(results)
 
 
-async def add_user_gift(game_number: int, user: UserRegular) -> str:
-    import random
-    random_gift = random.choice(await get_gift())
-
-    existing_user_gift = await CRUD(
-        session=SessionHandler.create(engine=engine), model=UsersGifts
-    ).read(
-        _where=[
-            UsersGifts.user_id == user.token,
-            UsersGifts.gift_id == random_gift.id
-        ],
-        _all=False
-    )
-
-    if existing_user_gift:
-        return "Запись с таким подарком уже была добавлена для этого пользователя!"
-    else:
+async def create_user_gift(user_id: str) -> None:
+    for game_number in range(1, 5):
         await CRUD(
             session=SessionHandler.create(engine=engine), model=UsersGifts
         ).create(
             _values=dict(
-                user_id=user.token,
-                gift_id=random_gift.id,
+                user_id=user_id,
                 game_number=game_number
             )
         )
 
-        return "Успешно добавлен пользовательский подарок!"
+
+async def update_user_gift(game_number: int, user: UserRegular) -> str:
+    import random
+    random_gift = random.choice(await get_gift())
+
+    await CRUD(
+        session=SessionHandler.create(engine=engine), model=UsersGifts
+    ).update(
+        _where=[
+            UsersGifts.user_id == user.token,
+            UsersGifts.game_number == game_number
+        ],
+        _values=dict(gift_id=random_gift.id)
+    )
+
+    return "Успешно добавлен пользовательский подарок!"

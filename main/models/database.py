@@ -106,7 +106,7 @@ class UsersGifts(Base):
     __tablename__ = 'users_gifts'
     id = Column(BigInteger, primary_key=True)
     user_id = Column(UUID, ForeignKey(Users.id), nullable=False)
-    gift_id = Column(BigInteger, ForeignKey(Gifts.id), nullable=False)
+    gift_id = Column(BigInteger, ForeignKey(Gifts.id), nullable=True)
     game_number = Column(SmallInteger, nullable=False)
 
 

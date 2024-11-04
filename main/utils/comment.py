@@ -11,9 +11,8 @@ async def get_comments(supplier_id: int) -> tuple[CommentRegular] | tuple:
         session=SessionHandler.create(engine=engine), model=Comments
     ).extended_query(
         _select=[
-            Comments.id,
-            Comments.comment,
             Comments.supplier_id,
+            Comments.comment,
             Comments.attachment_id,
             Comments.datetime_create,
             Users.fio.label('user_fio')
@@ -37,9 +36,8 @@ async def get_comments(supplier_id: int) -> tuple[CommentRegular] | tuple:
     for x in comments:
         results.append(
             CommentRegular(
-                id=x.id,
-                comment_text=x.comment,
                 supplier_id=x.supplier_id,
+                comment_text=x.comment,
                 attachment_id=x.attachment_id,
                 datetime_create=x.datetime_create.strftime('%Y-%m-%d %H:%M'),
                 user_fio=x.user_fio

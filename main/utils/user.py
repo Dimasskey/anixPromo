@@ -1,8 +1,9 @@
 from fastapi import HTTPException, Cookie, Response
-from main.models.database import engine, Users, Checks
+from main.models.database import engine, Users, UsersGifts, Checks
 from main.models.CRUD import CRUD
 from main.models.session import SessionHandler
 from main.schemas.user import UserSignUp, UserRegular, UserLogin
+from main.utils.user_gift import create_user_gift
 from sqlalchemy import func
 
 
@@ -52,6 +53,7 @@ async def create_new_user(user: UserSignUp) -> Users:
 
 async def get_signup_user(user: UserSignUp, response: Response) -> str:
     new_user = await create_new_user(user=user)
+    await create_user_gift(user_id=str(new_user.id))
     response.set_cookie(key="token", value=str(new_user.id), httponly=True, samesite="strict", max_age=7257600)
     return 'Вы успешно зарегистрировались!'
 
@@ -63,6 +65,15 @@ async def get_login_user(user: UserLogin, response: Response) -> str:
             status_code=409,
             detail={"result": False, "message": "Пользователь с таким номером телефона не найден!", "data": {}}
         )
+
+    find_user_gift: list[UsersGifts] = await CRUD(
+        session=SessionHandler.create(engine=engine), model=UsersGifts
+    ).read(
+        _where=[UsersGifts.user_id == str(user.id)], _all=True
+    )
+
+    if not find_user_gift:
+        await create_user_gift(user_id=str(user.id))
 
     response.set_cookie(key="token", value=str(user.id), httponly=True, samesite="strict", max_age=7257600)
     return 'Вы успешно авторизовались!'

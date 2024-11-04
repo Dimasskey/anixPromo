@@ -4,9 +4,8 @@ from datetime import datetime
 
 
 class CommentRegular(BaseModel):
-    id: int
-    comment_text: str
     supplier_id: int
+    comment_text: str
     attachment_id: str | UUID | None = None
     datetime_create: str | datetime
     user_fio: str
