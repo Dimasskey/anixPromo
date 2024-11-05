@@ -51,14 +51,14 @@ async def create_new_user(user: UserSignUp) -> Users:
     return await get_user(phone_number=user.phone_number, with_except=False)
 
 
-async def get_signup_user(user: UserSignUp, response: Response) -> str:
+async def get_signup_user(user: UserSignUp, response: Response) -> dict:
     new_user = await create_new_user(user=user)
     await create_user_gift(user_id=str(new_user.id))
     response.set_cookie(key="token", value=str(new_user.id), httponly=True, samesite="strict", max_age=7257600)
-    return 'Вы успешно зарегистрировались!'
+    return {'message': 'Вы успешно зарегистрировались!', 'data': {'token': str(new_user.id)}}
 
 
-async def get_login_user(user: UserLogin, response: Response) -> str:
+async def get_login_user(user: UserLogin, response: Response) -> dict:
     user = await get_user(phone_number=user.phone_number, with_except=False)
     if not user:
         raise HTTPException(
@@ -76,7 +76,7 @@ async def get_login_user(user: UserLogin, response: Response) -> str:
         await create_user_gift(user_id=str(user.id))
 
     response.set_cookie(key="token", value=str(user.id), httponly=True, samesite="strict", max_age=7257600)
-    return 'Вы успешно авторизовались!'
+    return {'message': 'Вы успешно авторизовались!', 'data': {'token': str(user.id)}}
 
 
 async def get_current_user(token=Cookie(default=None)) -> UserRegular:

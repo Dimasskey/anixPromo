@@ -7,12 +7,13 @@ from main.utils.user import get_signup_user, get_login_user, get_current_user, a
 
 @main.post('/api/signup', status_code=200, tags=["Auth"], response_model=DefaultResponse)
 async def api_signup_user(user: UserSignUp, response: Response):
-    return DefaultResponse(message=await get_signup_user(user=user, response=response))
+    signup_user = await get_signup_user(user=user, response=response)
+    return DefaultResponse(message=signup_user['message'], data=signup_user['data'])
 
 
 @main.post('/api/login', status_code=200, tags=["Auth"], response_model=DefaultResponse)
-async def api_login_user(user=Depends(get_login_user)):
-    return DefaultResponse(message=user)
+async def api_login_user(login_user=Depends(get_login_user)):
+    return DefaultResponse(message=login_user['message'], data=login_user['data'])
 
 
 @main.get('/api/users/me', status_code=200, tags=["Auth"], response_model=UserDefault)
