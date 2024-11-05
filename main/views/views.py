@@ -3,6 +3,6 @@ from fastapi import Request
 from fastapi.responses import HTMLResponse
 
 
-@main.get("/index", status_code=200, tags=["Views"], response_class=HTMLResponse)
+@main.get("/", status_code=200, tags=["Views"], response_class=HTMLResponse)
 async def index(request: Request):
     return templates.TemplateResponse("index.html", context={"request": request})
