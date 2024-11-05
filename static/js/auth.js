@@ -17,13 +17,11 @@ async function handleRegistration(event) {
             phone_number: number
         }),
     });
-
-    if (response.ok) {
-        window.location.href = '/';
-    }
     const result = await response.json();
-    console.log(result);
-    alert(result.message);
+    if (response.ok) {
+        document.cookie = `token=${result.data.token}; max-age=7257600;`;
+        window.location.href = "/";
+    }
 }
 
 async function handleLogin(event) {
@@ -41,11 +39,12 @@ async function handleLogin(event) {
         }),
     });
 
-    if (response.ok) {
-        window.location.href = '/';
-    }
     const result = await response.json();
-    alert(result.message);
+    if (response.ok) {
+        document.cookie = `token=${result.data.token}; max-age=7257600;`;
+        window.location.href = "/";
+    }
+    console.log(result)
 }
 
 [].forEach.call( document.querySelectorAll('.tel'), function(input) {
