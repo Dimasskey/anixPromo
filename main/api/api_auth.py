@@ -17,8 +17,9 @@ async def api_login_user(login_user=Depends(get_login_user)):
 
 
 @main.get('/api/users/me', status_code=200, tags=["Auth"], response_model=UserDefault)
-async def api_get_current_user(user=Depends(get_current_user)):
-    return UserDefault(data=user)
+async def api_get_current_user(token: str | None = None):
+    # user=Depends(get_current_user)
+    return UserDefault(data=await get_current_user(token=token))
 
 
 @main.post('/api/users/me/fio', status_code=200, tags=["Auth"], response_model=DefaultResponse)
