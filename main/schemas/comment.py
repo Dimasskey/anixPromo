@@ -5,7 +5,6 @@ from main.schemas.response import DefaultResponse
 
 
 class CommentRegular(BaseModel):
-    supplier_id: int
     comment_text: str
     attachment_id: str | UUID | None = None
     datetime_create: str | datetime

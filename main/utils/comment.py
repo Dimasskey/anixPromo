@@ -7,11 +7,12 @@ from fastapi import HTTPException
 
 
 async def get_comments(supplier_id: int) -> tuple[CommentRegular] | tuple:
+    from sqlalchemy import desc
+
     comments = await CRUD(
         session=SessionHandler.create(engine=engine), model=Comments
     ).extended_query(
         _select=[
-            Comments.supplier_id,
             Comments.comment,
             Comments.attachment_id,
             Comments.datetime_create,
@@ -25,7 +26,7 @@ async def get_comments(supplier_id: int) -> tuple[CommentRegular] | tuple:
             Comments.supplier_id == supplier_id
         ],
         _group_by=[],
-        _order_by=[],
+        _order_by=[desc(Comments.datetime_create)],
         _all=True
     )
 
@@ -36,7 +37,6 @@ async def get_comments(supplier_id: int) -> tuple[CommentRegular] | tuple:
     for x in comments:
         results.append(
             CommentRegular(
-                supplier_id=x.supplier_id,
                 comment_text=x.comment,
                 attachment_id=x.attachment_id,
                 datetime_create=x.datetime_create.strftime('%Y-%m-%d %H:%M'),
