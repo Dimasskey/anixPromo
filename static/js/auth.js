@@ -1,51 +1,52 @@
-// async function handleRegistration(event) {
-//     event.preventDefault();
-//
-//     const fio = document.getElementById('fio').value;
-//     const number = document.getElementById('regNumber').value;
-//
-//     const response = await fetch('http://localhost:8010/api/signup', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify({
-//             fio: fio,
-//             phone_number: number
-//         }),
-//         credentials: 'include',  // Обязательно добавьте эту строку
-//     });
-//
-//     if (response.ok) {
-//         window.location.href = '/';
-//     }
-//     const result = await response.json();
-//     console.log(result);
-//     alert(result.message);
-// }
-//
-// async function handleLogin(event) {
-//     event.preventDefault();
-//
-//     const number = document.getElementById('logNumber').value;
-//
-//     const response = await fetch('http://localhost:8010/api/login', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify({
-//             phone_number: number
-//         }),
-//         credentials: 'include',
-//     });
-//
-//     if (response.ok) {
-//         window.location.href = '/';
-//     }
-//     const result = await response.json();
-//     alert(result.message);
-// }
+async function handleRegistration(event) {
+    event.preventDefault();
+
+    const fio = document.getElementById('fio').value;
+    const number = document.getElementById('regNumber').value;
+
+    console.log(fio, number);
+
+    const response = await fetch('https://promo.tdanix.ru/api/signup', {
+        method: 'POST',
+        headers: {
+            'accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            fio: fio,
+            phone_number: number
+        }),
+    });
+
+    if (response.ok) {
+        window.location.href = '/';
+    }
+    const result = await response.json();
+    console.log(result);
+    alert(result.message);
+}
+
+async function handleLogin(event) {
+    event.preventDefault();
+
+    const number = document.getElementById('logNumber').value;
+
+    const response = await fetch('https://promo.tdanix.ru/api/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            phone_number: number
+        }),
+    });
+
+    if (response.ok) {
+        window.location.href = '/';
+    }
+    const result = await response.json();
+    alert(result.message);
+}
 
 [].forEach.call( document.querySelectorAll('.tel'), function(input) {
     let keyCode;

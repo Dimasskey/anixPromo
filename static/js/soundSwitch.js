@@ -1,6 +1,6 @@
 const soundSwitch = document.getElementById('soundSwitch');
-const soundOnImage = '../static/images/soundOnIcon.png';
-const soundOffImage = '../static/images/soundOffIcon.png';
+const soundOnImage = '../static/images/globalsImages/soundOnIcon.png';
+const soundOffImage = '../static/images/globalsImages/soundOffIcon.png';
 
 soundSwitch.addEventListener('click', function() {
     if (soundSwitch.src.includes('soundOnIcon.png')) {
