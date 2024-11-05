@@ -21,3 +21,8 @@ async def gifts(request: Request):
 @main.get("/stage_two", status_code=200, tags=["Views"], response_class=HTMLResponse)
 async def stage_two(request: Request):
     return templates.TemplateResponse("gameStageTwo.html", context={"request": request})
+
+
+@main.get("/suppliers", status_code=200, tags=["Views"], response_class=HTMLResponse)
+async def suppliers(request: Request):
+    return templates.TemplateResponse("supplierPage.html", context={"request": request})
