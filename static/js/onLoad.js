@@ -17,20 +17,20 @@ if (toyRedCount === 0 && toyGoldCount === 0) {
     }
 });
 
-// function show_steps(countSteps) {
-//     for (let i = 1; i <= countSteps; i++) {
-//         let step = document.getElementById('step_'+i);
-//         step.style.display = 'flex';
-//     }
-// }
+function show_steps(countSteps) {
+    for (let i = 1; i <= countSteps; i++) {
+        let step = document.getElementById('step_'+i);
+        step.style.display = 'flex';
+    }
+}
 
-// function updateProgressBar(countSteps, totalSteps) {
-//     const progressCountElement = document.querySelector('.complete-progress-count');
-//     const progressBarElement = document.querySelector('.complete-progress-bar');
-//
-//     progressCountElement.textContent = `${countSteps} из 40`;
-//
-//     const percentage = (countSteps / totalSteps) * 100;
-//
-//     progressBarElement.style.width = `${percentage}%`;
-// }
+function updateProgressBar(countSteps, totalSteps) {
+    const progressCountElement = document.querySelector('.complete-progress-count');
+    const progressBarElement = document.querySelector('.complete-progress-bar');
+
+    progressCountElement.textContent = `${countSteps} из 40`;
+
+    const percentage = (countSteps / totalSteps) * 100;
+
+    progressBarElement.style.width = `${percentage}%`;
+}
