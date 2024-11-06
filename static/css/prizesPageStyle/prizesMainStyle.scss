@@ -13,6 +13,8 @@
         "../shared/soundSwitch",
         "../footer";
 
+@import "../shared/onload";
+
 body {
   background-color: var(--background-color);
   font-family: "Bebas Neue", sans-serif;

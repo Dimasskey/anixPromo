@@ -110,8 +110,11 @@ function handleDrop(targetPiece) {
 }
 
 function checkGameCompletion() {
-    // Проверяем, все ли элементы на своих местах
-    const isCompleted = pieces.every((piece, index) => puzzleContainer.children[index] === piece);
+    const expectedOrder = ['piece-1', 'piece-2', 'piece-3', 'piece-4', 'piece-5', 'piece-6', 'piece-7', 'piece-8', 'piece-9'];
+
+    const currentOrder = Array.from(puzzleContainer.children).map(piece => piece.id);
+
+    const isCompleted = currentOrder.every((id, index) => id === expectedOrder[index]);
 
     if (isCompleted) {
         gameCompleted = true;

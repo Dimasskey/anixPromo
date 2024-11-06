@@ -61,10 +61,21 @@
 
         getCurrentUser();
 
-        window.onload = updateDOM
+        window.onload = function () {
+            document.getElementById('onload').style.display = 'none';
+            updateDOM()
+        }
     </script>
 </head>
 <body>
+    <div class="onload-wrapper" id="onload">
+        <div class="onload-container" style="">
+            <span class="onload-text">Загрузка...</span>
+            <svg class="onload-spinner" viewBox="0 0 50 50">
+                <circle class="spinner-path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+            </svg>
+        </div>
+    </div>
     <div class="main-page-wrapper">
         <header class="wrapper__header header">
             <div class="header-container">
@@ -179,7 +190,7 @@
             <div class="main-game-step" id="step_7" style="display: none">7</div>
             <div class="main-game-step" id="step_8" style="display: none">8</div>
             <div class="main-game-step" id="step_9" style="display: none">9</div>
-            <div class="main-game-step" id="step_10" style="display: none">10</div>
+            <div class="main-game-step" id="step_10" style="display: flex">10</div>
             <div class="main-game-step" id="step_11" style="display: none">11</div>
             <div class="main-game-step" id="step_12" style="display: none">12</div>
             <div class="main-game-step" id="step_13" style="display: none">13</div>
@@ -189,7 +200,7 @@
             <div class="main-game-step" id="step_17" style="display: none">17</div>
             <div class="main-game-step" id="step_18" style="display: none">18</div>
             <div class="main-game-step" id="step_19" style="display: none">19</div>
-            <div class="main-game-step" id="step_20" style="display: none">20</div>
+            <div class="main-game-step" id="step_20" style="display: flex">20</div>
             <div class="main-game-step" id="step_21" style="display: none">21</div>
             <div class="main-game-step" id="step_22" style="display: none">22</div>
             <div class="main-game-step" id="step_23" style="display: none">23</div>
@@ -209,7 +220,7 @@
             <div class="main-game-step" id="step_37" style="display: none">37</div>
             <div class="main-game-step" id="step_38" style="display: none">38</div>
             <div class="main-game-step" id="step_39" style="display: none">39</div>
-            <div class="main-game-step" id="step_40" style="display: none">40</div>
+            <div class="main-game-step" id="step_40" style="display: flex">40</div>
         </div>
     </div>
     <div class="treasure-game-wrapper" id="treasureGame" style="display: none">
