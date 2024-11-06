@@ -15,7 +15,8 @@
         "../miniGamesStyle/puzzleGame",
         "../miniGamesStyle/wheelStyle";
 
-@import "../shared/soundSwitch";
+@import "../shared/soundSwitch",
+        "../shared/onload";
 
 body {
   background-color: var(--background-color);
