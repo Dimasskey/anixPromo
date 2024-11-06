@@ -1,4 +1,4 @@
-from fastapi import HTTPException, Cookie, Response
+from fastapi import HTTPException, Header, Response
 from main.models.database import engine, Users, UsersGifts, Checks
 from main.models.CRUD import CRUD
 from main.models.session import SessionHandler
@@ -79,8 +79,7 @@ async def get_login_user(user: UserLogin, response: Response) -> dict:
     return {'message': 'Вы успешно авторизовались!', 'data': {'token': str(user.id)}}
 
 
-async def get_current_user(token: str | None = None) -> UserRegular:
-    # token=Cookie(default=None)
+async def get_current_user(token: str = Header(default=None)) -> UserRegular:
     if token is None:
         raise HTTPException(
             status_code=401,
