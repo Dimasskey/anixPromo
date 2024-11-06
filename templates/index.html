@@ -22,10 +22,11 @@
         async function getCurrentUser () {
             let cookie = GetCookie("token")
             try {
-                const response = await fetch('https://promo.tdanix.ru/api/users/me?token=' + cookie, {
+                const response = await fetch('https://promo.tdanix.ru/api/users/me', {
                     method: 'GET',
                     headers: {
                         'accept': 'application/json',
+                        'token': cookie,
                     },
                 });
                 if (response.ok) {
@@ -34,7 +35,7 @@
                     window.currentUser  = user.data;
                     show_steps(window.currentUser.count_steps)
                 } else {
-                    // window.location.href = "/login";
+                    window.location.href = "/login";
                 }
             } catch (error) {
                 console.error("Произошла ошибка:", error);
@@ -80,7 +81,7 @@
                                 <a href="/gifts">Подарки</a>
                             </li>
                             <li class="navigation-menu__item">
-                                <a href="/reviews">Подарки</a>
+                                <a href="/reviews">Поcтавщики</a>
                             </li>
                         </ul>
                     </nav>
@@ -198,7 +199,7 @@
             <div class="main-game-step" id="step_27" style="display: none">27</div>
             <div class="main-game-step" id="step_28" style="display: none">28</div>
             <div class="main-game-step" id="step_29" style="display: none">29</div>
-            <div class="main-game-step" id="step_30" style="display: none">30</div>
+            <div class="main-game-step" id="step_30" style="display: flex">30</div>
             <div class="main-game-step" id="step_31" style="display: none">31</div>
             <div class="main-game-step" id="step_32" style="display: none">32</div>
             <div class="main-game-step" id="step_33" style="display: none">33</div>

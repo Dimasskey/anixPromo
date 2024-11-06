@@ -4,12 +4,10 @@ async function handleRegistration(event) {
     const fio = document.getElementById('fio').value;
     const number = document.getElementById('regNumber').value;
 
-    console.log(fio, number);
 
     const response = await fetch('https://promo.tdanix.ru/api/signup', {
         method: 'POST',
         headers: {
-            'accept': 'application/json',
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({

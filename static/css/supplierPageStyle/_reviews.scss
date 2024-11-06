@@ -8,6 +8,11 @@
   padding: 0.2vw 2.5vw 5vw 2.5vw;
   row-gap: 1.5vw;
 
+  @include mobile {
+    padding: 0.2vw 4vw 5vw 4vw;
+    row-gap: 3vw;
+  }
+
 
   .reviews-header {
     display: flex;
@@ -17,11 +22,20 @@
     &__logo {
       width: 11vw;
       margin-left: 3.5vw;
+
+      @include mobile {
+        width: 27vw;
+      }
     }
 
     &__description {
       font-size: 1.5vw;
       margin-right: 16vw;
+
+      @include mobile {
+        font-size: 4.5vw;
+        margin-right: 15vw;
+      }
     }
   }
 
@@ -36,8 +50,17 @@
       border-radius: 3vw;
       justify-content: center;
 
+      @include mobile {
+        width: 35vw;
+        height: 35vw;
+      }
+
       &__photo {
         font-size: 1vw;
+
+        @include mobile {
+          font-size: 2vw;
+        }
       }
     }
 
@@ -51,8 +74,17 @@
       line-height: 1.25;
       font-size: 1vw;
 
+      @include mobile {
+        width: 59%;
+        font-size: 2vw;
+      }
+
       .reviews-text {
         padding-right: 12vw;
+
+        @include mobile {
+          padding-right: 0;
+        }
       }
     }
   }
@@ -66,10 +98,15 @@
     border-radius: 1vw;
     padding: 1vw 2.2vw 2vw 2.2vw;
 
+
     .reviews-comment-head {
 
       &__text {
         font-size: 1.5vw;
+
+        @include mobile {
+          font-size: 3.5vw;
+        }
       }
     }
 
@@ -80,6 +117,11 @@
       row-gap: 1vw;
       max-height: 26vw;
       overflow-y: auto;
+
+      @include mobile {
+        row-gap: 2vw;
+        max-height: 51vw;
+      }
 
       &::-webkit-scrollbar {
         display: block;
@@ -100,6 +142,12 @@
         "review image";
         height: 8vw;
 
+        @include mobile {
+          grid-template-rows: 4vw 12vw;
+          grid-template-columns: 68vw 14vw;
+          height: 15vw;
+        }
+
         .review-profile-name {
           grid-area: name;
           display: flex;
@@ -107,6 +155,10 @@
 
           &__text {
             font-size: 1vw;
+
+            @include mobile {
+              font-size: 2.5vw;
+            }
           }
         }
 
@@ -117,6 +169,11 @@
           height: 6vw;
           padding: 0.5% 1%;
           font-size: 0.8vw;
+
+          @include mobile {
+            height: 12vw;
+            font-size: 2.5vw;
+          }
         }
 
         .review-image-container {
@@ -131,6 +188,11 @@
           .review-image {
             width: 6vw;
             height: 6vw;
+
+            @include mobile {
+              width: 12vw;
+              height: 12vw;
+            }
           }
         }
       }
@@ -142,8 +204,16 @@
       .review-add-head {
         height: 1.8vw;
 
+        @include mobile {
+          height: 5.8vw;
+        }
+
         &__text {
           font-size: 1vw;
+
+          @include mobile {
+            font-size: 3vw;
+          }
         }
       }
 
@@ -161,6 +231,12 @@
             border: 0.15vw solid #6D6D6D;
             border-radius: 0.5vw;
             padding: 0.5% 1%;
+
+            @include mobile {
+              width: 68vw;
+              height: 12vw;
+              font-size: 2.5vw;
+            }
           }
 
           .review-add-attachment {
@@ -177,12 +253,25 @@
             height: 6vw;
             margin-left: 1.3vw;
 
+            @include mobile {
+              width: 12vw;
+              height: 12vw;
+            }
+
             &__icon {
               width: 4vw;
+
+              @include mobile {
+                width: 10vw;
+              }
             }
 
             &__text {
               font-size: 0.7vw;
+
+              @include mobile {
+                font-size: 1.5vw;
+              }
             }
 
             &-label {
