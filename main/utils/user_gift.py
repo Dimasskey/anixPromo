@@ -61,7 +61,7 @@ async def create_user_gift(user_id: str) -> None:
         )
 
 
-async def update_user_gift(game_number: int, user: UserRegular) -> str:
+async def update_user_gift(game_number: int, user: UserRegular) -> dict:
     import random
     random_gift = random.choice(await get_gift())
 
@@ -75,4 +75,4 @@ async def update_user_gift(game_number: int, user: UserRegular) -> str:
         _values=dict(gift_id=random_gift.id)
     )
 
-    return "Успешно добавлен пользовательский подарок!"
+    return {'message': 'Успешно добавлен пользовательский подарок!', 'data': random_gift}
