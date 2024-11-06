@@ -1,4 +1,4 @@
-document.getElementById('step_40').addEventListener('click', function() {
+document.getElementById('step_40').addEventListener('click', openWheelGame = function() {
     document.getElementById('wheelGame').style.display = 'flex';
 });
 

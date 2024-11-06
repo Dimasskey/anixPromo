@@ -4,7 +4,7 @@ let draggedPiece = null;
 let offsetX, offsetY;
 let gameCompleted = false;
 
-document.getElementById('step_30').addEventListener('click', function() {
+document.getElementById('step_30').addEventListener('click', openPuzzleGame = function() {
     document.getElementById('puzzleGame').style.display = 'flex';
 });
 

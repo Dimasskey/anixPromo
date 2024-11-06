@@ -989,7 +989,6 @@ svg * {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 @media (max-width: 900px) {
   .treasure-game-container {
@@ -1040,22 +1039,39 @@ svg * {
   display: flex;
   column-gap: 3vw;
   align-items: flex-end;
-  margin-bottom: 8vw;
+  margin-bottom: 0;
   height: 60%;
-}
-@media (max-width: 900px) {
-  .treasure-game-chest-container {
-    margin-bottom: 15vw;
-  }
 }
 .treasure-game-chest-container .treasure-game-chest {
   width: 8vw;
   cursor: pointer;
   object-fit: contain;
+  transition: opacity 0.5s ease;
+}
+.treasure-game-chest-container .treasure-game-chest .treasure-game-chest.hidden {
+  opacity: 0; /* Скрываем изображение */
 }
 @media (max-width: 900px) {
   .treasure-game-chest-container .treasure-game-chest {
     width: 26vw;
+  }
+}
+
+.treasure-game-gift {
+  display: flex;
+  line-height: 1.25;
+  width: 100%;
+  justify-content: center;
+  height: 24%;
+  margin-top: 1vw;
+  text-align: center;
+  font-size: 1.5vw;
+}
+@media (max-width: 900px) {
+  .treasure-game-gift {
+    height: 39%;
+    font-size: 5.5vw;
+    align-items: center;
   }
 }
 
@@ -1073,9 +1089,10 @@ svg * {
 }
 
 .tic-tac-game-container {
+  position: relative;
   background-color: var(--background-color);
   width: 35vw;
-  height: 27vw;
+  height: 33vw;
   border-radius: 1vw;
   display: flex;
   flex-direction: column;
@@ -1084,7 +1101,7 @@ svg * {
 @media (max-width: 900px) {
   .tic-tac-game-container {
     width: 90vw;
-    height: 96vw;
+    height: 125vw;
     border-radius: 4vw;
   }
 }
@@ -1127,7 +1144,7 @@ svg * {
 
 .tic-tac-game {
   display: flex;
-  height: 94%;
+  height: 69%;
   justify-content: center;
   flex-direction: column;
 }
@@ -1168,6 +1185,36 @@ svg * {
     width: 22.5vw;
     height: 22.5vw;
     border-radius: 4.75vw;
+  }
+}
+
+.tic-tac-restart-button {
+  display: flex;
+  position: absolute;
+  width: 4vw;
+  height: 4vw;
+  background-color: #1A0543;
+  right: 4vw;
+  top: 13.5vw;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1vw;
+}
+@media (max-width: 900px) {
+  .tic-tac-restart-button {
+    width: 14vw;
+    height: 14vw;
+    right: 38vw;
+    top: 12.5vw;
+    border-radius: 4vw;
+  }
+}
+.tic-tac-restart-button__icon {
+  width: 3vw;
+}
+@media (max-width: 900px) {
+  .tic-tac-restart-button__icon {
+    width: 10vw;
   }
 }
 

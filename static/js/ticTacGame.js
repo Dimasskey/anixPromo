@@ -5,7 +5,7 @@ let currentPlayer = 'player';
 let gameActive = true;
 
 
-document.getElementById('step_20').addEventListener('click', function() {
+document.getElementById('step_20').addEventListener('click', openTicTacGame = function  () {
     document.getElementById('ticTacGame').style.display = 'flex';
 });
 

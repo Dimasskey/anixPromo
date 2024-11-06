@@ -12,9 +12,10 @@
 }
 
 .tic-tac-game-container {
+  position: relative;
   background-color: var(--background-color);
   width: 35vw;
-  height: 27vw;
+  height: 33vw;
   border-radius: 1vw;
   display: flex;
   flex-direction: column;
@@ -22,7 +23,7 @@
 
   @include mobile {
     width: 90vw;
-    height: 96vw;
+    height: 125vw;
     border-radius: 4vw;
   }
 }
@@ -64,7 +65,7 @@
 
 .tic-tac-game {
   display: flex;
-  height: 94%;
+  height: 69%;
   justify-content: center;
   flex-direction: column;
 
@@ -104,5 +105,33 @@
       border-radius: 4.75vw;
     }
   }
+}
 
+.tic-tac-restart-button {
+  display: flex;
+  position: absolute;
+  width: 4vw;
+  height: 4vw;
+  background-color: #1A0543;
+  right: 4vw;
+  top: 13.5vw;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1vw;
+
+  @include mobile {
+    width: 14vw;
+    height: 14vw;
+    right: 38vw;
+    top: 12.5vw;
+    border-radius: 4vw;
+  }
+
+  &__icon {
+    width: 3vw;
+
+    @include mobile {
+      width: 10vw;
+    }
+  }
 }
