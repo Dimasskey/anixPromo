@@ -18,5 +18,5 @@ class UploadCheck(BaseModel):
         if sender_type not in ['pos', 'web']:
             raise HTTPException(
                 status_code=400,
-                detail={"result": False, "message": "Аргументы переданы не корректно", "data": {}}
+                detail={"result": False, "message": "Аргументы переданы не корректно!", "data": {}}
             )

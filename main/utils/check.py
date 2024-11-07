@@ -11,7 +11,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
     from main.utils.user import get_user
 
     for i in checks:
-        code_check: tuple | bool = check_code_check(i.code)
+        code_check: dict | bool = check_code_check(i.code)
         if not code_check and web:
             raise HTTPException(
                 status_code=400,
@@ -38,24 +38,24 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                 detail={"result": False, "message": "Номер телефона указан не корректно!", "data": {}}
             )
 
-        amount: float = float(code_check[0])
-        code_shop = (int(code_check[1].split('-')[0]) - 100000) // 100
+        amount: float = float(code_check["amount"])
+        code_shop = (int(code_check["code_check"].split('-')[0]) - 100000) // 100
 
-        find_check = await CRUD(
+        find_check: Checks = await CRUD(
             session=SessionHandler.create(engine=engine), model=Checks
         ).read(
-            _where=[Checks.code_check == code_check[1]], _all=False
+            _where=[Checks.code_check == code_check["code_check"]], _all=False
         )
 
-        find_check = find_check[0] if find_check else None
+        find_check = find_check if find_check else None
 
         if phone is False and find_check is None:
             await CRUD(
                 session=SessionHandler.create(engine=engine), model=Checks
             ).create(
                 _values=dict(
-                    raw_code_check=code_check[2],
-                    code_check=code_check[1],
+                    raw_code_check=code_check["raw_code_check"],
+                    code_check=code_check["code_check"],
                     amount=amount,
                     platform=p,
                     user_id=None,
@@ -91,8 +91,8 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                     session=SessionHandler.create(engine=engine), model=Checks
                 ).create(
                     _values=dict(
-                        raw_code_check=code_check[2],
-                        code_check=code_check[1],
+                        raw_code_check=code_check["raw_code_check"],
+                        code_check=code_check["code_check"],
                         amount=amount,
                         platform=p,
                         user_id=new_token,
@@ -113,8 +113,8 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                     session=SessionHandler.create(engine=engine), model=Checks
                 ).create(
                     _values=dict(
-                        raw_code_check=code_check[2],
-                        code_check=code_check[1],
+                        raw_code_check=code_check["raw_code_check"],
+                        code_check=code_check["code_check"],
                         amount=amount,
                         platform=p,
                         user_id=find_user.id,
@@ -150,7 +150,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                     await CRUD(
                         session=SessionHandler.create(engine=engine), model=Checks
                     ).update(
-                        _where=[Checks.code_check == code_check[1]],
+                        _where=[Checks.code_check == code_check["code_check"]],
                         _values=dict(user_id=new_token)
                     )
 
@@ -158,7 +158,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                         await CRUD(
                             session=SessionHandler.create(engine=engine), model=Checks
                         ).update(
-                            _where=[Checks.code_check == code_check[1]],
+                            _where=[Checks.code_check == code_check["code_check"]],
                             _values=dict(id_cassir=id_cassir)
                         )
 
@@ -166,7 +166,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                         await CRUD(
                             session=SessionHandler.create(engine=engine), model=Checks
                         ).update(
-                            _where=[Checks.code_check == code_check[1]],
+                            _where=[Checks.code_check == code_check["code_check"]],
                             _values=dict(fio_cassir=fio_cassir)
                         )
 
@@ -180,7 +180,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                     await CRUD(
                         session=SessionHandler.create(engine=engine), model=Checks
                     ).update(
-                        _where=[Checks.code_check == code_check[1]],
+                        _where=[Checks.code_check == code_check["code_check"]],
                         _values=dict(user_id=find_user.id)
                     )
 
@@ -188,7 +188,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                         await CRUD(
                             session=SessionHandler.create(engine=engine), model=Checks
                         ).update(
-                            _where=[Checks.code_check == code_check[1]],
+                            _where=[Checks.code_check == code_check["code_check"]],
                             _values=dict(id_cassir=id_cassir)
                         )
 
@@ -196,7 +196,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                         await CRUD(
                             session=SessionHandler.create(engine=engine), model=Checks
                         ).update(
-                            _where=[Checks.code_check == code_check[1]],
+                            _where=[Checks.code_check == code_check["code_check"]],
                             _values=dict(fio_cassir=fio_cassir)
                         )
 
@@ -211,7 +211,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                     await CRUD(
                         session=SessionHandler.create(engine=engine), model=Checks
                     ).update(
-                        _where=[Checks.code_check == code_check[1]],
+                        _where=[Checks.code_check == code_check["code_check"]],
                         _values=dict(id_cassir=id_cassir)
                     )
 
@@ -219,7 +219,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                     await CRUD(
                         session=SessionHandler.create(engine=engine), model=Checks
                     ).update(
-                        _where=[Checks.code_check == code_check[1]],
+                        _where=[Checks.code_check == code_check["code_check"]],
                         _values=dict(fio_cassir=fio_cassir)
                     )
 
@@ -234,7 +234,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                 await CRUD(
                     session=SessionHandler.create(engine=engine), model=Checks
                 ).update(
-                    _where=[Checks.code_check == code_check[1]],
+                    _where=[Checks.code_check == code_check["code_check"]],
                     _values=dict(id_cassir=id_cassir)
                 )
 
@@ -242,7 +242,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                 await CRUD(
                     session=SessionHandler.create(engine=engine), model=Checks
                 ).update(
-                    _where=[Checks.code_check == code_check[1]],
+                    _where=[Checks.code_check == code_check["code_check"]],
                     _values=dict(fio_cassir=fio_cassir)
                 )
 

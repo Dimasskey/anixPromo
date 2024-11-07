@@ -11,10 +11,10 @@ from main.utils.check import processed_check
 def api_add_code(upload_check: UploadCheck):
     q = Queue(connection=redis.Redis())
     q.enqueue(processed_check, args=(upload_check.checks, False, None,))
-    # return DefaultResponse(result=False, message="Конкурс завершился. Спасибо за участие!", data={})
+    return DefaultResponse()
 
 
 @main.post('/api/add_code_web', status_code=200, tags=["Checks"], response_model=DefaultResponse)
 async def api_add_code_web(upload_check: UploadCheck, request: Request):
-    await processed_check(upload_check.checks, True, request.headers,)
-    # return DefaultResponse(result=False, message="Конкурс завершился. Спасибо за участие!", data={})
+    await processed_check(checks=upload_check.checks, web=True, header=request.headers)
+    return DefaultResponse()

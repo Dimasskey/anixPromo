@@ -24,7 +24,7 @@ def check_phone_number(phone_number_: str) -> bool | int:
     return int(tel_number[-10:])
 
 
-def check_code_check(full_code: str) -> bool | tuple:
+def check_code_check(full_code: str) -> bool | dict:
     try:
         if full_code is None or full_code == "" or len(full_code) != 18:
             return False
@@ -59,11 +59,15 @@ def check_code_check(full_code: str) -> bool | tuple:
         sum_ = int(new_code[12:16], 16)
         new_code = str(int(new_code[:12][::-1], 16))
 
-        shopcode = new_code[0:6]
-        cashcode = new_code[1:6]
-        shiftnum = new_code[6:11]
-        checknum = new_code[11:15]
+        shop_code = new_code[0:6]
+        cash_code = new_code[1:6]
+        shift_num = new_code[6:11]
+        check_num = new_code[11:15]
 
-        return sum_, f"{shopcode}-{cashcode}-{shiftnum}-{checknum}-{sum_}", full_code
+        return {
+            "amount": sum_,
+            "code_check": f"{shop_code}-{cash_code}-{shift_num}-{check_num}-{sum_}",
+            "raw_code_check": full_code
+        }
     except:
         return False
