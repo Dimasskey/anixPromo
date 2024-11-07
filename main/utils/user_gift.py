@@ -61,6 +61,28 @@ async def create_user_gift(user_id: str) -> None:
         )
 
 
+async def get_count_user_gifts_by_name_gift(user_id: str) -> int:
+    from sqlalchemy import func
+
+    count_user_gifts_by_name_gift = await CRUD(
+        session=SessionHandler.create(engine=engine), model=UsersGifts
+    ).extended_query(
+        _select=[func.count(UsersGifts.gift_id).label('count')],
+        _join=[
+            [Gifts, Gifts.id == UsersGifts.gift_id]
+        ],
+        _where=[
+            UsersGifts.user_id == user_id,
+            Gifts.name == '+ шаг'
+        ],
+        _group_by=[UsersGifts.user_id],
+        _order_by=[],
+        _all=False
+    )
+
+    return count_user_gifts_by_name_gift.count if count_user_gifts_by_name_gift else 0
+
+
 async def update_user_gift(game_number: int, user: UserRegular) -> dict:
     import random
     random_gift = random.choice(await get_gift())

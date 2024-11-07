@@ -4,7 +4,6 @@ from main.models.CRUD import CRUD
 from main.models.session import SessionHandler
 from main.schemas.user import UserSignUp, UserRegular, UserLogin
 from main.utils.user_gift import create_user_gift
-from sqlalchemy import func
 
 
 async def get_user(
@@ -88,12 +87,14 @@ async def get_current_user(token: str = Header(default=None)) -> UserRegular:
 
     user = await get_user(user_id=token, with_except=False)
     if user:
-        from main.utils.user_gift import get_user_gift
+        from main.utils.user_gift import get_user_gift, get_count_user_gifts_by_name_gift
         return UserRegular(
             token=user.id,
             fio=user.fio,
             phone_number=user.phone_number,
-            count_steps=await get_count_steps_user(user_id=user.id),
+            count_steps=int(
+                await get_count_steps_user(user_id=user.id) + await get_count_user_gifts_by_name_gift(user_id=user.id)
+            ),
             games=await get_user_gift(user_id=user.id)
         )
     else:
@@ -129,6 +130,7 @@ async def add_user_fio(fio: str, token: str) -> str:
 
 
 async def get_count_steps_user(user_id: str) -> int:
+    from sqlalchemy import func
     count_steps = await CRUD(
         session=SessionHandler.create(engine=engine), model=Checks
     ).extended_query(
@@ -140,6 +142,4 @@ async def get_count_steps_user(user_id: str) -> int:
         _all=False
     )
 
-    if count_steps is None:
-        return 0
-    return count_steps.sum // 500
+    return count_steps.sum // 500 if count_steps else 0
