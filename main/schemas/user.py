@@ -2,7 +2,7 @@ from pydantic import BaseModel, field_validator
 from fastapi import HTTPException
 from main.utils.validation import check_fio, check_phone_number
 from main.schemas.response import DefaultResponse
-from main.schemas.user_gift import UserGiftRegular
+from main.schemas.user_gift import GameRegular
 
 
 class UserLogin(BaseModel):
@@ -49,7 +49,7 @@ class UserRegular(BaseModel):
     fio: str | None = None
     phone_number: str | int
     count_steps: int
-    games: list[UserGiftRegular] | list | None
+    games: GameRegular
 
     @field_validator('phone_number')
     def validate_tel_number(cls, phone_number_: int):

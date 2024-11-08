@@ -107,7 +107,10 @@ class UsersGifts(Base):
     id = Column(BigInteger, primary_key=True)
     user_id = Column(UUID, ForeignKey(Users.id), nullable=False)
     gift_id = Column(BigInteger, ForeignKey(Gifts.id), nullable=True)
-    game_number = Column(SmallInteger, nullable=False)
+    game_1 = Column(Boolean, default=False, nullable=False, server_default=text('False'))
+    game_2 = Column(Boolean, default=False, nullable=False, server_default=text('False'))
+    game_3 = Column(Boolean, default=False, nullable=False, server_default=text('False'))
+    game_4 = Column(Boolean, default=False, nullable=False, server_default=text('False'))
 
 
 # alembic init -t async web/alembic

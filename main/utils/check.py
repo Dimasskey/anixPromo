@@ -6,6 +6,79 @@ from main.schemas.check import Check
 from uuid import uuid4
 
 
+async def get_check(
+        code_check: str | None = None,
+        with_except: bool = False
+) -> Checks | None:
+
+    where_ = []
+    if code_check is not None:
+        where_.append(Checks.code_check == code_check)
+
+    check: Checks = await CRUD(
+        session=SessionHandler.create(engine=engine), model=Checks
+    ).read(
+        _where=where_, _all=False
+    )
+
+    if check is None:
+        if with_except:
+            raise HTTPException(
+                status_code=409,
+                detail={"result": False, "message": "Чек не найден!", "data": {}}
+            )
+        return None
+    return check
+
+
+async def add_new_check(
+        raw_code_check: str,
+        code_check: str,
+        amount: float,
+        platform: str,
+        code_shop: int,
+        user_id: str | None = None,
+        id_cassir: int | None = None,
+        fio_cassir: str | None = None
+) -> None:
+    await CRUD(
+        session=SessionHandler.create(engine=engine), model=Checks
+    ).create(
+        _values=dict(
+            raw_code_check=raw_code_check,
+            code_check=code_check,
+            amount=amount,
+            platform=platform,
+            user_id=user_id,
+            code_shop=code_shop,
+            id_cassir=id_cassir,
+            fio_cassir=fio_cassir,
+            is_verified=True
+        )
+    )
+
+
+async def update_check(
+        code_check: str,
+        user_id: str | None = None,
+        id_cassir: str | None = None,
+        fio_cassir: str | None = None
+) -> None:
+    if user_id is not None:
+        values_ = dict(user_id=user_id)
+    if id_cassir is not None:
+        values_ = dict(id_cassir=id_cassir)
+    if fio_cassir is not None:
+        values_ = dict(fio_cassir=fio_cassir)
+
+    await CRUD(
+        session=SessionHandler.create(engine=engine), model=Checks
+    ).update(
+        _where=[Checks.code_check == code_check],
+        _values=values_
+    )
+
+
 async def processed_check(checks: [Check], web: bool = False, header=None):
     from main.utils.validation import check_code_check, check_phone_number
     from main.utils.user import get_user
@@ -41,29 +114,18 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
         amount: float = float(code_check["amount"])
         code_shop = (int(code_check["code_check"].split('-')[0]) - 100000) // 100
 
-        find_check: Checks = await CRUD(
-            session=SessionHandler.create(engine=engine), model=Checks
-        ).read(
-            _where=[Checks.code_check == code_check["code_check"]], _all=False
-        )
-
-        find_check = find_check if find_check else None
+        find_check = await get_check(code_check=code_check["code_check"], with_except=False)
 
         if phone is False and find_check is None:
-            await CRUD(
-                session=SessionHandler.create(engine=engine), model=Checks
-            ).create(
-                _values=dict(
-                    raw_code_check=code_check["raw_code_check"],
-                    code_check=code_check["code_check"],
-                    amount=amount,
-                    platform=p,
-                    user_id=None,
-                    code_shop=code_shop,
-                    id_cassir=id_cassir,
-                    fio_cassir=fio_cassir,
-                    is_verified=True
-                )
+            await add_new_check(
+                raw_code_check=code_check["raw_code_check"],
+                code_check=code_check["code_check"],
+                amount=amount,
+                platform=p,
+                user_id=None,
+                code_shop=code_shop,
+                id_cassir=id_cassir,
+                fio_cassir=fio_cassir
             )
 
             if web:
@@ -87,20 +149,15 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                     )
                 )
 
-                await CRUD(
-                    session=SessionHandler.create(engine=engine), model=Checks
-                ).create(
-                    _values=dict(
-                        raw_code_check=code_check["raw_code_check"],
-                        code_check=code_check["code_check"],
-                        amount=amount,
-                        platform=p,
-                        user_id=new_token,
-                        code_shop=code_shop,
-                        id_cassir=id_cassir,
-                        fio_cassir=fio_cassir,
-                        is_verified=True
-                    )
+                await add_new_check(
+                    raw_code_check=code_check["raw_code_check"],
+                    code_check=code_check["code_check"],
+                    amount=amount,
+                    platform=p,
+                    user_id=new_token,
+                    code_shop=code_shop,
+                    id_cassir=id_cassir,
+                    fio_cassir=fio_cassir
                 )
 
                 if web:
@@ -109,20 +166,15 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                         detail={"result": True, "message": "Вы успешно зарегистрировали код!", "data": {}}
                     )
             else:
-                await CRUD(
-                    session=SessionHandler.create(engine=engine), model=Checks
-                ).create(
-                    _values=dict(
-                        raw_code_check=code_check["raw_code_check"],
-                        code_check=code_check["code_check"],
-                        amount=amount,
-                        platform=p,
-                        user_id=find_user.id,
-                        code_shop=code_shop,
-                        id_cassir=id_cassir,
-                        fio_cassir=fio_cassir,
-                        is_verified=True
-                    )
+                await add_new_check(
+                    raw_code_check=code_check["raw_code_check"],
+                    code_check=code_check["code_check"],
+                    amount=amount,
+                    platform=p,
+                    user_id=find_user.id,
+                    code_shop=code_shop,
+                    id_cassir=id_cassir,
+                    fio_cassir=fio_cassir
                 )
 
                 if web:
@@ -147,28 +199,13 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                         )
                     )
 
-                    await CRUD(
-                        session=SessionHandler.create(engine=engine), model=Checks
-                    ).update(
-                        _where=[Checks.code_check == code_check["code_check"]],
-                        _values=dict(user_id=new_token)
-                    )
+                    await update_check(code_check=code_check["code_check"], user_id=new_token)
 
                     if find_check.id_cassir is None and id_cassir is not None:
-                        await CRUD(
-                            session=SessionHandler.create(engine=engine), model=Checks
-                        ).update(
-                            _where=[Checks.code_check == code_check["code_check"]],
-                            _values=dict(id_cassir=id_cassir)
-                        )
+                        await update_check(code_check=code_check["code_check"], id_cassir=id_cassir)
 
                     if find_check.fio_cassir is None and fio_cassir is not None:
-                        await CRUD(
-                            session=SessionHandler.create(engine=engine), model=Checks
-                        ).update(
-                            _where=[Checks.code_check == code_check["code_check"]],
-                            _values=dict(fio_cassir=fio_cassir)
-                        )
+                        await update_check(code_check=code_check["code_check"], fio_cassir=fio_cassir)
 
                     if web:
                         raise HTTPException(
@@ -177,28 +214,13 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                         )
 
                 else:
-                    await CRUD(
-                        session=SessionHandler.create(engine=engine), model=Checks
-                    ).update(
-                        _where=[Checks.code_check == code_check["code_check"]],
-                        _values=dict(user_id=find_user.id)
-                    )
+                    await update_check(code_check=code_check["code_check"], user_id=find_user.id)
 
                     if find_check.id_cassir is None and id_cassir is not None:
-                        await CRUD(
-                            session=SessionHandler.create(engine=engine), model=Checks
-                        ).update(
-                            _where=[Checks.code_check == code_check["code_check"]],
-                            _values=dict(id_cassir=id_cassir)
-                        )
+                        await update_check(code_check=code_check["code_check"], id_cassir=id_cassir)
 
                     if find_check.fio_cassir is None and fio_cassir is not None:
-                        await CRUD(
-                            session=SessionHandler.create(engine=engine), model=Checks
-                        ).update(
-                            _where=[Checks.code_check == code_check["code_check"]],
-                            _values=dict(fio_cassir=fio_cassir)
-                        )
+                        await update_check(code_check=code_check["code_check"], fio_cassir=fio_cassir)
 
                     if web:
                         raise HTTPException(
@@ -208,20 +230,10 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
 
             else:
                 if find_check.id_cassir is None and id_cassir is not None:
-                    await CRUD(
-                        session=SessionHandler.create(engine=engine), model=Checks
-                    ).update(
-                        _where=[Checks.code_check == code_check["code_check"]],
-                        _values=dict(id_cassir=id_cassir)
-                    )
+                    await update_check(code_check=code_check["code_check"], id_cassir=id_cassir)
 
                 if find_check.fio_cassir is None and fio_cassir is not None:
-                    await CRUD(
-                        session=SessionHandler.create(engine=engine), model=Checks
-                    ).update(
-                        _where=[Checks.code_check == code_check["code_check"]],
-                        _values=dict(fio_cassir=fio_cassir)
-                    )
+                    await update_check(code_check=code_check["code_check"], fio_cassir=fio_cassir)
 
                 if web:
                     raise HTTPException(
@@ -231,20 +243,10 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
 
         elif phone is False and find_check is not None:
             if find_check.id_cassir is None and id_cassir is not None:
-                await CRUD(
-                    session=SessionHandler.create(engine=engine), model=Checks
-                ).update(
-                    _where=[Checks.code_check == code_check["code_check"]],
-                    _values=dict(id_cassir=id_cassir)
-                )
+                await update_check(code_check=code_check["code_check"], id_cassir=id_cassir)
 
             if find_check.fio_cassir is None and fio_cassir is not None:
-                await CRUD(
-                    session=SessionHandler.create(engine=engine), model=Checks
-                ).update(
-                    _where=[Checks.code_check == code_check["code_check"]],
-                    _values=dict(fio_cassir=fio_cassir)
-                )
+                await update_check(code_check=code_check["code_check"], fio_cassir=fio_cassir)
 
             if web:
                 raise HTTPException(

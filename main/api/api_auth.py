@@ -1,13 +1,13 @@
 from main import main
-from fastapi import Depends, Response
+from fastapi import Depends
 from main.schemas.response import DefaultResponse
 from main.schemas.user import UserSignUp, UserDefault
 from main.utils.user import get_signup_user, get_login_user, get_current_user, add_user_fio
 
 
 @main.post('/api/signup', status_code=200, tags=["Auth"], response_model=DefaultResponse)
-async def api_signup_user(user: UserSignUp, response: Response):
-    signup_user = await get_signup_user(user=user, response=response)
+async def api_signup_user(user: UserSignUp):
+    signup_user = await get_signup_user(user=user)
     return DefaultResponse(message=signup_user['message'], data=signup_user['data'])
 
 
