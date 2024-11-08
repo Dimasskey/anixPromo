@@ -16,7 +16,9 @@
         "../miniGamesStyle/wheelStyle";
 
 @import "../shared/soundSwitch",
-        "../shared/onload";
+        "../shared/onload",
+        "../shared/popUpBalls",
+        "../shared/gameGift";
 
 body {
   background-color: var(--background-color);
@@ -48,4 +50,41 @@ body {
   }
 }
 
+
+.sound-wrapper {
+  display: flex;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: rgba(255, 255, 255, 0.7215686275);
+  backdrop-filter: blur(7px);
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.sound-container {
+  display: flex;
+  width: 20vw;
+  height: 11vw;
+  background-color: var(--background-color-alt);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 3vw;
+
+  @include mobile {
+    width: 70vw;
+    height: 40vw;
+  }
+
+  .onload-text {
+    font-size: 3vw;
+
+    @include mobile {
+      font-size: 11vw;
+    }
+  }
+}
 

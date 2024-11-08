@@ -7,6 +7,7 @@
     <title>Змейка удачи 2025</title>
     <link rel="stylesheet" href="../static/css/mainPageStyle/mainStyle.css">
     <script src="../static/js/onLoad.js" defer></script>
+    <script src="../static/js/addGift.js"></script>
     <script>
         // getCurrentUser();
         //
@@ -15,6 +16,7 @@
         //     updateDOM()
         // }
     </script>
+
 </head>
 <body>
     <div class="onload-wrapper" id="onload">
@@ -25,6 +27,15 @@
             </svg>
         </div>
     </div>
+<!--    <div class="sound-wrapper" id="sound-vkl" style="display: none">-->
+<!--        <div class="sound-container" style="">-->
+<!--            <span class="sound-text">Включить звук???</span>-->
+<!--            <div>-->
+<!--                <img class="sound-off" src="../static/images/globalsImages/soundOffIcon.png">-->
+<!--                <img class="sound-on" src="../static/images/globalsImages/soundOnIcon.png">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
     <div class="main-page-wrapper">
         <header class="wrapper__header header">
             <div class="header-container">
@@ -41,7 +52,7 @@
                                 <a href="/gifts">Подарки</a>
                             </li>
                             <li class="navigation-menu__item">
-                                <a href="/reviews">Поcтавщики</a>
+                                <a href="/reviews">Победители</a>
                             </li>
                         </ul>
                     </nav>
@@ -140,7 +151,7 @@
             <div class="main-game-step" id="step_8" style="display: none">8</div>
             <div class="main-game-step" id="step_9" style="display: none">9</div>
             <div class="main-game-step" id="step_10" style="display: flex">10</div>
-            <div class="main-game-step" id="step_11" style="display: none" onclick=openTreasure()>11</div>
+            <div class="main-game-step" id="step_11" style="display: none">11</div>
             <div class="main-game-step" id="step_12" style="display: none">12</div>
             <div class="main-game-step" id="step_13" style="display: none">13</div>
             <div class="main-game-step" id="step_14" style="display: none">14</div>
@@ -172,7 +183,7 @@
             <div class="main-game-step" id="step_40" style="display: flex">40</div>
         </div>
     </div>
-    <div class="treasure-game-wrapper" id="treasureGame" style="display: none">
+    <div class="treasure-game-wrapper" id="Game1" style="display: none">
         <div class="treasure-game-container">
             <div class="treasure-game-heading">
                 <span class="treasure-game-heading-text">
@@ -185,12 +196,9 @@
                 <img class="treasure-game-chest" id="chest2" src="../static/images/miniGameImages/chest2.png">
                 <img class="treasure-game-chest" id="chest3" src="../static/images/miniGameImages/chest3.png">
             </div>
-            <div class="treasure-game-gift">
-                <span class="treasure-game-gift__text"></span>
-            </div>
         </div>
     </div>
-    <div class="tic-tac-game-wrapper" id="ticTacGame" style="display: none">
+    <div class="tic-tac-game-wrapper" id="Game2" style="display: none">
         <div class="tic-tac-game-container">
             <div class="tic-tac-game-heading">
                 <span class="tic-tac-game-heading-text">
@@ -217,12 +225,12 @@
                     </div>
                 </div>
             </div>
-            <div class="tic-tac-restart-button">
+            <div class="tic-tac-restart-button" style="display: none">
                 <img class="tic-tac-restart-button__icon" src="../static/images/globalsImages/roundArrowIcon.png">
             </div>
         </div>
     </div>
-    <div class="puzzle-game-wrapper" id="puzzleGame" style="display: none">
+    <div class="puzzle-game-wrapper" id="Game3" style="display: none">
         <div class="puzzle-game-container">
             <div class="puzzle-game-heading">
                 <span class="puzzle-game-heading-text">
@@ -245,7 +253,7 @@
             </div>
         </div>
     </div>
-    <div class="wheel-game-wrapper" id="wheelGame" style="display: none">
+    <div class="wheel-game-wrapper" id="Game4" style="display: none">
         <div class="wheel-game-container">
             <div class="wheel-game-heading">
                 <span class="wheel-game-heading-text">
@@ -272,6 +280,17 @@
             </div>
         </div>
     </div>
+    <div class="pop-up-balls-wrapper" style="display: none">
+        <div class="pop-up-balls-container">
+            <img class="pop-up-balls-image" src="../static/images/globalsImages/toyRedPopUp1.png"/>
+            <img class="pop-up-cross" src="../static/images/miniGameImages/crossIcon.png" />
+            <span class="pop-up-balls-text">
+                Вы получили часть шарика!
+                Соберите весь и получите шанс
+                побороться за главные призы!
+            </span>
+        </div>
+    </div>
     <div class="sound-switch">
         <img class="sound-switch-icon" id="soundSwitch" src="../static/images/globalsImages/soundOnIcon.png"/>
     </div>
@@ -279,6 +298,7 @@
         <img class="footer-elka" src="../static/images/globalsImages/treeZeroGif.gif" />
         <img class="footer-gifts" src="../static/images/globalsImages/giftsImage.png" />
     </footer>
+    <audio id="audio" loop><source src="../static/sounds/sound.mp3" type="audio/mpeg"/></audio>
     <script src="../static/js/puzzleGame.js"></script>
     <script src="../static/js/treasureGame.js"></script>
     <script src="../static/js/soundSwitch.js"></script>

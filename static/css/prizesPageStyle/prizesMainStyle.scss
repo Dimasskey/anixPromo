@@ -7,13 +7,14 @@
         "guide",
         "mainPrizes",
         "weekPrizes",
+        "hillPrize",
         "prizesInAll",
         "firstFinalists",
         "fromSuppliers",
-        "../shared/soundSwitch",
         "../footer";
 
-@import "../shared/onload";
+@import   "../shared/soundSwitch",
+          "../shared/onload";
 
 body {
   background-color: var(--background-color);
@@ -30,6 +31,7 @@ body {
     ". guide ."
     ". mainPrizes ."
     ". weekPrizes ."
+    ". hillPrize ."
     ". prizesInAll ."
     ". firstFinalists ."
     ". prizesFromPartners ."
@@ -44,6 +46,7 @@ body {
     "guide"
     "mainPrizes"
     "weekPrizes"
+    "hillPrize"
     "prizesInAll"
     "firstFinalists"
     "prizesFromPartners";

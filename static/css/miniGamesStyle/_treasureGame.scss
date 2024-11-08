@@ -14,16 +14,17 @@
 .treasure-game-container {
   background-color: var(--background-color);
   width: 40vw;
-  height: 25vw;
+  height: 19vw;
   border-radius: 1vw;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: height 1s ease;
 
 
   @include mobile {
     width: 90vw;
-    height: 70vw;
+    height: 65vw;
     border-radius: 2vw;
     justify-content: normal
   }
@@ -71,7 +72,8 @@
   column-gap: 3vw;
   align-items: flex-end;
   margin-bottom: 0;
-  height: 60%;
+  height: 55%;
+  transition: height 0.8s ease-out;
 
   .treasure-game-chest {
     width: 8vw;
@@ -89,19 +91,4 @@
   }
 }
 
-.treasure-game-gift {
-  display: flex;
-  line-height: 1.25;
-  width: 100%;
-  justify-content: center;
-  height: 24%;
-  margin-top: 1vw;
-  text-align: center;
-  font-size: 1.5vw;
 
-  @include mobile {
-    height: 39%;
-    font-size: 5.5vw;
-    align-items: center;
-  }
-}

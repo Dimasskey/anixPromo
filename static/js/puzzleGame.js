@@ -5,12 +5,38 @@ let offsetX, offsetY;
 let gameCompleted = false;
 
 document.getElementById('step_30').addEventListener('click', openPuzzleGame = function() {
-    document.getElementById('puzzleGame').style.display = 'flex';
+    document.getElementById('Game3').style.display = 'flex';
 });
 
-document.querySelector('.puzzle-game-heading-cross').addEventListener('click', function() {
-    document.getElementById('puzzleGame').style.display = 'none';
+document.querySelector('.puzzle-game-heading-cross').addEventListener('click', async function() {
+    document.getElementById('Game3').style.display = 'none';
+    const user = await getCurrentUser ();
+    updateGameButtons(user);
+    if (gameCompleted) {
+        await popUpBalls(user);
+    }
 });
+
+
+async function getGiftPuzzleGame() {
+    const response = await fetch('https://promo.tdanix.ru/api/users_gifts', {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            'token': GetCookie("token")
+        },
+        body: JSON.stringify({
+            "game_1": false,
+            "game_2": false,
+            "game_3": true,
+            "game_4": false,
+        })
+    });
+    const result = await response.json();
+    if (response.ok) {
+        console.log("успех")
+    }
+}
 
 pieces.forEach(piece => {
     piece.addEventListener('dragstart', (e) => {
@@ -118,7 +144,8 @@ function checkGameCompletion() {
 
     if (isCompleted) {
         gameCompleted = true;
-        alert("Игра завершена!");
+        getGiftPuzzleGame()
+        console.log("успех пазлы");
     }
 }
 

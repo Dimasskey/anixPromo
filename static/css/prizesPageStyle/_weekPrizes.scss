@@ -2,11 +2,13 @@
   background-color: var(--background-color-alt);
   border-radius: 1vw;
   grid-area: weekPrizes;
-  padding-bottom: 2vw;
-  height: 47vw;
+  height: 55vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   @include mobile {
-    height: 66vw;
+    height: 69vw;
   }
 }
 
@@ -19,7 +21,7 @@
   object-fit: contain;
 
   @include mobile {
-    width: 18vw;
+    width: 22vw;
   }
 }
 .week-prizes-text-container {
@@ -69,6 +71,7 @@
   justify-items: center;
   align-items: end;
   margin-top: 1vw;
+  width: 96%
 }
 
 .week-icon-container {
@@ -76,7 +79,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  font-size: 1vw;
+  font-size: 1.2vw;
 
   @include mobile {
     font-size: 1.8vw;
@@ -85,20 +88,35 @@
 
 .week-prize-text {
   margin-top: 1.5vw;
-  padding: 0 5vw;
+  padding: 0 4vw;
   font-family: Inter, sans-serif;
   line-height: 1.25;
 }
 
 
-.week-grill-prize-container { grid-area: grill;}
-.week-aerogrill-prize-container { grid-area: aerogrill;}
-.week-yandex-prize-container { grid-area: yandex;}
-.week-robot-prize-container { grid-area: robot;}
-.week-biggrill-prize-container { grid-area: biggrill;}
+.week-grill-prize-container { grid-area: grill; position: relative}
+.week-aerogrill-prize-container { grid-area: aerogrill; position: relative}
+.week-yandex-prize-container { grid-area: yandex; position: relative}
+.week-robot-prize-container { grid-area: robot; position: relative}
+.week-biggrill-prize-container { grid-area: biggrill; position: relative}
 
-.week-grill-prize-container img {height: 10vw; @include mobile {height: 15vw;}}
-.week-aerogrill-prize-container img {height: 10vw; @include mobile {height: 14vw;}}
-.week-yandex-prize-container img {height: 8vw; @include mobile {height: 11vw;}}
-.week-robot-prize-container img {height: 8vw; @include mobile {height: 11vw;}}
-.week-biggrill-prize-container img {height: 24vw; @include mobile {height: 36vw;}}
+.week-grill-prize-icon {height: 14vw; @include mobile {height: 18vw;}}
+.week-aerogrill-prize-icon {height: 14vw; @include mobile {height: 18vw;}}
+.week-yandex-prize-icon {height: 10vw; @include mobile {height: 13vw;}}
+.week-robot-prize-icon {height: 9vw; @include mobile {height: 13vw;}}
+.week-biggrill-prize-icon {height: 30vw; @include mobile {height: 39vw;}}
+
+.week-count {
+  position: absolute;
+  width: 4vw;
+
+  @include mobile {
+    width: 6vw;
+  }
+}
+
+.week-grill-count {top: -1vw; right: -2vw;}
+.week-aerogrill-count {top: -1.2vw; right: -1vw; @include mobile {right: -2vw}}
+.week-yandex-count {top: -1vw; right: 1vw; @include mobile {right: 4vw}}
+.week-robot-count {top: -3vw; right: 0}
+.week-biggrill-count {top: -2vw; right: 0}

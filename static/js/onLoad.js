@@ -5,6 +5,17 @@ const toyRedCount = parseInt(document.getElementById('toy-red-count').textConten
 const toyGoldCount = parseInt(document.getElementById('toy-gold-count').textContent);
 const footerElka = document.querySelector('.footer-elka');
 
+document.querySelector('.pop-up-cross').addEventListener('click', () => {
+    document.querySelector('.pop-up-balls-wrapper').style.display = 'none';
+})
+
+
+// function soundFlex() {
+//     if (localStorage.getItem("sound") === null) {
+//         document.getElementById("sound-vkl").style.display = 'flex';
+//     }
+// }
+
 function GetCookie(name) {
     const cookieArray = document.cookie.split('; ');
     for (const cookie of cookieArray) {
@@ -31,6 +42,7 @@ async function getCurrentUser () {
             console.log("Текущий пользователь:", user);
             console.log("user.data" ,user.data.games)
             user = user.data
+            show_steps(user.count_steps)
             return user
         } else {
             window.location.href = "/login";
@@ -39,6 +51,8 @@ async function getCurrentUser () {
         console.error("Произошла ошибка:", error);
     }
 }
+
+
 
 function updateDOM(user) {
     console.log(user)
@@ -52,6 +66,7 @@ window.onload = async () => {
     const user = await getCurrentUser ();
     updateDOM(user);
     document.getElementById('onload').style.display = 'none';
+    // setTimeout(soundFlex, 500)
 };
 
 
@@ -67,6 +82,7 @@ const updateUserName = (user) => {
     }
 }
 const updateTree = () => {
+
     if (toyRedCount === 0 && toyGoldCount === 0) {
         footerElka.src = '../static/images/globalsImages/treeZeroGif.gif';
     } else if (toyRedCount === 1 && toyGoldCount === 0) {
@@ -82,7 +98,7 @@ const updateGameButtons = (user) => {
     const games = user.games
     const redBall = document.querySelector('.toy-red-icon');
     let countGameSuccess = 0
-
+    console.log("Объект", Object.entries(games))
     const treasureHandlers = [
         openTreasureGame,
         openTicTacGame,
@@ -96,20 +112,24 @@ const updateGameButtons = (user) => {
         step_30: document.getElementById('step_30'),
         step_40: document.getElementById('step_40')
     };
+    if (games.game_1.game_1 === true) {
+        countGameSuccess += 1;
+        buttons["step_10"].removeEventListener('click', treasureHandlers[0]);
+        buttons["step_10"].style.backgroundImage = 'none';
+    }
 
-    games.forEach((game, index) => {
-        const gameNumber = index + 1;
-        const buttonKey = `step_${gameNumber * 10}`;
-
+    Object.entries(games).forEach(([key, game], index) => {
+        console.log("game", game)
+        const buttonKey = `step_${(index + 1) * 10}`;
         if (buttons[buttonKey]) {
-            if (games[index].gift !== null) {
+            if (game === true) {
                 buttons[buttonKey].removeEventListener('click', treasureHandlers[index]);
-                buttons[buttonKey].style.backgroundImage = ('none');
-                countGameSuccess += 1
+                buttons[buttonKey].style.backgroundImage = 'none';
+                buttons[buttonKey].style.backgroundColor = "orange";
+                countGameSuccess += 1;
             }
         }
     });
-
     switch (countGameSuccess) {
         case 0: redBall.src = "../static/images/globalsImages/toyRed0.png";
             break;
@@ -124,26 +144,46 @@ const updateGameButtons = (user) => {
     }
 }
 
-// const updateBall = (user) => {
-//     let games = user.games
-//     const redBall = document.querySelector('.toy-red-icon');
-//
-//     games.forEach((game, index) => {
-//         const gameNumber = index + 1;
-//         const buttonKey = `step_${gameNumber * 10}`;
-//
-//         if (buttons[buttonKey]) {
-//             if (games[index].gift !== null) {
-//                 buttons[buttonKey].removeEventListener('click', treasureHandlers[index]);
-//                 buttons[buttonKey].style.backgroundImage = ('none');
-//             }
-//         }
-//     });
-// }
+const popUpBalls = async (user) =>  {
+    const popUpBall = document.querySelector('.pop-up-balls-wrapper');
+    const imageBall = document.querySelector('.pop-up-balls-image');
+    let popUpBallText = document.querySelector('.pop-up-balls-text').textContent;
+    let countGameSuccess = 0
+    const games = user.games
 
-// function show_steps(countSteps) {
-//     for (let i = 1; i <= countSteps; i++) {
-//         let step = document.getElementById('step_'+i);
-//         step.style.display = 'flex';
-//     }
-// }
+
+    if (games.game_1.game_1 === true) {
+        countGameSuccess += 1;
+    }
+
+    Object.entries(games).forEach(([key, game], index) => {
+        if (game === true) {
+            countGameSuccess += 1;
+        }
+    });
+
+    console.log(countGameSuccess)
+    switch (countGameSuccess) {
+        case 1: imageBall.src = "../static/images/globalsImages/toyRedPopUp1.png";
+                popUpBall.style.display = 'flex';
+            break;
+        case 2: imageBall.src = "../static/images/globalsImages/toyRedPopUp2.png";
+                popUpBall.style.display = 'flex';
+            break;
+        case 3: imageBall.src = "../static/images/globalsImages/toyRedPopUp3.png";
+                popUpBall.style.display = 'flex';
+            break;
+        case 4: imageBall.src = "../static/images/globalsImages/toyRedPopUpFull.png";
+                popUpBallText = "Поздравляем вы собрали шарик и шанс побороться за главные призы!"
+                popUpBall.style.display = 'flex';
+            break;
+    }
+}
+
+
+function show_steps(countSteps) {
+    for (let i = 1; i <= countSteps; i++) {
+        let step = document.getElementById('step_'+i);
+        step.style.display = 'flex';
+    }
+}

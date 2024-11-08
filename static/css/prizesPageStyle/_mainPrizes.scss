@@ -2,11 +2,15 @@
   grid-area: mainPrizes;
   background-color: var(--background-color-alt);
   border-radius: 1vw;
-  padding-bottom: 1vw;
-  height: 40vw;
+  height: 43vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   @include mobile {
-    height: 60vw;
+    height: 58vw;
+    justify-content: normal;
   }
 }
 
@@ -15,11 +19,11 @@
 
   .main-prizes-snake-icon {
     margin-top: 2vw;
-    width: 21vw;
+    width: 32vw;
     object-fit: contain;
 
     @include mobile {
-      width: 32vw;
+      width: 42vw;
     }
   }
 
@@ -54,30 +58,65 @@
 .main-prizes-icon-container {
   display: flex;
   align-items: flex-end;
-  padding-left: 2.5vw;
+  width: 89%;
 
   .icon-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    position: relative;
   }
 
   .main-prizes-icon-text {
     margin-top: 2vw;
     font-family: Inter, sans-serif;
     font-size: 1vw;
-    padding: 0 5.5vw;
     line-height: 1.25;
+    padding: 0 1.9vw;
 
     @include mobile {
       font-size: 2vw;
+      padding: 0 1vw;
     }
   }
 
-  .main-prizes-tvIcon { width: 26vw; object-fit: contain; @include mobile {width: 34vw;}}
-  .main-prizes-playIcon { width: 17vw; object-fit: contain; @include mobile {width: 29vw;}}
-  .main-prizes-holodilnikIcon { width: 13vw; object-fit: contain; @include mobile {width: 20vw;}}
+  .icon-wrapper-column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3vw;
+
+    .main-prizes-column-icon-text {
+      font-family: Inter, sans-serif;
+      margin-top: 1vw;
+      font-size: 1vw;
+      line-height: 1.25;
+      @include mobile {
+
+        font-size: 2vw;
+      }
+    }
+  }
+  .main-prizes-tvIcon { width: 16vw; object-fit: contain; @include mobile {width: 24vw;}}
+  .main-prizes-playIcon { width: 11vw; object-fit: contain; @include mobile {width: 17vw;}}
+  .main-prizes-holodilnikIcon { width: 6vw; object-fit: contain; @include mobile {width: 9vw;}}
+  .main-prizes-laptopIcon { width: 16vw; object-fit: contain; @include mobile {width: 29vw;}}
+  .main-prizes-robotMainIcon { width: 14vw; object-fit: contain; @include mobile {width: 20vw;}}
+
+  .main-count {
+    position: absolute;
+    width: 4vw;
+
+    @include mobile {
+      width: 6vw;
+    }
+  }
+
+  .main-prizes-tvIcon-count {top: -4vw; right: -2vw;}
+  .main-prizes-playIcon-count {top: -1.2vw; right: -1vw;}
+  .main-prizes-holodilnikIcon-count {top: 2vw; right: 1vw;}
+  .main-prizes-laptopIcon-count {top: -2vw; right: -2vw;}
+  .main-prizes-robotMainIcon-count {top: -3vw; right: -2vw;}
 }
 
 
