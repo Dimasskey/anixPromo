@@ -81,11 +81,11 @@ async def get_count_user_gifts_by_name_gift(user_id: str) -> int:
 
 
 async def update_user_gift(game: GameUpdate, user: UserRegular) -> dict:
-    import random
-    from main.utils.gift import get_gift
-    random_gift = random.choice(await get_gift())
-
     if game.game_1 is not False:
+        import random
+        from main.utils.gift import get_gift
+        random_gift = random.choice(await get_gift())
+
         await CRUD(
             session=SessionHandler.create(engine=engine), model=UsersGifts
         ).update(
