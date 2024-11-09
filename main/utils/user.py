@@ -64,10 +64,10 @@ async def get_login_user(user: UserLogin) -> dict:
             detail={"result": False, "message": "Пользователь с таким номером телефона не найден!", "data": {}}
         )
 
-    find_user_gift: list[UsersGifts] = await CRUD(
+    find_user_gift: UsersGifts = await CRUD(
         session=SessionHandler.create(engine=engine), model=UsersGifts
     ).read(
-        _where=[UsersGifts.user_id == str(user.id)], _all=True
+        _where=[UsersGifts.user_id == str(user.id)], _all=False
     )
 
     if not find_user_gift:
@@ -129,6 +129,7 @@ async def add_user_fio(fio: str, token: str) -> str:
 
 async def get_count_steps_user(user_id: str) -> int:
     from sqlalchemy import func
+
     count_steps = await CRUD(
         session=SessionHandler.create(engine=engine), model=Checks
     ).extended_query(

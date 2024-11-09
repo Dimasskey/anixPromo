@@ -104,7 +104,6 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
             p = 'pos'
 
         phone: int | bool = check_phone_number(i.phone)
-
         if phone is False and web:
             raise HTTPException(
                 status_code=400,
@@ -202,7 +201,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                     await update_check(code_check=code_check["code_check"], user_id=new_token)
 
                     if find_check.id_cassir is None and id_cassir is not None:
-                        await update_check(code_check=code_check["code_check"], id_cassir=id_cassir)
+                        await update_check(code_check=code_check["code_check"], id_cassir=str(id_cassir))
 
                     if find_check.fio_cassir is None and fio_cassir is not None:
                         await update_check(code_check=code_check["code_check"], fio_cassir=fio_cassir)
@@ -217,7 +216,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                     await update_check(code_check=code_check["code_check"], user_id=find_user.id)
 
                     if find_check.id_cassir is None and id_cassir is not None:
-                        await update_check(code_check=code_check["code_check"], id_cassir=id_cassir)
+                        await update_check(code_check=code_check["code_check"], id_cassir=str(id_cassir))
 
                     if find_check.fio_cassir is None and fio_cassir is not None:
                         await update_check(code_check=code_check["code_check"], fio_cassir=fio_cassir)
@@ -230,7 +229,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
 
             else:
                 if find_check.id_cassir is None and id_cassir is not None:
-                    await update_check(code_check=code_check["code_check"], id_cassir=id_cassir)
+                    await update_check(code_check=code_check["code_check"], id_cassir=str(id_cassir))
 
                 if find_check.fio_cassir is None and fio_cassir is not None:
                     await update_check(code_check=code_check["code_check"], fio_cassir=fio_cassir)
@@ -243,7 +242,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
 
         elif phone is False and find_check is not None:
             if find_check.id_cassir is None and id_cassir is not None:
-                await update_check(code_check=code_check["code_check"], id_cassir=id_cassir)
+                await update_check(code_check=code_check["code_check"], id_cassir=str(id_cassir))
 
             if find_check.fio_cassir is None and fio_cassir is not None:
                 await update_check(code_check=code_check["code_check"], fio_cassir=fio_cassir)

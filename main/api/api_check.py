@@ -1,9 +1,9 @@
-from main import main
-from fastapi import Request
-from main.schemas.response import DefaultResponse
-from main.schemas.check import UploadCheck
 import redis
 from rq import Queue
+from main import main
+from fastapi import Request
+from main.schemas.check import UploadCheck
+from main.schemas.response import DefaultResponse
 from main.utils.check import processed_check
 
 
