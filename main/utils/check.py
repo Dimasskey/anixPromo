@@ -237,7 +237,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                 if web:
                     raise HTTPException(
                         status_code=400,
-                        detail={"result": True, "message": "Данный чек уже зарегистрирован!", "data": {}}
+                        detail={"result": False, "message": "Данный чек уже зарегистрирован!", "data": {}}
                     )
 
         elif phone is False and find_check is not None:
