@@ -208,6 +208,7 @@ svg * {
   .header-container {
     font-size: 3.5vw;
     border-radius: 2vw;
+    margin-top: 2%;
   }
 }
 .header-inner {
@@ -251,6 +252,7 @@ svg * {
 @media (max-width: 900px) {
   .main-logo {
     height: 12vw;
+    padding: 7%;
   }
 }
 .main-logo__heading {
@@ -277,16 +279,16 @@ svg * {
   grid-area: infoBlock;
   background-color: #fff;
   border-radius: 1vw;
-  height: 24vw;
+  height: 28vw;
 }
 @media (max-width: 900px) {
   .info-block-container {
-    height: 32vw;
+    height: 50vw;
   }
 }
 
 .wrapper-suppliers {
-  width: 60%;
+  width: 66%;
 }
 
 .suppliers {
@@ -315,59 +317,15 @@ svg * {
 }
 @media (max-width: 900px) {
   .suppliers__image {
-    height: 7vw;
+    height: 12vw;
   }
 }
 
 .profile-and-date-container {
-  width: 40%;
+  width: 34%;
   background-color: #EEE;
   border-radius: 1vw;
   box-shadow: -1vw 1vw 1vw 0px rgba(0, 0, 0, 0.25);
-}
-
-.profile-authorization {
-  border-radius: 1vw;
-  height: 50%;
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  row-gap: 1vw;
-}
-@media (max-width: 900px) {
-  .profile-authorization {
-    height: 60%;
-    row-gap: 1.5vw;
-  }
-}
-.profile-authorization .profile-entrance__button {
-  background-color: #D92446;
-  border-radius: 3vw;
-  font-size: 1.5vw;
-  height: 3vw;
-  width: 15vw;
-}
-@media (max-width: 900px) {
-  .profile-authorization .profile-entrance__button {
-    height: 4.5vw;
-    width: 25vw;
-    font-size: 2.5vw;
-  }
-}
-.profile-authorization .profile-registration__button {
-  height: 3vw;
-  width: 15vw;
-  background-color: #FF4A15;
-  border-radius: 3vw;
-  font-size: 1.5vw;
-}
-@media (max-width: 900px) {
-  .profile-authorization .profile-registration__button {
-    height: 4.5vw;
-    width: 25vw;
-    font-size: 2.5vw;
-  }
 }
 
 .profile {
@@ -376,7 +334,7 @@ svg * {
   box-shadow: -1vw 1vw 1vw 0px rgba(0, 0, 0, 0.25);
 }
 .profile-container {
-  height: 50%;
+  height: 43%;
   display: grid;
   grid-template-columns: 0.7fr 0.3fr;
   grid-template-rows: auto 1fr;
@@ -384,7 +342,8 @@ svg * {
 }
 @media (max-width: 900px) {
   .profile-container {
-    height: 55%;
+    height: 41%;
+    grid-template-columns: 0.6fr 0.4fr;
   }
 }
 .profile-avatar {
@@ -403,8 +362,9 @@ svg * {
 }
 @media (max-width: 900px) {
   .profile-avatar-image {
-    width: 9vw;
-    height: 9vw;
+    width: 8vw;
+    height: 8vw;
+    border: 0.6vw solid white;
   }
 }
 .profile-avatar-fio {
@@ -422,6 +382,11 @@ svg * {
   display: flex;
   grid-area: toys;
   column-gap: 0.5vw;
+}
+@media (max-width: 900px) {
+  .profile .toys-container {
+    justify-content: flex-end;
+  }
 }
 .profile .toys-container .toy-gold-container {
   display: flex;
@@ -469,59 +434,143 @@ svg * {
 }
 @media (max-width: 900px) {
   .profile .complete-progress-count {
-    font-size: 2.5vw;
+    font-size: 3.5vw;
   }
 }
-.profile .complete-progress-bar {
+.profile .complete-progress .progress-bar {
+  display: flex;
+  align-items: center;
+  width: 75%;
+}
+@media (max-width: 900px) {
+  .profile .complete-progress .progress-bar {
+    width: 80%;
+  }
+}
+.profile .complete-progress .progress-bar .no-complete-progress-bar {
   border-radius: 1vw;
   height: 0.35vw;
-  width: 75%;
-  background-color: pink;
+  background-color: #D9D9D9;
   margin-top: 0.5vw;
+  width: 100%;
+  position: relative;
 }
 @media (max-width: 900px) {
-  .profile .complete-progress-bar {
-    height: 0.5vw;
+  .profile .complete-progress .progress-bar .no-complete-progress-bar {
+    height: 1vw;
+  }
+}
+.profile .complete-progress .progress-bar .no-complete-progress-bar .complete-progress-bar {
+  border-radius: 1vw;
+  height: 0.35vw;
+  background-color: #FE81CD;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+@media (max-width: 900px) {
+  .profile .complete-progress .progress-bar .no-complete-progress-bar .complete-progress-bar {
+    height: 1vw;
   }
 }
 
-.draw-date-container {
-  padding-top: 5%;
-  font-size: 1.25vw;
-  padding-left: 6%;
-  display: flex;
+.profile-actions-container {
   flex-direction: column;
   color: #000;
-  row-gap: 0.5vw;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  row-gap: 0.8vw;
+  height: 57%;
 }
 @media (max-width: 900px) {
-  .draw-date-container {
-    font-size: 2vw;
-    row-gap: 0.1vw;
+  .profile-actions-container {
+    height: 59%;
+    row-gap: 2vw;
   }
 }
-
-.draw-date {
+.profile-actions-container .rewards-button {
+  text-align: center;
+  width: 80%;
+  background-color: #FF4A15;
+  border-radius: 1vw;
+  color: white;
+  box-shadow: 0 0.2vw 0.5vw 0 rgba(0, 0, 0, 0.2509803922);
+  font-family: "Akshar", sans-serif;
+  font-weight: 600;
+  font-size: 1.2vw;
+  display: flex;
+  justify-content: center;
+  height: 2.2vw;
+  align-items: center;
+  cursor: pointer;
+}
+@media (max-width: 900px) {
+  .profile-actions-container .rewards-button {
+    border-radius: 1.5vw;
+    font-size: 2.2vw;
+    height: 4vw;
+    box-shadow: 0 0.5vw 0.5vw 0 rgba(0, 0, 0, 0.2509803922);
+  }
+}
+.profile-actions-container .draw-date-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5vw;
+  font-size: 1.1vw;
+}
+@media (max-width: 900px) {
+  .profile-actions-container .draw-date-container {
+    width: 92%;
+    row-gap: 1vw;
+    font-size: 1.8vw;
+  }
+}
+.profile-actions-container .draw-date-container .draw-date {
   display: flex;
   align-items: center;
   column-gap: 4%;
 }
-.draw-date-checkbox {
+.profile-actions-container .draw-date-container .draw-date-checkbox {
   display: flex;
   background-color: #D9D9D9;
-  height: 2vw;
-  width: 2vw;
+  height: 1.5vw;
+  width: 1.5vw;
   padding: 1.5%;
 }
 @media (max-width: 900px) {
-  .draw-date-checkbox {
-    height: 2.5vw;
-    width: 2.5vw;
-    padding: 1%;
+  .profile-actions-container .draw-date-container .draw-date-checkbox {
+    height: 3vw;
+    width: 3vw;
+    padding: 2%;
   }
 }
-.draw-date-checkbox-icon {
+.profile-actions-container .draw-date-container .draw-date-checkbox-icon {
   object-fit: contain;
+}
+.profile-actions-container .check-registration-button {
+  width: 80%;
+  text-align: center;
+  background-color: #D92446;
+  color: #fff;
+  border-radius: 1.5vw;
+  font-size: 1.5vw;
+  height: 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0.2vw 0.2vw 0 rgba(0, 0, 0, 0.3882352941);
+  cursor: pointer;
+}
+@media (max-width: 900px) {
+  .profile-actions-container .check-registration-button {
+    height: 7vw;
+    font-size: 2.2vw;
+    border-radius: 2vw;
+    box-shadow: 0 0.5vw 0.2vw 0 rgba(0, 0, 0, 0.3882352941);
+  }
 }
 
 .main-game {

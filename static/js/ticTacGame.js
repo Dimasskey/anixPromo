@@ -19,6 +19,7 @@ document.querySelector('.tic-tac-game-heading-cross').addEventListener('click', 
     document.getElementById('Game2').style.display = 'none';
     const user = await getCurrentUser ();
     updateGameButtons(user);
+    updateProgressBar(user);
     if (winner) {
         await popUpBalls(user);
     }

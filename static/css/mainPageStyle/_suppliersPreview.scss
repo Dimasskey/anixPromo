@@ -3,16 +3,16 @@
   grid-area: infoBlock;
   background-color: #fff;
   border-radius: 1vw;
-  height: 24vw;
+  height: 28vw;
 
   @include mobile {
-    height: 32vw;
+    height: 50vw;
   }
 
 }
 
 .wrapper-suppliers {
-  width: 60%;
+  width: 66%;
 }
 
 .suppliers {
@@ -40,7 +40,7 @@
     height: 5vw;
 
     @include mobile {
-      height: 7vw;
+      height: 12vw;
     }
   }
 }

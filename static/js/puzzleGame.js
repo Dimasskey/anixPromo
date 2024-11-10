@@ -12,6 +12,7 @@ document.querySelector('.puzzle-game-heading-cross').addEventListener('click', a
     document.getElementById('Game3').style.display = 'none';
     const user = await getCurrentUser ();
     updateGameButtons(user);
+    updateProgressBar(user);
     if (gameCompleted) {
         await popUpBalls(user);
     }

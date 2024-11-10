@@ -208,6 +208,7 @@ svg * {
   .header-container {
     font-size: 3.5vw;
     border-radius: 2vw;
+    margin-top: 2%;
   }
 }
 .header-inner {

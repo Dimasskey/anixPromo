@@ -4,6 +4,7 @@ let addFio = document.createElement("button");
 const toyRedCount = parseInt(document.getElementById('toy-red-count').textContent);
 const toyGoldCount = parseInt(document.getElementById('toy-gold-count').textContent);
 const footerElka = document.querySelector('.footer-elka');
+const progressBarCount = document.querySelector('.complete-progress-count');
 
 document.querySelector('.pop-up-cross').addEventListener('click', () => {
     document.querySelector('.pop-up-balls-wrapper').style.display = 'none';
@@ -39,9 +40,8 @@ async function getCurrentUser () {
         });
         if (response.ok) {
             let user = await response.json();
-            console.log("Текущий пользователь:", user);
-            console.log("user.data" ,user.data.games)
             user = user.data
+            console.log(user)
             show_steps(user.count_steps)
             return user
         } else {
@@ -55,11 +55,10 @@ async function getCurrentUser () {
 
 
 function updateDOM(user) {
-    console.log(user)
     updateUserName(user)
     updateTree()
     updateGameButtons(user)
-
+    updateProgressBar(user)
 }
 
 window.onload = async () => {
@@ -98,7 +97,6 @@ const updateGameButtons = (user) => {
     const games = user.games
     const redBall = document.querySelector('.toy-red-icon');
     let countGameSuccess = 0
-    console.log("Объект", Object.entries(games))
     const treasureHandlers = [
         openTreasureGame,
         openTicTacGame,
@@ -119,7 +117,6 @@ const updateGameButtons = (user) => {
     }
 
     Object.entries(games).forEach(([key, game], index) => {
-        console.log("game", game)
         const buttonKey = `step_${(index + 1) * 10}`;
         if (buttons[buttonKey]) {
             if (game === true) {
@@ -144,7 +141,7 @@ const updateGameButtons = (user) => {
     }
 }
 
-const popUpBalls = async (user) =>  {
+const popUpBalls = (user) =>  {
     const popUpBall = document.querySelector('.pop-up-balls-wrapper');
     const imageBall = document.querySelector('.pop-up-balls-image');
     let popUpBallText = document.querySelector('.pop-up-balls-text').textContent;
@@ -162,7 +159,6 @@ const popUpBalls = async (user) =>  {
         }
     });
 
-    console.log(countGameSuccess)
     switch (countGameSuccess) {
         case 1: imageBall.src = "../static/images/globalsImages/toyRedPopUp1.png";
                 popUpBall.style.display = 'flex';
@@ -178,6 +174,26 @@ const popUpBalls = async (user) =>  {
                 popUpBall.style.display = 'flex';
             break;
     }
+}
+
+const updateProgressBar = (user) => {
+    const countSteps = user.count_steps;
+    let totalSteps, progressPercent;
+    if (countSteps <= 40) {
+        totalSteps = 40;
+        progressBarCount.textContent = `${countSteps} из ${totalSteps}`;
+        progressPercent = (countSteps / totalSteps) * 100;
+    } else if (countSteps > 40) {
+        totalSteps = 20;
+        let countStepsSecond = countSteps - 40;
+        progressBarCount.textContent = `${countStepsSecond} из ${totalSteps}`;
+        progressPercent = (countStepsSecond / totalSteps) * 100;
+    }
+
+    const progressBarComplete = document.querySelector('.complete-progress-bar');
+
+    progressBarComplete.style.width= `${progressPercent}%`
+
 }
 
 

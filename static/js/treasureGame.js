@@ -21,6 +21,7 @@ close.addEventListener('click', async function() {
     treasureContainer.style.display = 'none';
     const user = await getCurrentUser ();
     updateGameButtons(user);
+    updateProgressBar(user);
     if (chestOpened) {
         await popUpBalls(user);
     }
