@@ -9,9 +9,13 @@ from main.utils.check import processed_check
 
 @main.post('/api/add_code', status_code=200, tags=["Checks"], response_model=DefaultResponse)
 def api_add_code(upload_check: UploadCheck):
-    q = Queue(connection=redis.Redis())
-    q.enqueue(processed_check, args=(upload_check.checks, False, None,))
-    return DefaultResponse()
+    try:
+        q = Queue(connection=redis.Redis())
+        q.enqueue(processed_check, args=(upload_check.checks, False, None,))
+        return DefaultResponse()
+    except Exception as e:
+        print(f'ERROR: {e}')
+        return DefaultResponse(result=False, message='Аргументы переданы не корректно', data={})
 
 
 @main.post('/api/add_code_web', status_code=200, tags=["Checks"], response_model=DefaultResponse)
