@@ -19,11 +19,11 @@
         <form class="registration-form" method="post" onsubmit="handleRegistration(event)">
             <div class="full-name-input-container">
                 <label class="full-name-text" for="fio">ФИО</label>
-                <input class="full-name-input" type="text" name="fio" id="fio" placeholder="Введите ваше ФИО" />
+                <input class="full-name-input" type="text" name="fio" id="fio" placeholder="Введите ваше ФИО" required autocomplete="off"/>
             </div>
             <div class="registration-number-input-container">
                 <label class="registration-number-text" for="regNumber">Телефон</label>
-                <input class="registration-number-input tel" type="text" name="number" id="regNumber" placeholder="Введите ваш номер телефона" />
+                <input class="registration-number-input tel" type="text" name="number" id="regNumber" placeholder="Введите ваш номер телефона" required autocomplete="off"/>
             </div>
             <div class="registration-submit-button-container">
                 <button class="registration-submit-button" type="submit">
@@ -39,7 +39,7 @@
         <form class="login-form" method="post" onsubmit="handleLogin(event)">
             <div class="login-number-input-container">
                 <label class="login-number-text" for="logNumber">Телефон</label>
-                <input class="login-number-input tel" type="text" name="number" id="logNumber" placeholder="Введите ваш номер телефона" />
+                <input class="login-number-input tel" type="text" name="number" id="logNumber" placeholder="Введите ваш номер телефона" required/>
             </div>
             <div class="login-submit-button-container">
                 <button class="login-submit-button" type="submit">

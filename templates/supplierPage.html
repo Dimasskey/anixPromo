@@ -53,7 +53,7 @@
         </div>
         <div class="reviews-wrapper">
             <div class="reviews-header">
-                <img class="reviews-header__logo" src="../static/images/suppliersImages/2_3.png">
+                <img class="reviews-header__logo" src="../static/images/suppliersImages/1_1.png">
                 <span class="reviews-header__description">Описание</span>
             </div>
             <div class="reviews-gift-and-description">
@@ -75,61 +75,18 @@
             </div>
             <div class="reviews-comment-wrapper">
                 <div class="reviews-comment-head">
-                    <span class="reviews-comment-head__text">Ваши отзывы</span>
+                    <span class="reviews-comment-head__text">Отзывы</span>
                 </div>
                 <div class="reviews-container">
-                    <div class="review-container">
-                        <div class="review-profile-name">
-                            <span class="review-profile-name__text">Егор Черников</span>
-                        </div>
-                        <div class="review-text-container">
-                            <span class="review-text">какой то отзыв</span>
-                        </div>
-                        <div class="review-image-container">
-                            <img class="review-image" src="../static/images/globalsImages/emptyImage.png" />
-                        </div>
-                    </div>
-                    <div class="review-container">
-                        <div class="review-profile-name">
-                            <span class="review-profile-name__text">Егор Черников</span>
-                        </div>
-                        <div class="review-text-container">
-                            <span class="review-text">какой то отзыв</span>
-                        </div>
-                        <div class="review-image-container">
-                            <img class="review-image" src="../static/images/globalsImages/emptyImage.png" />
-                        </div>
-                    </div>
-                    <div class="review-container">
-                        <div class="review-profile-name">
-                            <span class="review-profile-name__text">Егор Черников</span>
-                        </div>
-                        <div class="review-text-container">
-                            <span class="review-text">какой то отзыв</span>
-                        </div>
-                        <div class="review-image-container">
-                            <img class="review-image" src="../static/images/globalsImages/emptyImage.png" />
-                        </div>
-                    </div>
-                    <div class="review-container">
-                        <div class="review-profile-name">
-                            <span class="review-profile-name__text">Егор Черников</span>
-                        </div>
-                        <div class="review-text-container">
-                            <span class="review-text">какой то отзыв</span>
-                        </div>
-                        <div class="review-image-container">
-                            <img class="review-image" src="../static/images/globalsImages/emptyImage.png" />
-                        </div>
-                    </div>
+
                 </div>
                 <div class="review-add-container">
                     <div class="review-add-head">
                         <span class="review-add-head__text">Добавьте ваш отзыв</span>
                     </div>
-                    <form class="review-add-form">
+                    <form class="review-add-form" onsubmit="handleAddReview(event)">
                         <div class="review-add-text-input">
-                            <textarea class="review-add-textarea" ></textarea>
+                            <textarea class="review-add-textarea" required></textarea>
                             <div class="review-add-attachment">
                                 <img class="review-add-attachment__icon" src="../static/images/globalsImages/addAttachmentIcon.png">
                                 <span class="review-add-attachment__text">Добавить фото</span>
@@ -139,12 +96,14 @@
                             </div>
                         </div>
                         <div class="review-add-submit">
-                            <button class="review-add-submit__button"></button>
+                            <button class="review-add-submit__button"> Отправить</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <script src="../static/js/supplier.js"></script>
+    <script src="../static/js/onLoad.js"></script>
 </body>
 </html>

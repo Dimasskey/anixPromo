@@ -230,6 +230,10 @@ svg * {
   background-color: #FF4A15;
   border-radius: 2vw;
   font-size: 2vw;
+  transition: background-color 0.2s ease;
+}
+.authentication-container .registration-button:hover {
+  background-color: #8f280b;
 }
 @media (max-width: 900px) {
   .authentication-container .registration-button {
@@ -245,6 +249,10 @@ svg * {
   background-color: #D92446;
   border-radius: 2vw;
   font-size: 2vw;
+  transition: background-color 0.2s ease;
+}
+.authentication-container .entrance-button:hover {
+  background-color: #932d16;
 }
 @media (max-width: 900px) {
   .authentication-container .entrance-button {
@@ -384,6 +392,14 @@ svg * {
   background-color: #FF4A15;
   margin-right: 1.1vw;
   font-size: 1.1vw;
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+.registration-container .registration-form .registration-submit-button-container .registration-submit-button:hover {
+  background-color: #932d16;
+}
+.registration-container .registration-form .registration-submit-button-container .registration-submit-button:active {
+  top: 0.1vw;
 }
 @media (max-width: 900px) {
   .registration-container .registration-form .registration-submit-button-container .registration-submit-button {
@@ -489,9 +505,17 @@ svg * {
   height: 2vw;
   width: 9vw;
   border-radius: 2vw;
-  background-color: #FF4A15;
+  background-color: #ff4015;
   margin-right: 1.1vw;
   font-size: 1.1vw;
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+.login-container .login-form .login-submit-button-container .login-submit-button:hover {
+  background-color: #932d16;
+}
+.login-container .login-form .login-submit-button-container .login-submit-button:active {
+  top: 0.1vw;
 }
 @media (max-width: 900px) {
   .login-container .login-form .login-submit-button-container .login-submit-button {

@@ -2,8 +2,7 @@ const soundSwitch = document.getElementById('soundSwitch');
 const soundOnImage = '../static/images/globalsImages/soundOnIcon.png';
 const soundOffImage = '../static/images/globalsImages/soundOffIcon.png';
 const audio = document.getElementById('audio');
-const soundOn = document.querySelector(".sound-on")
-const soundOff = document.querySelector(".sound-off")
+
 
 // soundOn.addEventListener('click', () => {
 //     localStorage.setItem("sound", "on")
@@ -25,16 +24,27 @@ const soundOff = document.querySelector(".sound-off")
 //     }
 // }
 
-soundSwitch.addEventListener('click', function() {
+
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     soundSwitch.click();
+// })
+
+function playSound() {
     if (soundSwitch.src.includes('soundOnIcon.png') && !audio.muted) {
         soundSwitch.src = soundOffImage;
         audio.muted = true
-        localStorage.setItem("sound", "off")
     } else {
+        audio.volume = 0.005;
+        audio.play()
         audio.muted = false
         soundSwitch.src = soundOnImage;
-        localStorage.setItem("sound", "on")
     }
-});
+}
+
+soundSwitch.addEventListener('click', playSound);
+
+
+
 
 // window.addEventListener('sound', playAudio);

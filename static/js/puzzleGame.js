@@ -1,5 +1,8 @@
 const puzzleContainer = document.querySelector('.puzzle-board');
 const pieces = Array.from(document.querySelectorAll('.puzzle-piece'));
+const puzzleGameContainer = document.querySelector(".puzzle-game-container")
+const resultPuzzleGame = document.createElement("div")
+resultPuzzleGame.className = "puzzle-result-game"
 let draggedPiece = null;
 let offsetX, offsetY;
 let gameCompleted = false;
@@ -144,6 +147,15 @@ function checkGameCompletion() {
     const isCompleted = currentOrder.every((id, index) => id === expectedOrder[index]);
 
     if (isCompleted) {
+        if (mediaQuery.matches) {
+            puzzleGameContainer.style.height = "106vw"
+        } else {
+            puzzleGameContainer.style.height = "27vw"
+        }
+        puzzleGameContainer.append(resultPuzzleGame)
+        setTimeout(() => {
+            resultPuzzleGame.innerHTML = "Вы собрали паззл!"
+        },500)
         gameCompleted = true;
         getGiftPuzzleGame()
         console.log("успех пазлы");

@@ -5,7 +5,7 @@
   color: #6D6D6D;
   display: flex;
   flex-direction: column;
-  padding: 0.2vw 2.5vw 5vw 2.5vw;
+  padding: 0.2vw 2.5vw 2vw 2.5vw;
   row-gap: 1.5vw;
 
   @include mobile {
@@ -93,10 +93,14 @@
     display: flex;
     width: 100%;
     height: 100%;
-    box-shadow: 0px 4px 24.5px 0px rgba(0, 0, 0, 0.2509803922);
+    box-shadow: 0 0.2vw 0.5vw 0 rgba(0, 0, 0, 0.2509803922);
     flex-direction: column;
     border-radius: 1vw;
-    padding: 1vw 2.2vw 2vw 2.2vw;
+    padding: 1vw 2.2vw 1vw 2.2vw;
+
+    @include mobile {
+      padding: 1vw 2.2vw 3vw 2.2vw;
+    }
 
 
     .reviews-comment-head {
@@ -116,6 +120,7 @@
       flex-direction: column;
       row-gap: 1vw;
       max-height: 26vw;
+      min-height: 2vw;
       overflow-y: auto;
 
       @include mobile {
@@ -133,6 +138,14 @@
         border-radius: 24px;
       }
 
+      .empty-review {
+        font-size: 1vw;
+
+        @include mobile {
+          font-size: 3vw;
+        }
+      }
+
       .review-container {
         display: grid;
         grid-template-rows: 2vw 6vw;
@@ -145,8 +158,10 @@
         @include mobile {
           grid-template-rows: 4vw 12vw;
           grid-template-columns: 68vw 14vw;
-          height: 15vw;
+          height: 16vw;
         }
+
+
 
         .review-profile-name {
           grid-area: name;
@@ -202,7 +217,6 @@
       margin-top: 3vw;
 
       .review-add-head {
-        height: 1.8vw;
 
         @include mobile {
           height: 5.8vw;
@@ -289,6 +303,45 @@
               &__input {
                 display: none;
               }
+            }
+          }
+        }
+
+
+        .review-add-submit {
+          margin-top: 1.25vw;
+          display: flex;
+          justify-content: flex-end;
+          color: white;
+
+          @include mobile {
+            margin-top: 2vw;
+          }
+
+          &__button {
+            height: 2.7vw;
+            width: 10vw;
+            border-radius: 2vw;
+            background-color: #ff4015;
+            margin-right: 1.7vw;
+            font-size: 1.5vw;
+            transition: background-color 0.2s ease;
+            position: relative;
+
+            &:hover {
+              background-color: #932d16;
+            }
+
+            &:active {
+              top: 0.1vw;
+            }
+
+            @include mobile {
+              height: 5vw;
+              width: 25vw;
+              border-radius: 4vw;
+              margin-right: 0.5vw;
+              font-size: 3vw;
             }
           }
         }

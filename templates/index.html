@@ -27,15 +27,6 @@
             </svg>
         </div>
     </div>
-<!--    <div class="sound-wrapper" id="sound-vkl" style="display: none">-->
-<!--        <div class="sound-container" style="">-->
-<!--            <span class="sound-text">Включить звук???</span>-->
-<!--            <div>-->
-<!--                <img class="sound-off" src="../static/images/globalsImages/soundOffIcon.png">-->
-<!--                <img class="sound-on" src="../static/images/globalsImages/soundOnIcon.png">-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
     <div class="main-page-wrapper">
         <header class="wrapper__header header">
             <div class="header-container">
@@ -52,7 +43,7 @@
                                 <a href="/gifts">Подарки</a>
                             </li>
                             <li class="navigation-menu__item">
-                                <a href="/reviews">Победители</a>
+                                <a href="/suppliers">Победители</a>
                             </li>
                         </ul>
                     </nav>
@@ -69,30 +60,38 @@
             <div class="wrapper-suppliers">
                 <div class="suppliers-container suppliers">
                     <span class="suppliers__heading">Поставщики</span>
-                    <img class="suppliers__image" src="../static/images/suppliersImages/1_1.png" alt= />
-                    <img class="suppliers__image" src="../static/images/suppliersImages/1_2.png" alt= />
-                    <img class="suppliers__image" src="../static/images/suppliersImages/1_3.png" alt= />
-                    <img class="suppliers__image" src="../static/images/suppliersImages/1_4.png" alt= />
-                    <img class="suppliers__image" src="../static/images/suppliersImages/2_1.png" alt= />
-                    <img class="suppliers__image" src="../static/images/suppliersImages/2_2.png" alt= />
-                    <img class="suppliers__image" src="../static/images/suppliersImages/2_3.png" alt= />
-                    <img class="suppliers__image" src="../static/images/suppliersImages/2_4.png" alt= />
-                    <img class="suppliers__image" src="../static/images/suppliersImages/3_1.png" alt= />
-                    <img class="suppliers__image" src="../static/images/suppliersImages/3_2.png" alt= />
-                    <img class="suppliers__image" src="../static/images/suppliersImages/3_3.png" alt= />
-                    <img class="suppliers__image" src="../static/images/suppliersImages/3_4.png" alt= />
-                    <img class="suppliers__image" src="../static/images/suppliersImages/4_1.png" alt= />
-                    <img class="suppliers__image" src="../static/images/suppliersImages/4_2.png" alt= />
-                    <img class="suppliers__image" src="../static/images/suppliersImages/4_3.png" alt= />
-                    <img class="suppliers__image" src="../static/images/suppliersImages/4_4.png" alt= />
+                    <div class="suppliers-rows-1">
+                        <img class="suppliers__image" src="../static/images/suppliersImages/1_1.png" supplier-id="1" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/1_2.png" supplier-id="2" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/1_3.png" supplier-id="3" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/1_4.png" supplier-id="4" />
+                    </div>
+                    <div class="suppliers-rows-2">
+                        <img class="suppliers__image" src="../static/images/suppliersImages/2_1.png" supplier-id="5" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/2_2.png" supplier-id="6" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/2_3.png" supplier-id="7" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/2_4.png" supplier-id="8" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/2_5.png" supplier-id="9" />
+                    </div>
+                    <div class="suppliers-rows-3">
+                        <img class="suppliers__image" src="../static/images/suppliersImages/3_1.png" supplier-id="10" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/3_2.png" supplier-id="11" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/3_3.png" supplier-id="12" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/3_4.png" supplier-id="13" />
+                    </div>
+                    <div class="suppliers-rows-4">
+                        <img class="suppliers__image" src="../static/images/suppliersImages/4_1.png" supplier-id="14" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/4_2.png" supplier-id="15" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/4_3.png" supplier-id="16" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/4_4.png" supplier-id="17" />
+                        <img class="suppliers__image" src="../static/images/suppliersImages/4_5.png" supplier-id="18" />
+                    </div>
                 </div>
             </div>
             <div class="profile-and-date-container">
                 <div class="profile-container profile">
                     <div class="profile-avatar">
                         <div class="profile-avatar-image"></div>
-<!--                        <span class="profile-avatar-fio">Егор Черников</span>-->
-<!--                        <button class="profile-avatar-fio">Добавить ФИО</button>-->
                     </div>
                     <div class="toys-container">
                         <div class="toy-gold-container">
@@ -295,19 +294,41 @@
             </span>
         </div>
     </div>
+    <div class="registration-check-wrapper" style="display: none;">
+        <div class="registration-check-container">
+            <div class="registration-check-head">
+                Регистрация чека
+                <img class="registration-check-head-cross" src="../static/images/miniGameImages/crossIcon.png" />
+            </div>
+            <form class="registration-check-form" method="post" onsubmit="handleRegCheck(event)">
+                <div class="registration-check-input-container">
+                    <label class="registration-check-input-label">№ чека</label>
+                    <input class="registration-check-input" type="text" placeholder="Введите номер чека" id="numberCheck" required autocomplete="off"/>
+                </div>
+                <div class="registration-check-button-container">
+                    <button class="registration-check-button">
+                        Отправить
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <div class="sound-switch">
-        <img class="sound-switch-icon" id="soundSwitch" src="../static/images/globalsImages/soundOnIcon.png"/>
+        <img class="sound-switch-icon" id="soundSwitch" src="../static/images/globalsImages/soundOffIcon.png"/>
     </div>
     <footer class="footer" id="footer">
         <img class="footer-elka" src="../static/images/globalsImages/treeZeroGif.gif" />
         <img class="footer-gifts" src="../static/images/globalsImages/giftsImage.png" />
     </footer>
     <audio id="audio" loop><source src="../static/sounds/sound.mp3" type="audio/mpeg"/></audio>
+    <script src="../static/js/soundSwitch.js"></script>
     <script src="../static/js/puzzleGame.js"></script>
     <script src="../static/js/treasureGame.js"></script>
-    <script src="../static/js/soundSwitch.js"></script>
+    <script src="../static/js/supplier.js"></script>
     <script src="../static/js/ticTacGame.js"></script>
     <script src="../static/js/wheelGame.js"></script>
+    <script src="../static/js/checkRegistration.js"></script>
 </body>
 </html>
 

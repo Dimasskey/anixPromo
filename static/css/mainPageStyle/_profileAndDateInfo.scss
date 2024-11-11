@@ -192,6 +192,15 @@
     height: 2.2vw;
     align-items: center;
     cursor: pointer;
+    position: relative;
+
+    &:hover {
+      background-color: #932d16;
+    }
+
+    &:active {
+      top: 0.1vw;
+    }
 
     @include mobile {
       border-radius: 1.5vw;
@@ -252,6 +261,15 @@
     justify-content: center;
     box-shadow: 0 0.2vw 0.2vw 0 #00000063;
     cursor: pointer;
+    position: relative;
+
+    &:hover {
+      background-color: #932d16;
+    }
+
+    &:active {
+      top: 0.1vw;
+    }
 
     @include mobile {
       height: 7vw;

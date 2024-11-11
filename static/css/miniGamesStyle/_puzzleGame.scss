@@ -14,11 +14,13 @@
 .puzzle-game-container {
   background-color: var(--background-color);
   width: 35vw;
-  height: 27vw;
+  height: 26vw;
   border-radius: 1vw;
   display: flex;
   flex-direction: column;
   align-items: center;
+  row-gap: 1vw;
+  transition: height 1s ease;
 
   @include mobile {
     width: 90vw;
@@ -64,13 +66,8 @@
 
 .puzzle-game {
   display: flex;
-  height: 94%;
   justify-content: center;
   flex-direction: column;
-
-  @include mobile {
-    height: 83%;
-  }
 }
 
 .puzzle-board {
@@ -112,5 +109,17 @@
 
 .empty {
   background-color: transparent;
+}
+
+.puzzle-result-game {
+  text-align: center;
+  width: 40%;
+  font-size: 1.5vw;
+
+  @include mobile {
+    margin-top: 3.3vw;
+    width: 60%;
+    font-size: 4vw;
+  }
 }
 

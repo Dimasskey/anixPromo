@@ -66,21 +66,22 @@ function checkWin() {
         }
     }
     if (winner) {
+        if (mediaQuery.matches) {
+            ticTacContainer.style.height = "109vw"
+        } else {
+            ticTacContainer.style.height = "29vw"
+        }
+        ticTacContainer.append(resultGame)
         if (winner === 'player') {
-            console.log("игрок")
+            setTimeout(() => {
+                resultGame.innerHTML = "Вы выиграли!"
+            },500)
             getGiftTicTacGame()
         } else {
-            if (mediaQuery.matches) {
-                ticTacContainer.style.height = "109vw"
-            } else {
-                ticTacContainer.style.height = "29vw"
-            }
-            ticTacContainer.append(resultGame)
             setTimeout(() => {
                 resultGame.innerHTML = "Вы проиграли! Повторите попытку."
                 resetBut.style.display = 'flex';
             },500)
-
             console.log("компьютер");
         }
         gameActive = false;

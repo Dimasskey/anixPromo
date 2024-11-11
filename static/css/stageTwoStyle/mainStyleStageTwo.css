@@ -292,33 +292,72 @@ svg * {
 }
 
 .suppliers {
-  display: grid;
-  grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
-  grid-template-rows: 0.4fr 1fr 1fr 1fr 1fr;
-  grid-template-areas: "heading heading heading heading";
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-items: center;
   height: 100%;
+  row-gap: 0.5vw;
 }
 .suppliers__heading {
   grid-area: heading;
   color: var(--background-color-el);
   font-size: 2vw;
   font-weight: bold;
+  height: 10%;
 }
 @media (max-width: 900px) {
   .suppliers__heading {
     font-size: 2.5vw;
   }
 }
-.suppliers__image {
-  object-fit: contain;
-  height: 5vw;
+.suppliers .suppliers-rows-1 {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 20%;
+  column-gap: 1vw;
 }
-@media (max-width: 900px) {
-  .suppliers__image {
-    height: 12vw;
-  }
+.suppliers .suppliers-rows-1 .suppliers__image {
+  object-fit: contain;
+  width: 9vw;
+  cursor: pointer;
+}
+.suppliers .suppliers-rows-2 {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 20%;
+  column-gap: 2vw;
+}
+.suppliers .suppliers-rows-2 .suppliers__image {
+  object-fit: contain;
+  width: 6.2vw;
+  cursor: pointer;
+}
+.suppliers .suppliers-rows-3 {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 20%;
+  column-gap: 1vw;
+}
+.suppliers .suppliers-rows-3 .suppliers__image {
+  object-fit: contain;
+  width: 9vw;
+  cursor: pointer;
+}
+.suppliers .suppliers-rows-4 {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 20%;
+  column-gap: 1.5vw;
+}
+.suppliers .suppliers-rows-4 .suppliers__image {
+  object-fit: contain;
+  width: 6.5vw;
+  cursor: pointer;
 }
 
 .profile-and-date-container {
@@ -505,6 +544,13 @@ svg * {
   height: 2.2vw;
   align-items: center;
   cursor: pointer;
+  position: relative;
+}
+.profile-actions-container .rewards-button:hover {
+  background-color: #932d16;
+}
+.profile-actions-container .rewards-button:active {
+  top: 0.1vw;
 }
 @media (max-width: 900px) {
   .profile-actions-container .rewards-button {
@@ -563,6 +609,13 @@ svg * {
   justify-content: center;
   box-shadow: 0 0.2vw 0.2vw 0 rgba(0, 0, 0, 0.3882352941);
   cursor: pointer;
+  position: relative;
+}
+.profile-actions-container .check-registration-button:hover {
+  background-color: #932d16;
+}
+.profile-actions-container .check-registration-button:active {
+  top: 0.1vw;
 }
 @media (max-width: 900px) {
   .profile-actions-container .check-registration-button {
