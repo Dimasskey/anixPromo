@@ -4,6 +4,7 @@ from main.models.session import SessionHandler
 from main.schemas.user_gift import UserGiftRegular, GameRegular, GameUpdate
 from main.schemas.gift import GiftRegular
 from main.schemas.user import UserRegular
+from fastapi import HTTPException
 
 
 async def get_user_gift(user_id: str) -> GameRegular | dict:
@@ -81,7 +82,7 @@ async def get_count_user_gifts_by_name_gift(user_id: str) -> int:
 
 
 async def update_user_gift(game: GameUpdate, user: UserRegular) -> dict:
-    if game.game_1 is not False:
+    if game.game_1 is not False and user.count_steps >= 10:
         import random
         from main.utils.gift import get_gift
         random_gift = random.choice(await get_gift())
@@ -94,7 +95,7 @@ async def update_user_gift(game: GameUpdate, user: UserRegular) -> dict:
         )
         return {"message": "Успешно добавлен пользовательский подарок!", "data": random_gift}
 
-    elif game.game_2 is not False:
+    elif game.game_2 is not False and user.count_steps >= 20:
         await CRUD(
             session=SessionHandler.create(engine=engine), model=UsersGifts
         ).update(
@@ -102,7 +103,7 @@ async def update_user_gift(game: GameUpdate, user: UserRegular) -> dict:
         )
         return {"message": "Урааа вы прошли 2 игру!", "data": {}}
 
-    elif game.game_3 is not False:
+    elif game.game_3 is not False and user.count_steps >= 30:
         await CRUD(
             session=SessionHandler.create(engine=engine), model=UsersGifts
         ).update(
@@ -110,10 +111,20 @@ async def update_user_gift(game: GameUpdate, user: UserRegular) -> dict:
         )
         return {"message": "Урааа вы прошли 3 игру!", "data": {}}
 
-    elif game.game_4 is not False:
+    elif game.game_4 is not False and user.count_steps >= 40:
         await CRUD(
             session=SessionHandler.create(engine=engine), model=UsersGifts
         ).update(
             _where=[UsersGifts.user_id == user.token], _values=dict(game_4=game.game_4)
         )
         return {"message": "Урааа вы прошли 4 игру!", "data": {}}
+
+    else:
+        raise HTTPException(
+            status_code=400,
+            detail={
+                "result": False,
+                "message": "К сожалению, у вас недостаточно шагов, чтобы пройти эту игру!",
+                "data": {}
+            }
+        )

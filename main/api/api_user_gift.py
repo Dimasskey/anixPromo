@@ -9,6 +9,4 @@ from main.schemas.user_gift import GameUpdate
 async def api_update_user_gift(game: GameUpdate, user=Depends(get_current_user)):
     from main.utils.user_gift import update_user_gift
     user_gift = await update_user_gift(game=game, user=user)
-    if user_gift:
-        return DefaultResponse(message=user_gift['message'], data=user_gift['data'])
-    return DefaultResponse()
+    return DefaultResponse(message=user_gift['message'], data=user_gift['data'])
