@@ -63,6 +63,13 @@ class Suppliers(Base):
         autoincrement=False,
         default='00000000-0000-0000-0000-000000000000'
     )
+    logo_attachment_id = Column(
+        UUID(as_uuid=False),
+        nullable=True,
+        server_default=text('uuid(\'00000000-0000-0000-0000-000000000000\')'),
+        autoincrement=False,
+        default='00000000-0000-0000-0000-000000000000'
+    )
 
 
 class Comments(Base):

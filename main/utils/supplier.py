@@ -10,7 +10,8 @@ def serialize_supplier(supplier: Suppliers) -> SupplierRegular:
         id=supplier.id,
         name=supplier.name,
         about=supplier.about,
-        attachment_id=supplier.attachment_id
+        attachment_id=supplier.attachment_id,
+        logo_attachment_id=supplier.logo_attachment_id
     )
 
 
