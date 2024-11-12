@@ -6,11 +6,7 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
   <title>Змейка удачи 2025</title>
   <link rel="stylesheet" href="../static/css/supplierPageStyle/supplierMainStyle.css">
-    <script>
-        window.onload = function () {
-            document.getElementById('onload').style.display = 'none';
-        }
-    </script>
+    <script src="../static/js/getUser.js"></script>
 </head>
 <body>
     <div class="onload-wrapper" id="onload">
@@ -94,6 +90,10 @@
                                     <input class="review-add-attachment-label__input" type="file" accept="image/png, image/jpg, image/jpeg"/>
                                 </label>
                             </div>
+                            <div class="review-add-attachment-preview" style="display: none;">
+                                <button type="button" class="review-add-attachment-preview__delete">Удалить фото</button>
+                                <img src="" alt="" class="review-add-attachment-preview__image">
+                            </div>
                         </div>
                         <div class="review-add-submit">
                             <button class="review-add-submit__button"> Отправить</button>
@@ -104,6 +104,5 @@
         </div>
     </div>
     <script src="../static/js/supplier.js"></script>
-    <script src="../static/js/onLoad.js"></script>
 </body>
 </html>

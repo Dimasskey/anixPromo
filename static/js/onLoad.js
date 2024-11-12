@@ -11,46 +11,40 @@ document.querySelector('.pop-up-cross').addEventListener('click', () => {
 })
 
 
-// function soundFlex() {
-//     if (localStorage.getItem("sound") === null) {
-//         document.getElementById("sound-vkl").style.display = 'flex';
+// function GetCookie(name) {
+//     const cookieArray = document.cookie.split('; ');
+//     for (const cookie of cookieArray) {
+//         const [cookieName, cookieValue] = cookie.split('=');
+//         if (cookieName.trim() === name) {
+//             return cookieValue;
+//         }
 //     }
+//     return null;
 // }
 
-function GetCookie(name) {
-    const cookieArray = document.cookie.split('; ');
-    for (const cookie of cookieArray) {
-        const [cookieName, cookieValue] = cookie.split('=');
-        if (cookieName.trim() === name) {
-            return cookieValue;
-        }
-    }
-    return null;
-}
-
-async function getCurrentUser () {
-    let cookie = GetCookie("token");
-    try {
-        const response = await fetch('https://promo.tdanix.ru/api/users/me', {
-            method: 'GET',
-            headers: {
-                'accept': 'application/json',
-                'token': cookie,
-            },
-        });
-        if (response.ok) {
-            let user = await response.json();
-            user = user.data
-            console.log(user)
-            show_steps(user.count_steps)
-            return user
-        } else {
-            window.location.href = "/login";
-        }
-    } catch (error) {
-        console.error("Произошла ошибка:", error);
-    }
-}
+// async function getCurrentUser () {
+//     let cookie = GetCookie("token");
+//     try {
+//         const response = await fetch('https://promo.tdanix.ru/api/users/me', {
+//             method: 'GET',
+//             headers: {
+//                 'accept': 'application/json',
+//                 'token': cookie,
+//             },
+//         });
+//         if (response.ok) {
+//             let user = await response.json();
+//             user = user.data
+//             console.log(user)
+//             show_steps(user.count_steps)
+//             return user
+//         } else {
+//             window.location.href = "/login";
+//         }
+//     } catch (error) {
+//         console.error("Произошла ошибка:", error);
+//     }
+// }
 
 
 
@@ -59,13 +53,14 @@ function updateDOM(user) {
     updateTree()
     updateGameButtons(user)
     updateProgressBar(user)
+    show_steps(user.count_steps)
 }
 
 window.onload = async () => {
     const user = await getCurrentUser ();
     updateDOM(user);
     document.getElementById('onload').style.display = 'none';
-    // setTimeout(soundFlex, 500)
+
 };
 
 

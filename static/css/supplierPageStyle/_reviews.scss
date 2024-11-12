@@ -125,7 +125,7 @@
 
       @include mobile {
         row-gap: 2vw;
-        max-height: 51vw;
+        max-height: 52vw;
       }
 
       &::-webkit-scrollbar {
@@ -149,15 +149,16 @@
       .review-container {
         display: grid;
         grid-template-rows: 2vw 6vw;
-        grid-template-columns: 46vw 8.5vw;
+        grid-template-columns: 46vw 6vw;
         grid-template-areas:
         "name name"
         "review image";
         height: 8vw;
+        column-gap: 1vw;
 
         @include mobile {
           grid-template-rows: 4vw 12vw;
-          grid-template-columns: 68vw 14vw;
+          grid-template-columns: 68vw 12vw;
           height: 16vw;
         }
 
@@ -194,20 +195,24 @@
         .review-image-container {
           display: flex;
           grid-area: image;
-          width: 100%;
-          height: 100%;
+          width: 6vw;
+          height: 6vw;
           align-items: center;
           justify-content: center;
           object-fit: contain;
+          border: 0.15vw solid #6D6D6D;
+          border-radius: 0.5vw;
+          overflow: hidden;
+
+          @include mobile {
+            height: 12vw;
+            width: 12vw;
+          }
 
           .review-image {
-            width: 6vw;
-            height: 6vw;
-
-            @include mobile {
-              width: 12vw;
-              height: 12vw;
-            }
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
           }
         }
       }
@@ -237,6 +242,7 @@
 
         .review-add-text-input {
           display: flex;
+          column-gap: 1vw;
 
           .review-add-textarea {
             resize: none;
@@ -265,7 +271,6 @@
             border-radius: 0.5vw;
             width: 6vw;
             height: 6vw;
-            margin-left: 1.3vw;
 
             @include mobile {
               width: 12vw;
@@ -303,6 +308,45 @@
               &__input {
                 display: none;
               }
+            }
+          }
+
+          .review-add-attachment-preview {
+            text-align: center;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            border: 0.15vw solid;
+            border-radius: 0.5vw;
+            width: 6vw;
+            height: 6vw;
+
+            @include mobile {
+              width: 12vw;
+              height: 12vw;
+            }
+
+            &__delete {
+              position: absolute;
+              top: -1.8vw;
+              width: 105%;
+              border: 0.15vw solid;
+              border-radius: 0.5vw;
+              font-size: 0.7vw;
+              height: 1.5vw;
+              box-shadow: 0 0 0.2vw 0.1vw rgba(0, 0, 0, 0.2) inset;
+
+              @include mobile {
+                top: -3.8vw;
+                font-size: 1.5vw;
+                height: 2.5vw;
+              }
+            }
+
+            &__image {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
             }
           }
         }
@@ -347,5 +391,29 @@
         }
       }
     }
+  }
+}
+
+.review-image-full-screen-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.review-image-full-screen-container {
+  width: 65vw;
+  height: 40vw;
+
+  .review-image-full-screen {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 }
