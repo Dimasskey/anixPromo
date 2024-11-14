@@ -18,3 +18,6 @@ app.get('/login', async (req, res) => {
 app.get('/suppliers', async (req, res) => {
     res.sendFile('templates/supplierPage.html', {root: __dirname });
 });
+app.get('/stage_two', async (req, res) => {
+    res.sendFile('templates/gameStageTwo.html', {root: __dirname });
+});

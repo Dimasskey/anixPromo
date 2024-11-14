@@ -1,4 +1,4 @@
-.wheel-game-wrapper {
+.find-diff-game-wrapper {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,150 +11,156 @@
   z-index: 1000;
 }
 
-.wheel-game-container {
+.find-diff-game-container {
   background-color: var(--background-color);
-  width: 35vw;
-  height: 30vw;
+  width: 80vw;
+  height: 34vw;
   border-radius: 1vw;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1vw;
+  row-gap: 1vw;
+  transition: height 1s ease;
 
   @include mobile {
-    width: 77vw;
-    height: 91vw;
+    width: 96vw;
+    height: 152vw;
     border-radius: 4vw;
-  }
-}
-
-.wheel-game-heading {
-  display: flex;
-  align-items: center;
-  position: relative;
-  padding-top: 1vw;
-
-  @include mobile {
-    padding-top: 3vw;
+    row-gap: 5vw;
   }
 
-  &-text {
+  .find-diff-heading {
+    display: flex;
+    align-items: center;
+    position: relative;
     font-size: 2vw;
-    font-family: "Akshar", sans-serif;
-    font-weight: 600;
-
-    @include mobile {
-      font-size: 6vw;
-    }
-  }
-
-  &-cross {
-    width: 2vw;
-    height: 2vw;
-    position: absolute;
-    cursor: pointer;
-    right: -8vw;
-
-    @include mobile {
-      width: 5vw;
-      height: 5vw;
-    }
-  }
-}
-
-.wheel-game {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-
-  @include mobile {
-    height: 81%;
+    width: 100%;
     justify-content: center;
+
+    @include mobile {
+      font-size: 5vw;
+    }
+
+    &-text {
+      font-size: 2vw;
+      font-family: "Akshar", sans-serif;
+      font-weight: 600;
+
+      @include mobile {
+        font-size: 6vw;
+      }
+    }
+
+    &-cross {
+      width: 2vw;
+      height: 2vw;
+      position: absolute;
+      cursor: pointer;
+      right: 1vw;
+
+      @include mobile {
+        width: 6vw;
+        height: 6vw;
+        top: 2vw;
+        right: 2vw;
+      }
+    }
+  }
+  .find-diff-game {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+      row-gap: 5vw;
+    }
+
+    .find-diff-main-image-container {
+      position: relative;
+      .find-diff-main-image {
+        width: 38vw;
+        border-radius: 1vw;
+
+        @include mobile {
+          width: 90vw;
+        }
+      }
+
+      .diff-1.found, .diff-2.found, .diff-3.found, .diff-4.found, .diff-5.found, .diff-6.found, .diff-7.found, .diff-8.found, .diff-9.found, .diff-10.found, .diff-11.found, .diff-12.found, .diff-13.found {
+        opacity: 1;
+      }
+    }
+
+    .find-diff-second-image-container {
+      position: relative;
+      .find-diff-second-image {
+        width: 38vw;
+        border-radius: 1vw;
+
+        @include mobile {
+          width: 90vw;
+        }
+      }
+
+      .diff-1.found, .diff-2.found, .diff-3.found, .diff-4.found, .diff-5.found, .diff-6.found, .diff-7.found, .diff-8.found, .diff-9.found, .diff-10.found, .diff-11.found, .diff-12.found, .diff-13.found {
+        opacity: 1;
+      }
+    }
   }
 }
 
-.wheel-container {
-  position: relative;
-  width: 20vw;
-  height: 20vw;
-  border-radius: 50%;
-  overflow: hidden;
+.find-diff-result {
+  font-size: 2vw;
 
   @include mobile {
-    width: 63vw;
-    height: 63vw;
+    font-size: 6vw
   }
 }
-
-.wheel {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  transition: transform 4s ease-out;
+.diff-1 {position: absolute; width: 3.5vw; height: 3.5vw; border-radius: 50%; bottom: 2.2vw; left: 3.1vw; border: 0.35vw solid red; opacity: 0; transition: opacity 0.5s ease;
+  @include mobile {width: 8vw; height: 8vw; bottom: 5.5vw; left: 8vw; border: 0.7vw solid red;}
+}
+.diff-2 {position: absolute; width: 2vw; height: 1.5vw; border-radius: 50%; bottom: 3.9vw; left: 7.1vw; border: 0.35vw solid red; opacity: 0; transition: opacity 0.5s ease;
+  @include mobile {width: 5vw; height: 3.5vw; bottom: 9vw; left: 16.5vw; border: 0.7vw solid red;}
+}
+.diff-3 {position: absolute; width: 2.5vw; height: 2vw; border-radius: 50%; bottom: 4.3vw; right: 8.5vw; border: 0.35vw solid red; opacity: 0; transition: opacity 0.5s ease;
+  @include mobile {width: 5vw; height: 5vw; bottom: 10.3vw; right: 20.5vw; border: 0.7vw solid red;}
+}
+.diff-4 {position: absolute; width: 4.5vw; height: 4vw; border-radius: 50%; bottom: 4.3vw; right: 10.2vw; border: 0.35vw solid red; opacity: 0; transition: opacity 0.5s ease;
+  @include mobile {width: 9vw; height: 9vw; bottom: 9.5vw; right: 25.2vw; border: 0.7vw solid red;}
+}
+.diff-5 {position: absolute; width: 2vw; height: 2vw; border-radius: 50%; top: 7.5vw; right: 7vw; border: 0.35vw solid red; opacity: 0; transition: opacity 0.5s ease;
+  @include mobile {width: 5vw; height: 5vw; top: 17.5vw; right: 16.2vw; border: 0.7vw solid red;}
+}
+.diff-6 {position: absolute; width: 13vw; height: 3vw; border-radius: 50%; top: 10.6vw; right: 2.2vw; border: 0.35vw solid red; opacity: 0; transition: opacity 0.5s ease;
+  @include mobile {width: 34vw; height: 7vw; top: 25.5vw; right: 1.9vw; border: 0.7vw solid red;}
+}
+.diff-7 {position: absolute; width: 5vw; height: 3vw; border-radius: 50%; top: 9vw; left: 8vw; border: 0.35vw solid red; opacity: 0; transition: opacity 0.5s ease;
+  @include mobile {width: 10vw; height: 7vw; top: 21.5vw; left: 19.9vw; border: 0.7vw solid red;}
+}
+.diff-8 {position: absolute; width: 6vw; height: 6vw; border-radius: 50%; top: 15.5vw; left: 5.2vw; border: 0.35vw solid red; opacity: 0; transition: opacity 0.5s ease;
+  @include mobile {width: 14vw; height: 14vw; top: 37.5vw; left: 11.9vw; border: 0.7vw solid red;}
+}
+.diff-9 {position: absolute; width: 6vw; height: 5vw; border-radius: 50%; top: 10.5vw; left: 5.2vw; border: 0.35vw solid red; opacity: 0; transition: opacity 0.5s ease;
+  @include mobile {width: 15vw; height: 15vw; top: 23.5vw; left: 11.9vw; border: 0.7vw solid red;}
+}
+.diff-10 {position: absolute; width: 6vw; height: 4vw; border-radius: 50%; top: 12.5vw; right: 1.2vw; border: 0.35vw solid red; opacity: 0; transition: opacity 0.5s ease;
+  @include mobile {width: 12vw; height: 10vw; top: 30.5vw; right: 3.9vw; border: 0.7vw solid red;}
+}
+.diff-11 {position: absolute; width: 3vw; height: 2vw; border-radius: 50%; top: 9vw; right: 4.2vw; border: 0.35vw solid red; opacity: 0; transition: opacity 0.5s ease;
+  @include mobile {width: 8vw; height: 5vw; top: 21.5vw; right: 9.9vw; border: 0.7vw solid red;}
+}
+.diff-12 {position: absolute; width: 8vw; height: 4vw; border-radius: 50%; top: 13vw; right: 7.2vw; border: 0.35vw solid red; opacity: 0; transition: opacity 0.5s ease;
+  @include mobile {width: 18vw; height: 10vw; top: 30.5vw; right: 16.9vw; border: 0.7vw solid red;}
+}
+.diff-13 {position: absolute; width: 9vw; height: 9vw; border-radius: 50%; top: 10vw; right: 18.2vw; border: 0.35vw solid red; opacity: 0; transition: opacity 0.5s ease;
+  @include mobile {width: 22vw; height: 20vw; top: 23.5vw; right: 42.9vw; border: 0.7vw solid red;}
 }
 
-.segment {
-  position: absolute;
-  width: 50%;
-  height: 50%;
-  background-color: transparent;
-  clip-path: polygon(100% 100%, 0 100%, 0 0);
-  transform-origin: 100% 100%;
-}
 
-.segment:nth-child(1) { background-color: #f44336; transform: rotate(0deg); }
-.segment:nth-child(2) { background-color: #ce21f3; transform: rotate(45deg); }
-.segment:nth-child(3) { background-color: #FFEB3B; transform: rotate(90deg); }
-.segment:nth-child(4) { background-color: #FF9800; transform: rotate(135deg); }
-.segment:nth-child(5) { background-color: #9C27B0; transform: rotate(180deg); }
-.segment:nth-child(6) { background-color: #3F51B5; transform: rotate(225deg); }
-.segment:nth-child(7) { background-color: #00BCD4; transform: rotate(270deg); }
-.segment:nth-child(8) { background-color: #8BC34A; transform: rotate(315deg); }
 
-.wheel-button {
-  width: 10vw;
-  height: 2vw;
-  cursor: pointer;
-  background-color: #FF4A15;
-  border-radius: 2vw;
-  margin-top: 1vw;
-  font-size: 1.2vw;
-  font-family: "Akshar", sans-serif;
-
-  @include mobile {
-    width: 41vw;
-    height: 7vw;
-    border-radius: 3vw;
-    margin-top: 2vw;
-    font-size: 4.2vw;
-  }
-}
-
-.icon-segment {
-  width: 5vw;
-  object-fit: contain;
-  position: absolute;
-  top: 6vw;
-  right: 4vw;
-}
-
-.pointer {
-  display: flex;
-  position: absolute;
-  top: 11vw;
-  left: -1vw;
-  border: 0.5vw solid transparent;
-  border-left: 1vw solid #ff0000;
-  @include mobile {
-    top: 30vw;
-    left: -5vw;
-    border: 2.5vw solid transparent;
-    border-left: 5vw solid #ff0000;
-  }
-}
 
 
 

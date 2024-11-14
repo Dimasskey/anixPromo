@@ -60,6 +60,28 @@
         font-size: 1.8vw;
       }
     }
+
+    &-add-fio {
+      width: 7vw;
+      font-size: 1vw;
+      margin-left: 5%;
+      line-height: 1.25;
+      position: relative;
+      background: none;
+
+      &:hover {
+        scale: 1.2;
+        text-decoration: underline;
+      }
+
+      &:active {
+        top: 0.1vw;
+      }
+
+      @include mobile {
+        font-size: 1.8vw;
+      }
+    }
   }
 
   .toys-container {

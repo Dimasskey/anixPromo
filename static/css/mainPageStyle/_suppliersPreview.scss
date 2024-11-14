@@ -32,7 +32,7 @@
     height: 10%;
 
     @include mobile {
-      font-size: 2.5vw;
+      font-size: 3.5vw;
     }
   }
   .suppliers-rows-1 {
@@ -42,10 +42,18 @@
     height: 20%;
     column-gap: 1vw;
 
+    @include mobile {
+      column-gap: 0.5vw;
+    }
+
     .suppliers__image {
       object-fit: contain;
       width: 9vw;
       cursor: pointer;
+
+      @include mobile {
+        width: 15vw;
+      }
     }
   }
 
@@ -54,12 +62,20 @@
     width: 100%;
     justify-content: center;
     height: 20%;
-    column-gap: 2vw;
+    column-gap: 1vw;
+
+    @include mobile {
+      column-gap: 0.5vw;
+    }
 
     .suppliers__image {
       object-fit: contain;
-      width: 6.2vw;
+      width: 7.2vw;
       cursor: pointer;
+
+      @include mobile {
+        width: 12vw;
+      }
     }
   }
 
@@ -74,6 +90,10 @@
       object-fit: contain;
       width: 9vw;
       cursor: pointer;
+
+      @include mobile {
+        width: 14.8vw;
+      }
     }
   }
 
@@ -84,10 +104,18 @@
     height: 20%;
     column-gap: 1.5vw;
 
+    @include mobile {
+      column-gap: 1vw;
+    }
+
     .suppliers__image {
       object-fit: contain;
       width: 6.5vw;
       cursor: pointer;
+
+      @include mobile {
+        width: 11.5vw;
+      }
     }
   }
 }

@@ -140,28 +140,36 @@
 const reviewsContainer = document.querySelector('.reviews-container');
 const urlParams = new URLSearchParams(window.location.search);
 const supplierId = urlParams.get('id');
+const mediaQuery = window.matchMedia("(max-width: 900px)")
 document.addEventListener('DOMContentLoaded', async function() {
-    const suppliers = document.querySelectorAll('.suppliers__image');
+
     const fileInputContainer = document.querySelector('.review-add-attachment');
     const fileInput = document.querySelector('.review-add-attachment-label__input');
     const previewContainer = document.querySelector('.review-add-attachment-preview');
     const previewImage = document.querySelector('.review-add-attachment-preview__image');
     const clearInput = document.querySelector('.review-add-attachment-preview__delete');
-
-
-    suppliers.forEach(supplier => {
-        supplier.addEventListener('click', function() {
-            const supplierId = this.getAttribute('supplier-id');
-            window.location.href = `/suppliers/?id=${supplierId}`;
-        });
-    });
-
-
-    console.log("supplierId", supplierId);
+    const headerLogo = document.querySelector('.reviews-supplier-logo');
     const supplierDescription = document.querySelector('.reviews-description__text');
 
     if (supplierId) {
-        supplierDescription.textContent = await getSupplier(supplierId);
+        const supplierData = await getSupplier(supplierId);
+        const response = await fetch(`https://media.tdanix.ru/api/attachments/${supplierData.data.logo_attachment_id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });
+
+        if (supplierId > 4 && supplierId < 10 || supplierId > 13 && supplierId < 19) {
+            if (mediaQuery.matches) {
+                headerLogo.style.width = '15vw';
+            } else {
+                headerLogo.style.width = '7vw';
+            }
+
+        }
+        headerLogo.src = response.url
+        supplierDescription.textContent = supplierData.data.about
         await loadReviews(supplierId);
     }
 
@@ -191,26 +199,33 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 
     reviewImages.forEach(reviewImage => {
-        reviewImage.addEventListener('click', function() {
-            const reviewImageFullScreenWrapper = document.createElement('div');
-            reviewImageFullScreenWrapper.className = 'review-image-full-screen-wrapper';
-            const reviewImageFullScreenContainer = document.createElement('div');
-            reviewImageFullScreenContainer.className = 'review-image-full-screen-container';
-            const reviewImageFullScreen = document.createElement('img');
-            reviewImageFullScreen.className = 'review-image-full-screen';
-            reviewImageFullScreen.src = reviewImage.src
+        if (reviewImage.src !== "https://media.tdanix.ru/api/attachments/00000000-0000-0000-0000-000000000000") {
+            reviewImage.addEventListener('click', function () {
+                const reviewImageFullScreenWrapper = document.createElement('div');
+                reviewImageFullScreenWrapper.className = 'review-image-full-screen-wrapper';
+                const reviewImageFullScreenContainer = document.createElement('div');
+                reviewImageFullScreenContainer.className = 'review-image-full-screen-container';
+                const reviewImageFullScreen = document.createElement('img');
+                reviewImageFullScreen.className = 'review-image-full-screen';
+                reviewImageFullScreen.src = reviewImage.src
+                const reviewCloseFullScreen = document.createElement('img');
+                reviewCloseFullScreen.className = 'review-close-full-screen';
+                reviewCloseFullScreen.src = "../static/images/miniGameImages/crossIcon.png";
 
-            reviewImageFullScreenWrapper.appendChild(reviewImageFullScreenContainer);
-            reviewImageFullScreenContainer.appendChild(reviewImageFullScreen);
+                reviewImageFullScreenWrapper.appendChild(reviewImageFullScreenContainer);
+                reviewImageFullScreenWrapper.appendChild(reviewCloseFullScreen);
+                reviewImageFullScreenContainer.appendChild(reviewImageFullScreen);
 
-            document.body.appendChild(reviewImageFullScreenWrapper);
 
-            reviewImageFullScreenWrapper.addEventListener('click', function(event) {
-                if (event.target === reviewImageFullScreenWrapper) {
+                document.body.appendChild(reviewImageFullScreenWrapper);
+
+                reviewCloseFullScreen.addEventListener('click', function () {
                     document.body.removeChild(reviewImageFullScreenWrapper);
-                }
+                });
             });
-        });
+        } else {
+            reviewImage.style.cursor = "default"
+        }
     });
     document.getElementById('onload').style.display = 'none';
 });
@@ -225,7 +240,7 @@ async function getSupplier(supplierId) {
     });
     const data = await response.json();
     console.log("data", data)
-    return data.data.about;
+    return data;
 }
 
 
@@ -237,18 +252,16 @@ async function loadReviews(supplierId) {
         }
     });
     const data = await response.json();
-    console.log(data.data)
+    console.log(data.data);
 
     if (data.data.length > 0) {
-        const reviewPromises = data.data.map(async (review) => {
-            console.log("review", review)
+        for (const review of data.data) {
             const response = await fetch(`https://media.tdanix.ru/api/attachments/${review.attachment_id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
                 }
             });
-
             const reviewContainer = document.createElement('div');
             reviewContainer.className = 'review-container';
 
@@ -271,8 +284,8 @@ async function loadReviews(supplierId) {
 
             const reviewImage = document.createElement('img');
             reviewImage.className = 'review-image';
-            reviewImage.src = `${response.url}`;
-            reviewImage.loading = "lazy"
+            reviewImage.loading = "lazy";
+            reviewImage.src = `${response.url}`
 
             reviewProfileName.appendChild(reviewProfileText);
             reviewTextContainer.appendChild(reviewText);
@@ -282,11 +295,7 @@ async function loadReviews(supplierId) {
             reviewImageContainer.appendChild(reviewImage);
 
             reviewsContainer.appendChild(reviewContainer);
-
-        });
-
-
-        await Promise.all(reviewPromises);
+        }
     } else {
         const emptyReviews = document.createElement("div");
         emptyReviews.className = "empty-review";
@@ -295,6 +304,7 @@ async function loadReviews(supplierId) {
         reviewsContainer.appendChild(emptyReviews);
     }
 }
+
 
 
 
@@ -321,16 +331,16 @@ async function handleAddReview(event) {
         }),
     });
 
+    const result = await response.json()
     if (response.ok) {
         alert("Отзыв успешно добавлен!");
         window.location.reload();
     } else {
-        console.error('Ошибка при добавлении отзыва:', await response.json());
+        document.querySelector(".review-response").textContent = result.message;
     }
 }
 
 const uploadImage = async (e) => {
-    const submitButton = document.querySelector(".review-add-submit__button")
     let file = e.target.files[0];
     console.log(file);
 
