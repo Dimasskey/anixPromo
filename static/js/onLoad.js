@@ -4,10 +4,10 @@ document.querySelector('.pop-up-cross').addEventListener('click', () => {
 
 function updateDOM(user) {
     updateUserName(user)
-    updateTree()
     updateGameButtons(user)
     updateProgressBar(user)
-    show_steps(user.count_steps)
+    updateBalls(user)
+    show_steps(user)
 }
 
 
@@ -23,17 +23,33 @@ const updateUserName = (user) => {
     }
 }
 
-const updateTree = () => {
-
-    if (toyRedCount === 0 && toyGoldCount === 0) {
+const updateTree = (toyRedCount) => {
+    if (toyRedCount === 0) {
         footerElka.src = '../static/images/globalsImages/treeZeroGif.gif';
-    } else if (toyRedCount === 1 && toyGoldCount === 0) {
+    } else if (toyRedCount === 1) {
         footerElka.src = '../static/images/globalsImages/treeOneGif.gif';
-    } else if (toyRedCount === 2 && toyGoldCount === 0) {
+    } else if (toyRedCount === 2) {
         footerElka.src = '../static/images/globalsImages/treeTwoGif.gif';
     } else {
         footerElka.src = '../static/images/globalsImages/treeThreeGif.gif';
     }
+}
+
+const updateBalls = (user) => {
+    let countSteps = user.count_steps;
+    const countGameSuccess = getCountGameSuccess(user);
+    let toyRedCount = parseInt(document.getElementById('toy-red-count').textContent);
+
+    if (countSteps > 39 && countGameSuccess === 4) {
+        document.querySelector("#toy-red-count").innerHTML = "2 шт";
+        toyRedCount = 2;
+
+    } else if (countGameSuccess < 4 && countSteps > 39) {
+        document.querySelector("#toy-red-count").innerHTML = "1 шт";
+        toyRedCount = 1;
+    }
+
+    updateTree(toyRedCount)
 }
 
 const updateGameButtons = (user) => {
@@ -121,7 +137,6 @@ const popUpBalls = (user) =>  {
         case 4: imageBall.src = "../static/images/globalsImages/toyRedPopUpFull.png";
                 popUpBallText.innerHTML = "Поздравляем вы собрали шарик и шанс побороться за главные призы!"
                 popUpBall.style.display = 'flex';
-                document.querySelector("#toy-red-count").innerHTML = "1 шт";
             break;
     }
 }
@@ -136,19 +151,20 @@ const popUpBallsSteps = (user) => {
 
     if (countSteps > 39 && countGameSuccess === 4) {
         popUpBallText.innerHTML = "Поздравляем вы получили шарик за прохождение змейки и шанс побороться за главные призы!"
-        document.querySelector("#toy-red-count").innerHTML = "2 шт";
     } else if (countGameSuccess < 4 && countSteps > 39) {
         popUpBallText.innerHTML = "Поздравляем вы получили шарик за прохождение змейки и шанс побороться за главные призы! <br/>Для прохождение на второй этап вам нужно пройти все мини-игры"
-        document.querySelector("#toy-red-count").innerHTML = "1 шт";
         popUpBallText.style.width = "85%"
     }
     popUpBall.style.display = 'flex';
 }
 
 const updateProgressBar = (user) => {
-    const countSteps = user.count_steps;
+    let countSteps = user.count_steps;
     let totalSteps, progressPercent;
     totalSteps = 40;
+    if (countSteps > 40) {
+        countSteps = 40;
+    }
     progressBarCount.textContent = `${countSteps} из ${totalSteps}`;
     progressPercent = (countSteps / totalSteps) * 100;
 
@@ -159,13 +175,13 @@ const updateProgressBar = (user) => {
 }
 
 
-function show_steps(countSteps) {
-    let count_stepss = countSteps;
+function show_steps(user) {
+    let countSteps = user.count_steps;
 
-    if (count_stepss > 40) {
-        count_stepss = 40;
+    if (countSteps > 40) {
+        countSteps = 40;
     }
-    for (let i = 1; i <= count_stepss; i++) {
+    for (let i = 1; i <= countSteps; i++) {
         let step = document.getElementById('step_'+i);
         step.style.display = 'flex';
     }
@@ -185,7 +201,7 @@ const relocateStageTwo = (user) => {
     }
 }
 
-window.addEventListener('load',   async () => {
+window.addEventListener('DOMContentLoaded',   async () => {
     const user = await getCurrentUser ();
     if (user.count_steps > 39) {
         popUpBallsSteps(user)

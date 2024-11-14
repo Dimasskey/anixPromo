@@ -1513,7 +1513,7 @@ svg * {
 
 .find-diff-game-container {
   background-color: var(--background-color);
-  width: 61vw;
+  width: 80vw;
   height: 34vw;
   border-radius: 1vw;
   display: flex;
@@ -1526,8 +1526,9 @@ svg * {
 @media (max-width: 900px) {
   .find-diff-game-container {
     width: 96vw;
-    height: 157vw;
+    height: 152vw;
     border-radius: 4vw;
+    row-gap: 5vw;
   }
 }
 .find-diff-game-container .find-diff-heading {
@@ -1577,34 +1578,37 @@ svg * {
   .find-diff-game-container .find-diff-game {
     flex-direction: column;
     align-items: center;
+    row-gap: 5vw;
   }
 }
 .find-diff-game-container .find-diff-game .find-diff-main-image-container {
   position: relative;
 }
 .find-diff-game-container .find-diff-game .find-diff-main-image-container .find-diff-main-image {
-  width: 29vw;
+  width: 38vw;
+  border-radius: 1vw;
 }
 @media (max-width: 900px) {
   .find-diff-game-container .find-diff-game .find-diff-main-image-container .find-diff-main-image {
-    width: 79vw;
+    width: 90vw;
   }
 }
-.find-diff-game-container .find-diff-game .find-diff-main-image-container .diff-1.found, .find-diff-game-container .find-diff-game .find-diff-main-image-container .diff-2.found, .find-diff-game-container .find-diff-game .find-diff-main-image-container .diff-3.found, .find-diff-game-container .find-diff-game .find-diff-main-image-container .diff-4.found, .find-diff-game-container .find-diff-game .find-diff-main-image-container .diff-5.found, .find-diff-game-container .find-diff-game .find-diff-main-image-container .diff-6.found {
+.find-diff-game-container .find-diff-game .find-diff-main-image-container .diff-1.found, .find-diff-game-container .find-diff-game .find-diff-main-image-container .diff-2.found, .find-diff-game-container .find-diff-game .find-diff-main-image-container .diff-3.found, .find-diff-game-container .find-diff-game .find-diff-main-image-container .diff-4.found, .find-diff-game-container .find-diff-game .find-diff-main-image-container .diff-5.found, .find-diff-game-container .find-diff-game .find-diff-main-image-container .diff-6.found, .find-diff-game-container .find-diff-game .find-diff-main-image-container .diff-7.found, .find-diff-game-container .find-diff-game .find-diff-main-image-container .diff-8.found, .find-diff-game-container .find-diff-game .find-diff-main-image-container .diff-9.found, .find-diff-game-container .find-diff-game .find-diff-main-image-container .diff-10.found, .find-diff-game-container .find-diff-game .find-diff-main-image-container .diff-11.found, .find-diff-game-container .find-diff-game .find-diff-main-image-container .diff-12.found, .find-diff-game-container .find-diff-game .find-diff-main-image-container .diff-13.found {
   opacity: 1;
 }
 .find-diff-game-container .find-diff-game .find-diff-second-image-container {
   position: relative;
 }
 .find-diff-game-container .find-diff-game .find-diff-second-image-container .find-diff-second-image {
-  width: 29.5vw;
+  width: 38vw;
+  border-radius: 1vw;
 }
 @media (max-width: 900px) {
   .find-diff-game-container .find-diff-game .find-diff-second-image-container .find-diff-second-image {
-    width: 79.5vw;
+    width: 90vw;
   }
 }
-.find-diff-game-container .find-diff-game .find-diff-second-image-container .diff-1.found, .find-diff-game-container .find-diff-game .find-diff-second-image-container .diff-2.found, .find-diff-game-container .find-diff-game .find-diff-second-image-container .diff-3.found, .find-diff-game-container .find-diff-game .find-diff-second-image-container .diff-4.found, .find-diff-game-container .find-diff-game .find-diff-second-image-container .diff-5.found, .find-diff-game-container .find-diff-game .find-diff-second-image-container .diff-6.found {
+.find-diff-game-container .find-diff-game .find-diff-second-image-container .diff-1.found, .find-diff-game-container .find-diff-game .find-diff-second-image-container .diff-2.found, .find-diff-game-container .find-diff-game .find-diff-second-image-container .diff-3.found, .find-diff-game-container .find-diff-game .find-diff-second-image-container .diff-4.found, .find-diff-game-container .find-diff-game .find-diff-second-image-container .diff-5.found, .find-diff-game-container .find-diff-game .find-diff-second-image-container .diff-6.found, .find-diff-game-container .find-diff-game .find-diff-second-image-container .diff-7.found, .find-diff-game-container .find-diff-game .find-diff-second-image-container .diff-8.found, .find-diff-game-container .find-diff-game .find-diff-second-image-container .diff-9.found, .find-diff-game-container .find-diff-game .find-diff-second-image-container .diff-10.found, .find-diff-game-container .find-diff-game .find-diff-second-image-container .diff-11.found, .find-diff-game-container .find-diff-game .find-diff-second-image-container .diff-12.found, .find-diff-game-container .find-diff-game .find-diff-second-image-container .diff-13.found {
   opacity: 1;
 }
 
@@ -1619,11 +1623,11 @@ svg * {
 
 .diff-1 {
   position: absolute;
-  width: 3vw;
-  height: 4vw;
+  width: 3.5vw;
+  height: 3.5vw;
   border-radius: 50%;
-  bottom: 1.5vw;
-  left: 4vw;
+  bottom: 2.2vw;
+  left: 3.1vw;
   border: 0.35vw solid red;
   opacity: 0;
   transition: opacity 0.5s ease;
@@ -1631,30 +1635,30 @@ svg * {
 @media (max-width: 900px) {
   .diff-1 {
     width: 8vw;
-    height: 12vw;
-    bottom: 3.5vw;
-    left: 11vw;
+    height: 8vw;
+    bottom: 5.5vw;
+    left: 8vw;
     border: 0.7vw solid red;
   }
 }
 
 .diff-2 {
   position: absolute;
-  width: 4vw;
+  width: 2vw;
   height: 1.5vw;
   border-radius: 50%;
-  bottom: 8.3vw;
-  left: 11.2vw;
+  bottom: 3.9vw;
+  left: 7.1vw;
   border: 0.35vw solid red;
   opacity: 0;
   transition: opacity 0.5s ease;
 }
 @media (max-width: 900px) {
   .diff-2 {
-    width: 9vw;
+    width: 5vw;
     height: 3.5vw;
-    bottom: 22vw;
-    left: 31.2vw;
+    bottom: 9vw;
+    left: 16.5vw;
     border: 0.7vw solid red;
   }
 }
@@ -1664,81 +1668,228 @@ svg * {
   width: 2.5vw;
   height: 2vw;
   border-radius: 50%;
-  bottom: 6.3vw;
-  right: 4.2vw;
+  bottom: 4.3vw;
+  right: 8.5vw;
   border: 0.35vw solid red;
   opacity: 0;
   transition: opacity 0.5s ease;
 }
 @media (max-width: 900px) {
   .diff-3 {
-    width: 6vw;
-    height: 6.5vw;
-    bottom: 16.3vw;
-    right: 11.2vw;
+    width: 5vw;
+    height: 5vw;
+    bottom: 10.3vw;
+    right: 20.5vw;
     border: 0.7vw solid red;
   }
 }
 
 .diff-4 {
   position: absolute;
-  width: 6.5vw;
-  height: 6vw;
+  width: 4.5vw;
+  height: 4vw;
   border-radius: 50%;
-  bottom: 10.3vw;
-  right: 6.2vw;
+  bottom: 4.3vw;
+  right: 10.2vw;
   border: 0.35vw solid red;
   opacity: 0;
   transition: opacity 0.5s ease;
 }
 @media (max-width: 900px) {
   .diff-4 {
-    width: 18.5vw;
-    height: 14vw;
-    bottom: 27.3vw;
-    right: 16.2vw;
+    width: 9vw;
+    height: 9vw;
+    bottom: 9.5vw;
+    right: 25.2vw;
     border: 0.7vw solid red;
   }
 }
 
 .diff-5 {
   position: absolute;
-  width: 3vw;
-  height: 3vw;
+  width: 2vw;
+  height: 2vw;
   border-radius: 50%;
-  top: 2.5vw;
-  right: 14.2vw;
+  top: 7.5vw;
+  right: 7vw;
   border: 0.35vw solid red;
   opacity: 0;
   transition: opacity 0.5s ease;
 }
 @media (max-width: 900px) {
   .diff-5 {
-    width: 7vw;
-    height: 7vw;
-    top: 7.5vw;
-    right: 39.2vw;
+    width: 5vw;
+    height: 5vw;
+    top: 17.5vw;
+    right: 16.2vw;
     border: 0.7vw solid red;
   }
 }
 
 .diff-6 {
   position: absolute;
-  width: 3vw;
+  width: 13vw;
   height: 3vw;
   border-radius: 50%;
-  top: 9.5vw;
-  right: 14.2vw;
+  top: 10.6vw;
+  right: 2.2vw;
   border: 0.35vw solid red;
   opacity: 0;
   transition: opacity 0.5s ease;
 }
 @media (max-width: 900px) {
   .diff-6 {
+    width: 34vw;
+    height: 7vw;
+    top: 25.5vw;
+    right: 1.9vw;
+    border: 0.7vw solid red;
+  }
+}
+
+.diff-7 {
+  position: absolute;
+  width: 5vw;
+  height: 3vw;
+  border-radius: 50%;
+  top: 9vw;
+  left: 8vw;
+  border: 0.35vw solid red;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+@media (max-width: 900px) {
+  .diff-7 {
+    width: 10vw;
+    height: 7vw;
+    top: 21.5vw;
+    left: 19.9vw;
+    border: 0.7vw solid red;
+  }
+}
+
+.diff-8 {
+  position: absolute;
+  width: 6vw;
+  height: 6vw;
+  border-radius: 50%;
+  top: 15.5vw;
+  left: 5.2vw;
+  border: 0.35vw solid red;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+@media (max-width: 900px) {
+  .diff-8 {
+    width: 14vw;
+    height: 14vw;
+    top: 37.5vw;
+    left: 11.9vw;
+    border: 0.7vw solid red;
+  }
+}
+
+.diff-9 {
+  position: absolute;
+  width: 6vw;
+  height: 5vw;
+  border-radius: 50%;
+  top: 10.5vw;
+  left: 5.2vw;
+  border: 0.35vw solid red;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+@media (max-width: 900px) {
+  .diff-9 {
+    width: 15vw;
+    height: 15vw;
+    top: 23.5vw;
+    left: 11.9vw;
+    border: 0.7vw solid red;
+  }
+}
+
+.diff-10 {
+  position: absolute;
+  width: 6vw;
+  height: 4vw;
+  border-radius: 50%;
+  top: 12.5vw;
+  right: 1.2vw;
+  border: 0.35vw solid red;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+@media (max-width: 900px) {
+  .diff-10 {
+    width: 12vw;
+    height: 10vw;
+    top: 30.5vw;
+    right: 3.9vw;
+    border: 0.7vw solid red;
+  }
+}
+
+.diff-11 {
+  position: absolute;
+  width: 3vw;
+  height: 2vw;
+  border-radius: 50%;
+  top: 9vw;
+  right: 4.2vw;
+  border: 0.35vw solid red;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+@media (max-width: 900px) {
+  .diff-11 {
     width: 8vw;
-    height: 8vw;
-    top: 26.5vw;
-    right: 38.9vw;
+    height: 5vw;
+    top: 21.5vw;
+    right: 9.9vw;
+    border: 0.7vw solid red;
+  }
+}
+
+.diff-12 {
+  position: absolute;
+  width: 8vw;
+  height: 4vw;
+  border-radius: 50%;
+  top: 13vw;
+  right: 7.2vw;
+  border: 0.35vw solid red;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+@media (max-width: 900px) {
+  .diff-12 {
+    width: 18vw;
+    height: 10vw;
+    top: 30.5vw;
+    right: 16.9vw;
+    border: 0.7vw solid red;
+  }
+}
+
+.diff-13 {
+  position: absolute;
+  width: 9vw;
+  height: 9vw;
+  border-radius: 50%;
+  top: 10vw;
+  right: 18.2vw;
+  border: 0.35vw solid red;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+@media (max-width: 900px) {
+  .diff-13 {
+    width: 22vw;
+    height: 20vw;
+    top: 23.5vw;
+    right: 42.9vw;
     border: 0.7vw solid red;
   }
 }

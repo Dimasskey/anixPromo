@@ -41,7 +41,7 @@ async function getGiftDiffGame() {
 
 document.addEventListener('DOMContentLoaded', () => {
     let foundDifferences = 0;
-    const totalDifferences = 6;
+    const totalDifferences = 13;
     const differenceElements = document.querySelectorAll('.diff');
 
     const markDifferenceAsFound = (index) => {

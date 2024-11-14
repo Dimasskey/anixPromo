@@ -1,7 +1,6 @@
 
 function updateDOM(user) {
     updateUserName(user)
-    updateTree()
     updateBalls(user)
     updateProgressBar(user)
     show_steps(user.count_steps)
@@ -20,45 +19,25 @@ const updateUserName = (user) => {
     }
 }
 
-const updateTree = () => {
-
-    if (toyRedCount === 0 && toyGoldCount === 0) {
-        footerElka.src = '../static/images/globalsImages/treeZeroGif.gif';
-    } else if (toyRedCount === 1 && toyGoldCount === 0) {
-        footerElka.src = '../static/images/globalsImages/treeOneGif.gif';
-    } else if (toyRedCount === 2 && toyGoldCount === 0) {
+const updateTree = (goldBall) => {
+    if (goldBall === 0) {
         footerElka.src = '../static/images/globalsImages/treeTwoGif.gif';
-    } else {
-        footerElka.src = '../static/images/globalsImages/treeThreeGif.gif';
+    } else if (toyGoldCount === 1) {
+        footerElka.src = '../static/images/globalsImages/treeTreeGif.gif';
     }
 }
 
 const updateBalls = (user) => {
-    const games = user.games
-    const redBall = document.querySelector('.toy-red-icon');
-    let countGameSuccess = 0
-
-    if (games.game_1.game_1 === true) {
-        countGameSuccess += 1;
+    const countSteps = user.count_steps
+    const goldBall = document.querySelector('.toy-gold-icon-icon');
+    let goldBallCount = parseInt(document.querySelector("#toy-gold-count").textContent);
+    if (countSteps > 59) {
+        goldBall.src = "../static/images/globalsImages/goldToy.png"
+        goldBallCount = 1
+        document.querySelector("#toy-gold-count").innerHTML = "1 шт";
     }
-
-    Object.entries(games).forEach(([key, game], index) => {
-        if (game === true) {
-            countGameSuccess += 1;
-        }
-    });
-    switch (countGameSuccess) {
-        case 0: redBall.src = "../static/images/globalsImages/toyRed0.png";
-            break;
-        case 1: redBall.src = "../static/images/globalsImages/toyRed1.png";
-            break;
-        case 2: redBall.src = "../static/images/globalsImages/toyRed2.png";
-            break;
-        case 3: redBall.src = "../static/images/globalsImages/toyRed3.png";
-            break;
-        case 4: redBall.src = "../static/images/globalsImages/toyRedFull.png";
-            break;
-    }
+    console.log(goldBallCount)
+    updateTree(goldBallCount)
 }
 
 const updateProgressBar = (user) => {
@@ -99,7 +78,7 @@ const checkCountSteps = (user) => {
 
 window.addEventListener('load',   async () => {
     const user = await getCurrentUser ();
-    // checkCountSteps(user)
+    checkCountSteps(user)
     updateDOM(user);
     document.getElementById('onload').style.display = 'none';
 });
