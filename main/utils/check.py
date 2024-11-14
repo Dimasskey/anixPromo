@@ -85,11 +85,14 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
 
     for i in checks:
         code_check: dict | bool = check_code_check(i.code)
-        if not code_check and web:
-            raise HTTPException(
-                status_code=400,
-                detail={"result": False, "message": "Код указан не корректно!", "data": {}}
-            )
+        if not code_check:
+            if web:
+                raise HTTPException(
+                    status_code=400,
+                    detail={"result": False, "message": "Код указан не корректно!", "data": {}}
+                )
+            else:
+                continue
 
         id_cassir, fio_cassir = i.scode, i.sname
 
@@ -111,6 +114,19 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
             )
 
         amount: float = float(code_check["amount"])
+        if amount < 500:
+            if web:
+                raise HTTPException(
+                    status_code=400,
+                    detail={
+                        "result": False,
+                        "message": "Простите, но сумма чека меньше 500 руб, и мы не можем его зарегистрировать!",
+                        "data": {}
+                    }
+                )
+            else:
+                continue
+
         code_shop = (int(code_check["code_check"].split('-')[0]) - 100000) // 100
 
         find_check = await get_check(code_check=code_check["code_check"], with_except=False)
@@ -132,6 +148,8 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                     status_code=200,
                     detail={"result": True, "message": "Вы успешно зарегистрировали код!", "data": {}}
                 )
+            else:
+                continue
 
         elif phone is not False and find_check is None:
             find_user = await get_user(phone_number=phone, with_except=False)
@@ -164,6 +182,9 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                         status_code=200,
                         detail={"result": True, "message": "Вы успешно зарегистрировали код!", "data": {}}
                     )
+                else:
+                    continue
+
             else:
                 await add_new_check(
                     raw_code_check=code_check["raw_code_check"],
@@ -181,6 +202,8 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                         status_code=200,
                         detail={"result": True, "message": "Вы успешно зарегистрировали код!", "data": {}}
                     )
+                else:
+                    continue
 
         elif phone is not False and find_check is not None:
             find_user = await get_user(phone_number=phone, with_except=False)
@@ -211,6 +234,8 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                             status_code=200,
                             detail={"result": True, "message": "Вы успешно зарегистрировали код!", "data": {}}
                         )
+                    else:
+                        continue
 
                 else:
                     await update_check(code_check=code_check["code_check"], user_id=find_user.id)
@@ -226,6 +251,8 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                             status_code=200,
                             detail={"result": True, "message": "Вы успешно зарегистрировали код!", "data": {}}
                         )
+                    else:
+                        continue
 
             else:
                 if find_check.id_cassir is None and id_cassir is not None:
@@ -239,6 +266,8 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                         status_code=400,
                         detail={"result": False, "message": "Данный чек уже зарегистрирован!", "data": {}}
                     )
+                else:
+                    continue
 
         elif phone is False and find_check is not None:
             if find_check.id_cassir is None and id_cassir is not None:
@@ -252,6 +281,8 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                     status_code=200,
                     detail={"result": True, "message": "Вы успешно зарегистрировали код!", "data": {}}
                 )
+            else:
+                continue
 
         else:
             print("Это конец или что?")
