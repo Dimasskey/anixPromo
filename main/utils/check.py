@@ -84,6 +84,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
     from main.utils.user import get_user
 
     for i in checks:
+        print(i)
         code_check: dict | bool = check_code_check(i.code)
         if not code_check:
             if web:

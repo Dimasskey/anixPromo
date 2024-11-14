@@ -13,7 +13,7 @@ def api_add_code(upload_check: UploadCheck):
         q = Queue(connection=redis.Redis())
         q.enqueue(processed_check, args=(upload_check.checks, False, None,))
         # await processed_check(checks=upload_check.checks, web=False, header=None)
-        # return DefaultResponse()
+        return DefaultResponse()
     except Exception as e:
         print(f"ERROR: {e}")
         return DefaultResponse(result=False, message="Аргументы переданы не корректно!", data={})
