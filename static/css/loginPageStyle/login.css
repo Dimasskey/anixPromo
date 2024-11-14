@@ -378,11 +378,25 @@ svg * {
 .registration-container .registration-form .registration-submit-button-container {
   margin-top: 1vw;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 @media (max-width: 900px) {
   .registration-container .registration-form .registration-submit-button-container {
     margin-top: 4vw;
+  }
+}
+.registration-container .registration-form .registration-submit-button-container .registration-response {
+  display: flex;
+  align-items: center;
+  color: red;
+  margin-left: 2vw;
+  font-size: 1vw;
+  width: 50%;
+}
+@media (max-width: 900px) {
+  .registration-container .registration-form .registration-submit-button-container .registration-response {
+    font-size: 2.8vw;
+    margin-left: 3vw;
   }
 }
 .registration-container .registration-form .registration-submit-button-container .registration-submit-button {
@@ -494,11 +508,25 @@ svg * {
 .login-container .login-form .login-submit-button-container {
   margin-top: 1.25vw;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 @media (max-width: 900px) {
   .login-container .login-form .login-submit-button-container {
     margin-top: 4vw;
+  }
+}
+.login-container .login-form .login-submit-button-container .login-response {
+  display: flex;
+  align-items: center;
+  color: red;
+  margin-left: 1vw;
+  font-size: 0.7vw;
+  width: 50%;
+}
+@media (max-width: 900px) {
+  .login-container .login-form .login-submit-button-container .login-response {
+    font-size: 2.8vw;
+    margin-left: 3vw;
   }
 }
 .login-container .login-form .login-submit-button-container .login-submit-button {

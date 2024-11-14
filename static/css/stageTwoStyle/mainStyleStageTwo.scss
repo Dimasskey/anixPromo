@@ -12,7 +12,11 @@
         "../shared/soundSwitch",
         "../footer";
 
-@import "../shared/onload";
+@import "../shared/soundSwitch",
+        "../shared/onload",
+        "../shared/popUpBalls",
+        "../shared/addFio",
+        "../shared/checkRegistration";
 
 body {
   background-color: var(--background-color);

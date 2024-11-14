@@ -1,52 +1,6 @@
-const profileAvatar = document.querySelector('.profile-avatar');
-let fio = document.createElement("div");
-let addFio = document.createElement("button");
-const toyRedCount = parseInt(document.getElementById('toy-red-count').textContent);
-const toyGoldCount = parseInt(document.getElementById('toy-gold-count').textContent);
-const footerElka = document.querySelector('.footer-elka');
-const progressBarCount = document.querySelector('.complete-progress-count');
-
 document.querySelector('.pop-up-cross').addEventListener('click', () => {
     document.querySelector('.pop-up-balls-wrapper').style.display = 'none';
 })
-
-
-// function GetCookie(name) {
-//     const cookieArray = document.cookie.split('; ');
-//     for (const cookie of cookieArray) {
-//         const [cookieName, cookieValue] = cookie.split('=');
-//         if (cookieName.trim() === name) {
-//             return cookieValue;
-//         }
-//     }
-//     return null;
-// }
-
-// async function getCurrentUser () {
-//     let cookie = GetCookie("token");
-//     try {
-//         const response = await fetch('https://promo.tdanix.ru/api/users/me', {
-//             method: 'GET',
-//             headers: {
-//                 'accept': 'application/json',
-//                 'token': cookie,
-//             },
-//         });
-//         if (response.ok) {
-//             let user = await response.json();
-//             user = user.data
-//             console.log(user)
-//             show_steps(user.count_steps)
-//             return user
-//         } else {
-//             window.location.href = "/login";
-//         }
-//     } catch (error) {
-//         console.error("Произошла ошибка:", error);
-//     }
-// }
-
-
 
 function updateDOM(user) {
     updateUserName(user)
@@ -56,25 +10,19 @@ function updateDOM(user) {
     show_steps(user.count_steps)
 }
 
-window.onload = async () => {
-    const user = await getCurrentUser ();
-    updateDOM(user);
-    document.getElementById('onload').style.display = 'none';
-
-};
-
 
 const updateUserName = (user) => {
-    if (user) {
+    if (user.fio) {
         fio.className = "profile-avatar-fio";
         fio.textContent = user.fio;
         profileAvatar.append(fio);
     } else {
-        addFio.className = "profile-avatar-fio";
+        addFio.className = "profile-avatar-add-fio";
         addFio.innerHTML = "Добавить ФИО";
         profileAvatar.append(addFio);
     }
 }
+
 const updateTree = () => {
 
     if (toyRedCount === 0 && toyGoldCount === 0) {
@@ -134,16 +82,12 @@ const updateGameButtons = (user) => {
         case 4: redBall.src = "../static/images/globalsImages/toyRedFull.png";
             break;
     }
+    return countGameSuccess
 }
 
-const popUpBalls = (user) =>  {
-    const popUpBall = document.querySelector('.pop-up-balls-wrapper');
-    const imageBall = document.querySelector('.pop-up-balls-image');
-    let popUpBallText = document.querySelector('.pop-up-balls-text').textContent;
+const getCountGameSuccess = (user) => {
     let countGameSuccess = 0
     const games = user.games
-
-
     if (games.game_1.game_1 === true) {
         countGameSuccess += 1;
     }
@@ -153,6 +97,16 @@ const popUpBalls = (user) =>  {
             countGameSuccess += 1;
         }
     });
+
+    return countGameSuccess
+}
+
+const popUpBalls = (user) =>  {
+    const popUpBall = document.querySelector('.pop-up-balls-wrapper');
+    const imageBall = document.querySelector('.pop-up-balls-image');
+    let popUpBallText = document.querySelector('.pop-up-balls-text')
+
+    let countGameSuccess = getCountGameSuccess(user)
 
     switch (countGameSuccess) {
         case 1: imageBall.src = "../static/images/globalsImages/toyRedPopUp1.png";
@@ -165,25 +119,38 @@ const popUpBalls = (user) =>  {
                 popUpBall.style.display = 'flex';
             break;
         case 4: imageBall.src = "../static/images/globalsImages/toyRedPopUpFull.png";
-                popUpBallText = "Поздравляем вы собрали шарик и шанс побороться за главные призы!"
+                popUpBallText.innerHTML = "Поздравляем вы собрали шарик и шанс побороться за главные призы!"
                 popUpBall.style.display = 'flex';
+                document.querySelector("#toy-red-count").innerHTML = "1 шт";
             break;
     }
+}
+
+const popUpBallsSteps = (user) => {
+    const popUpBall = document.querySelector('.pop-up-balls-wrapper');
+    const imageBall = document.querySelector('.pop-up-balls-image');
+    let popUpBallText = document.querySelector('.pop-up-balls-text')
+    let countGameSuccess = getCountGameSuccess(user)
+    const countSteps = user.count_steps
+    imageBall.src = "../static/images/globalsImages/toyRedPopUpFull.png";
+
+    if (countSteps > 39 && countGameSuccess === 4) {
+        popUpBallText.innerHTML = "Поздравляем вы получили шарик за прохождение змейки и шанс побороться за главные призы!"
+        document.querySelector("#toy-red-count").innerHTML = "2 шт";
+    } else if (countGameSuccess < 4 && countSteps > 39) {
+        popUpBallText.innerHTML = "Поздравляем вы получили шарик за прохождение змейки и шанс побороться за главные призы! <br/>Для прохождение на второй этап вам нужно пройти все мини-игры"
+        document.querySelector("#toy-red-count").innerHTML = "1 шт";
+        popUpBallText.style.width = "85%"
+    }
+    popUpBall.style.display = 'flex';
 }
 
 const updateProgressBar = (user) => {
     const countSteps = user.count_steps;
     let totalSteps, progressPercent;
-    if (countSteps <= 40) {
-        totalSteps = 40;
-        progressBarCount.textContent = `${countSteps} из ${totalSteps}`;
-        progressPercent = (countSteps / totalSteps) * 100;
-    } else if (countSteps > 40) {
-        totalSteps = 20;
-        let countStepsSecond = countSteps - 40;
-        progressBarCount.textContent = `${countStepsSecond} из ${totalSteps}`;
-        progressPercent = (countStepsSecond / totalSteps) * 100;
-    }
+    totalSteps = 40;
+    progressBarCount.textContent = `${countSteps} из ${totalSteps}`;
+    progressPercent = (countSteps / totalSteps) * 100;
 
     const progressBarComplete = document.querySelector('.complete-progress-bar');
 
@@ -193,8 +160,45 @@ const updateProgressBar = (user) => {
 
 
 function show_steps(countSteps) {
-    for (let i = 1; i <= countSteps; i++) {
+    let count_stepss = countSteps;
+
+    if (count_stepss > 40) {
+        count_stepss = 40;
+    }
+    for (let i = 1; i <= count_stepss; i++) {
         let step = document.getElementById('step_'+i);
         step.style.display = 'flex';
     }
 }
+
+const suppliers = document.querySelectorAll('.suppliers__image');
+suppliers.forEach(supplier => {
+    supplier.addEventListener('click', function() {
+        const supplierId = this.getAttribute('supplier-id');
+        window.location.href = `/suppliers/?id=${supplierId}`;
+    });
+});
+
+const relocateStageTwo = (user) => {
+    if (getCountGameSuccess(user) === 4) {
+        window.location.href = "/stage_two"
+    }
+}
+
+window.addEventListener('load',   async () => {
+    const user = await getCurrentUser ();
+    if (user.count_steps > 39) {
+        popUpBallsSteps(user)
+    }
+    relocateStageTwo(user)
+    updateDOM(user);
+    document.getElementById('onload').style.display = 'none';
+});
+
+const profileAvatar = document.querySelector('.profile-avatar');
+let fio = document.createElement("div");
+let addFio = document.createElement("button");
+const toyRedCount = parseInt(document.getElementById('toy-red-count').textContent);
+const toyGoldCount = parseInt(document.getElementById('toy-gold-count').textContent);
+const footerElka = document.querySelector('.footer-elka');
+const progressBarCount = document.querySelector('.complete-progress-count');

@@ -257,30 +257,58 @@
             </div>
         </div>
     </div>
-    <div class="wheel-game-wrapper" id="Game4" style="display: none">
-        <div class="wheel-game-container">
-            <div class="wheel-game-heading">
-                <span class="wheel-game-heading-text">
-                    Колесо фортуны
-                </span>
-                <img class="wheel-game-heading-cross" src="../static/images/miniGameImages/crossIcon.png" />
+<!--    <div class="wheel-game-wrapper" id="Game4" style="display: none">-->
+<!--        <div class="wheel-game-container">-->
+<!--            <div class="wheel-game-heading">-->
+<!--                <span class="wheel-game-heading-text">-->
+<!--                    Колесо фортуны-->
+<!--                </span>-->
+<!--                <img class="wheel-game-heading-cross" src="../static/images/miniGameImages/crossIcon.png" />-->
+<!--            </div>-->
+<!--            <div class="wheel-game">-->
+<!--                <div class="pointer"></div>-->
+<!--                <div class="wheel-container">-->
+<!--                    <div class="wheel" id="wheel">-->
+<!--                        <div class="segment" data-value="1"><img class="icon-segment" src="../static/images/prizesPageImages/robotIcon.png"> </div>-->
+<!--                        <div class="segment" data-value="2"><img class="icon-segment" src="../static/images/prizesPageImages/aerogrillIcon.png"></div>-->
+<!--                        <div class="segment" data-value="3"><img class="icon-segment" src="../static/images/prizesPageImages/bigGrillIcon.png"></div>-->
+<!--                        <div class="segment" data-value="4"><img class="icon-segment" src="../static/images/prizesPageImages/yandexStationIcon.png"></div>-->
+<!--                        <div class="segment" data-value="5"><img class="icon-segment" src="../static/images/prizesPageImages/shoperImage.png"></div>-->
+<!--                        <div class="segment" data-value="6"><img class="icon-segment" src="../static/images/prizesPageImages/grillIcon.png"></div>-->
+<!--                        <div class="segment" data-value="7"><img class="icon-segment" src="../static/images/prizesPageImages/robotIcon.png"></div>-->
+<!--                        <div class="segment" data-value="8"><img class="icon-segment" src="../static/images/prizesPageImages/robotIcon.png"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <button class="wheel-button" onclick="spinWheel()">Вращать</button>-->
+<!--                <div id="result"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <div class="find-diff-game-wrapper" id="Game4" style="display: none">
+        <div class="find-diff-game-container">
+            <div class="find-diff-heading">
+                Найди отличия
+                <img class="find-diff-heading-cross" src="../static/images/miniGameImages/crossIcon.png" />
             </div>
-            <div class="wheel-game">
-                <div class="pointer"></div>
-                <div class="wheel-container">
-                    <div class="wheel" id="wheel">
-                        <div class="segment" data-value="1"><img class="icon-segment" src="../static/images/prizesPageImages/robotIcon.png"> </div>
-                        <div class="segment" data-value="2"><img class="icon-segment" src="../static/images/prizesPageImages/aerogrillIcon.png"></div>
-                        <div class="segment" data-value="3"><img class="icon-segment" src="../static/images/prizesPageImages/bigGrillIcon.png"></div>
-                        <div class="segment" data-value="4"><img class="icon-segment" src="../static/images/prizesPageImages/yandexStationIcon.png"></div>
-                        <div class="segment" data-value="5"><img class="icon-segment" src="../static/images/prizesPageImages/shoperImage.png"></div>
-                        <div class="segment" data-value="6"><img class="icon-segment" src="../static/images/prizesPageImages/grillIcon.png"></div>
-                        <div class="segment" data-value="7"><img class="icon-segment" src="../static/images/prizesPageImages/robotIcon.png"></div>
-                        <div class="segment" data-value="8"><img class="icon-segment" src="../static/images/prizesPageImages/robotIcon.png"></div>
-                    </div>
+            <div class="find-diff-game">
+                <div class="find-diff-main-image-container">
+                    <img class="find-diff-main-image" src="../static/images/miniGameImages/findDiffMain.png">
+                    <div class="diff-1 diff" data-index="0"></div>
+                    <div class="diff-2 diff" data-index="1"></div>
+                    <div class="diff-3 diff" data-index="2"></div>
+                    <div class="diff-4 diff" data-index="3"></div>
+                    <div class="diff-5 diff" data-index="4"></div>
+                    <div class="diff-6 diff" data-index="5"></div>
                 </div>
-                <button class="wheel-button" onclick="spinWheel()">Вращать</button>
-                <div id="result"></div>
+                <div class="find-diff-second-image-container">
+                    <img class="find-diff-second-image" src="../static/images/miniGameImages/findDiffSec.png" />
+                    <div class="diff-1 diff" data-index="0"></div>
+                    <div class="diff-2 diff" data-index="1"></div>
+                    <div class="diff-3 diff" data-index="2"></div>
+                    <div class="diff-4 diff" data-index="3"></div>
+                    <div class="diff-5 diff" data-index="4"></div>
+                    <div class="diff-6 diff" data-index="5"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -303,11 +331,32 @@
             </div>
             <form class="registration-check-form" method="post" onsubmit="handleRegCheck(event)">
                 <div class="registration-check-input-container">
-                    <label class="registration-check-input-label">№ чека</label>
+                    <label for="numberCheck" class="registration-check-input-label">№ чека</label>
                     <input class="registration-check-input" type="text" placeholder="Введите номер чека" id="numberCheck" required autocomplete="off"/>
                 </div>
                 <div class="registration-check-button-container">
+                    <div class="registration-check-response"></div>
                     <button class="registration-check-button">
+                        Отправить
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="add-fio-wrapper" style="display: none;">
+        <div class="add-fio-container">
+            <div class="add-fio-head">
+                Добавление ФИО
+                <img class="add-fio-head-cross" src="../static/images/miniGameImages/crossIcon.png" />
+            </div>
+            <form class="add-fio-form" method="post" onsubmit="addFioFetch(event)">
+                <div class="add-fio-input-container">
+                    <label for="addFio" class="add-fio-input-label">ФИО</label>
+                    <input class="add-fio-input" type="text" placeholder="Введите ваше ФИО" id="addFio" required autocomplete="off"/>
+                </div>
+                <div class="add-fio-button-container">
+                    <div class="add-fio-response"></div>
+                    <button class="add-fio-button">
                         Отправить
                     </button>
                 </div>
@@ -326,10 +375,11 @@
     <script src="../static/js/soundSwitch.js"></script>
     <script src="../static/js/puzzleGame.js"></script>
     <script src="../static/js/treasureGame.js"></script>
-    <script src="../static/js/supplier.js"></script>
     <script src="../static/js/ticTacGame.js"></script>
     <script src="../static/js/wheelGame.js"></script>
     <script src="../static/js/checkRegistration.js"></script>
+    <script src="../static/js/addFio.js"></script>
 </body>
+
 </html>
 

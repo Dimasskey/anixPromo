@@ -4,21 +4,26 @@ async function handleRegistration(event) {
     const fio = document.getElementById('fio').value;
     const number = document.getElementById('regNumber').value;
 
-
-    const response = await fetch('https://promo.tdanix.ru/api/signup', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            fio: fio,
-            phone_number: number
-        }),
-    });
-    const result = await response.json();
-    if (response.ok) {
-        document.cookie = `token=${result.data.token}; max-age=7257600;`;
-        window.location.href = "/";
+    try {
+        const response = await fetch('https://promo.tdanix.ru/api/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                fio: fio,
+                phone_number: number
+            }),
+        });
+        const result = await response.json();
+        if (response.ok) {
+            document.cookie = `token=${result.data.token}; max-age=7257600;`;
+            window.location.href = "/";
+        } else {
+            document.querySelector('.registration-response').textContent = result.message;
+        }
+    } catch (error) {
+        console.error("erere", error);
     }
 }
 
@@ -41,6 +46,8 @@ async function handleLogin(event) {
     if (response.ok) {
         document.cookie = `token=${result.data.token}; max-age=7257600;`;
         window.location.href = "/";
+    } else {
+        document.querySelector('.login-response').textContent = result.message;
     }
     console.log(result)
 }

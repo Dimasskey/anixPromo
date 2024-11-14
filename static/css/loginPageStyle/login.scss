@@ -189,10 +189,24 @@
     .registration-submit-button-container {
       margin-top: 1vw;
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
 
       @include mobile {
         margin-top: 4vw;
+      }
+
+      .registration-response {
+        display: flex;
+        align-items: center;
+        color: red;
+        margin-left: 2vw;
+        font-size: 1vw;
+        width: 50%;
+
+        @include mobile {
+          font-size: 2.8vw;
+          margin-left: 3vw;
+        }
       }
 
       .registration-submit-button {
@@ -307,10 +321,24 @@
     .login-submit-button-container {
       margin-top: 1.25vw;
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
 
       @include mobile {
         margin-top: 4vw;
+      }
+
+      .login-response {
+        display: flex;
+        align-items: center;
+        color: red;
+        margin-left: 1vw;
+        font-size: 0.7vw;
+        width: 50%;
+
+        @include mobile {
+          font-size: 2.8vw;
+          margin-left: 3vw;
+        }
       }
 
       .login-submit-button {
