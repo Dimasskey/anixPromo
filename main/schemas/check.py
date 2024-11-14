@@ -4,7 +4,7 @@ from fastapi.exceptions import HTTPException
 
 class Check(BaseModel):
     code: str
-    scode: int | str | None = None
+    scode: str | int | None = None
     sname: str | None = None
     phone: str
 
