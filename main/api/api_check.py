@@ -8,7 +8,7 @@ from main.utils.check import processed_check
 
 
 @main.post('/api/add_code', status_code=200, tags=["Checks"], response_model=DefaultResponse)
-def api_add_code(upload_check: UploadCheck):
+async def api_add_code(upload_check: UploadCheck):
     try:
         q = Queue(connection=redis.Redis())
         q.enqueue(processed_check, args=(upload_check.checks, False, None,))
