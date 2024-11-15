@@ -95,6 +95,10 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                 continue
 
         id_cassir, fio_cassir = i.scode, i.sname
+        if id_cassir is None or id_cassir == "" or id_cassir == "null":
+            id_cassir = None
+        if fio_cassir is None or fio_cassir == "" or fio_cassir == "null":
+            fio_cassir = None
 
         if web:
             try:
