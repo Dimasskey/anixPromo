@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const openCheckReg = () => {
         checkRegWrapper.style.display = 'flex'
-        console.log("qweqw")
     }
 
     const closeCheckReg = () => {
@@ -52,7 +51,6 @@ const handleRegCheck = async (event) => {
 
         const result = await response.json();
         if (response.ok) {
-            alert("ВСЕ КРУТО КЛАСС");
             console.log(await response.json());
         } else {
             document.querySelector('.registration-check-response').textContent = result.message;

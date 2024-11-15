@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
         addFioWrapper.style.display = 'none';
     }
 
-    // Используем делегирование событий, чтобы избежать проблемы с отсутствием элемента
     document.addEventListener('click', (event) => {
         if (event.target.classList.contains('profile-avatar-add-fio')) {
             openAddFio();
@@ -24,26 +23,20 @@ document.addEventListener('DOMContentLoaded', () => {
 const addFioFetch = async (event) => {
     event.preventDefault();
 
-    try {
-        const addFioValue = document.getElementById('addFio').value;
-        console.log(addFioValue)
+    const addFioValue = document.getElementById('addFio').value;
 
-        const response = await fetch(`https://promo.tdanix.ru/api/users/me/fio?fio=${addFioValue}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'token': `${GetCookie("token")}`
-            }
-        });
-
-        const result = await response.json()
-        if (response.ok) {
-            alert("ВСЕ КРУТО КЛАСС");
-            window.location.reload();
-        } else {
-            document.querySelector(".add-fio-response").textContent = result.message;
+    const response = await fetch(`https://promo.tdanix.ru/api/users/me/fio?fio=${addFioValue}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'token': `${GetCookie("token")}`
         }
-    } catch (error) {
-        console.error("Ошибка:", error);
+    });
+
+    const result = await response.json()
+    if (response.ok) {
+        window.location.reload();
+    } else {
+        document.querySelector(".add-fio-response").textContent = result.message;
     }
 };

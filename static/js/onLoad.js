@@ -148,14 +148,18 @@ const popUpBallsSteps = (user) => {
     let countGameSuccess = getCountGameSuccess(user)
     const countSteps = user.count_steps
     imageBall.src = "../static/images/globalsImages/toyRedPopUpFull.png";
-
-    if (countSteps > 39 && countGameSuccess === 4) {
-        popUpBallText.innerHTML = "Поздравляем вы получили шарик за прохождение змейки и шанс побороться за главные призы!"
-    } else if (countGameSuccess < 4 && countSteps > 39) {
-        popUpBallText.innerHTML = "Поздравляем вы получили шарик за прохождение змейки и шанс побороться за главные призы! <br/>Для прохождение на второй этап вам нужно пройти все мини-игры"
-        popUpBallText.style.width = "85%"
+    console.log(localStorage.getItem("popUpSteps"));
+    if (!localStorage.getItem("popUpSteps")) {
+            if (countSteps > 39 && countGameSuccess === 4) {
+                popUpBallText.innerHTML = "Поздравляем вы получили шарик за прохождение змейки и шанс побороться за главные призы!"
+                localStorage.setItem("popUpSteps", "true")
+            } else if (countGameSuccess < 4 && countSteps > 39) {
+                popUpBallText.innerHTML = "Поздравляем вы получили шарик за прохождение змейки и шанс побороться за главные призы! <br/>Для прохождение на второй этап вам нужно пройти все мини-игры"
+                popUpBallText.style.width = "85%"
+                localStorage.setItem("popUpSteps", "true")
+            }
+        popUpBall.style.display = 'flex';
     }
-    popUpBall.style.display = 'flex';
 }
 
 const updateProgressBar = (user) => {
@@ -214,7 +218,5 @@ window.addEventListener('DOMContentLoaded',   async () => {
 const profileAvatar = document.querySelector('.profile-avatar');
 let fio = document.createElement("div");
 let addFio = document.createElement("button");
-const toyRedCount = parseInt(document.getElementById('toy-red-count').textContent);
-const toyGoldCount = parseInt(document.getElementById('toy-gold-count').textContent);
 const footerElka = document.querySelector('.footer-elka');
 const progressBarCount = document.querySelector('.complete-progress-count');

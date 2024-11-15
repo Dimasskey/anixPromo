@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <title>Змейка удачи 2025</title>
     <link rel="stylesheet" href="../static/css/loginPageStyle/login.css">
+
 </head>
 <body class="auth-wrapper">
     <div class="authentication-container">
@@ -50,6 +51,12 @@
             </div>
         </form>
     </div>
+    <div class="pop-up-check-reg-wrapper" style="display: none">
+        <div class="pop-up-check-reg-container">
+            <img class="pop-up-check-reg-cross" src="../static/images/miniGameImages/crossIcon.png" />
+            <span class="pop-up-check-reg-text"></span>
+        </div>
+    </div>
     <script>
         const authWrapper = document.querySelector(".authentication-container");
         const regWrapper = document.querySelector(".registration-container");
@@ -68,5 +75,7 @@
         })
     </script>
     <script src="../static/js/auth.js"></script>
+    <script src="../static/js/const.js"></script>
+    <script src="../static/js/getUser.js"></script>
 </body>
 </html>

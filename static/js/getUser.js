@@ -22,7 +22,6 @@ async function getCurrentUser () {
         if (response.ok) {
             let user = await response.json();
             user = user.data
-            console.log(user)
             return user
         } else {
             window.location.href = "/login";

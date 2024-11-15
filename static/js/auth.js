@@ -1,3 +1,78 @@
+let qr = null;
+document.querySelector('.pop-up-check-reg-cross').addEventListener('click', (e) => {
+    document.querySelector('.pop-up-check-reg-wrapper').style.display = 'none'
+    window.location.href = "/"
+})
+
+
+function getCodeFromQr () {
+    const urlParams = new URLSearchParams(window.location.search)
+    qr = urlParams.get("qr")
+    console.log(qr)
+}
+
+getCodeFromQr()
+
+const checkRegistrationQr = async (qr, phoneNumber) => {
+    try {
+        const response = await fetch(`${URL_API}/add_code_web`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                checks: [
+                    {
+                        code: `${qr}`,
+                        scode: null,
+                        sname: null,
+                        phone: `${phoneNumber}`
+                    }
+                ],
+                sender_type: "web"
+            }),
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            showWarning(result.message);
+            // window.location.href = "/"
+            console.log("успех")
+        } else {
+            showWarning(result.message);
+        }
+    } catch (error) {
+        console.error("Ошибка:", error);
+    }
+};
+
+async function getCurrentUserQR () {
+    let cookie = GetCookie("token");
+    try {
+        const response = await fetch(`${URL_API}/users/me`, {
+            method: 'GET',
+            headers: {
+                'accept': 'application/json',
+                'token': cookie,
+            },
+        });
+        if (response.ok) {
+            let user = await response.json();
+            user = user.data
+            console.log(user)
+            if (qr !== null) {
+                await checkRegistrationQr(qr, user.phone_number)
+                console.log("qr есть")
+            } else {
+                // window.location.href = "/"
+                console.log("qr нет")
+            }
+        }
+    } catch (error) {
+        console.error("Произошла ошибка:", error);
+    }
+}
+
 async function handleRegistration(event) {
     event.preventDefault();
 
@@ -18,7 +93,11 @@ async function handleRegistration(event) {
         const result = await response.json();
         if (response.ok) {
             document.cookie = `token=${result.data.token}; max-age=7257600;`;
-            window.location.href = "/";
+            if (qr !== null) {
+                await checkRegistrationQr(qr, number)
+            } else {
+                window.location.href = "/";
+            }
         } else {
             document.querySelector('.registration-response').textContent = result.message;
         }
@@ -45,11 +124,19 @@ async function handleLogin(event) {
     const result = await response.json();
     if (response.ok) {
         document.cookie = `token=${result.data.token}; max-age=7257600;`;
-        window.location.href = "/";
+        if (qr !== null) {
+            await checkRegistrationQr(qr, number)
+        } else {
+            window.location.href = "/";
+        }
     } else {
         document.querySelector('.login-response').textContent = result.message;
     }
-    console.log(result)
+}
+
+function showWarning (text) {
+    document.querySelector('.pop-up-check-reg-wrapper').style.display = 'flex';
+    document.querySelector('.pop-up-check-reg-text').innerHTML = text;
 }
 
 [].forEach.call( document.querySelectorAll('.tel'), function(input) {
@@ -86,3 +173,8 @@ async function handleLogin(event) {
     input.addEventListener("keydown", mask, false)
 
 });
+
+window.onload = function () {
+    getCodeFromQr()
+    getCurrentUserQR()
+}
