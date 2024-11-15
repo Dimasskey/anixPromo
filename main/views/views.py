@@ -13,6 +13,13 @@ async def login(request: Request):
     return templates.TemplateResponse("login.html", context={"request": request})
 
 
+@main.get('/api/add_code_from_qr', status_code=200, tags=["Views"], response_class=HTMLResponse)
+def add_code_from_qr(request: Request, qr: str | None = None):
+    if qr is None or qr == "":
+        return templates.TemplateResponse("index.html", context={"request": request})
+    return templates.TemplateResponse("login.html", context={"request": request})
+
+
 @main.get("/gifts", status_code=200, tags=["Views"], response_class=HTMLResponse)
 async def gifts(request: Request):
     return templates.TemplateResponse("prizesPage.html", context={"request": request})
