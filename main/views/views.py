@@ -33,3 +33,13 @@ async def stage_two(request: Request):
 @main.get("/suppliers", status_code=200, tags=["Views"], response_class=HTMLResponse)
 async def suppliers(request: Request):
     return templates.TemplateResponse("supplierPage.html", context={"request": request})
+
+
+@main.get("/conditions", status_code=200, tags=["Views"], response_class=HTMLResponse)
+async def conditions(request: Request):
+    return templates.TemplateResponse("conditions.html", context={"request": request})
+
+
+@main.get("/winners", status_code=200, tags=["Views"], response_class=HTMLResponse)
+async def winners(request: Request):
+    return templates.TemplateResponse("winners.html", context={"request": request})
