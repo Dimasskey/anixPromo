@@ -80,7 +80,7 @@ async function handleRegistration(event) {
     const number = document.getElementById('regNumber').value;
 
     try {
-        const response = await fetch('https://promo.tdanix.ru/api/signup', {
+        const response = await fetch(`${URL_API}/signup`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -111,7 +111,7 @@ async function handleLogin(event) {
 
     const number = document.getElementById('logNumber').value;
 
-    const response = await fetch('https://promo.tdanix.ru/api/login', {
+    const response = await fetch(`${URL_API}/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

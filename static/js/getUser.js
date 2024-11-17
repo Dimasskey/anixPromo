@@ -12,7 +12,7 @@ function GetCookie(name) {
 async function getCurrentUser () {
     let cookie = GetCookie("token");
     try {
-        const response = await fetch('https://promo.tdanix.ru/api/users/me', {
+        const response = await fetch(`${URL_API}/users/me`, {
             method: 'GET',
             headers: {
                 'accept': 'application/json',

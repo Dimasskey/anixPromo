@@ -427,18 +427,16 @@ svg * {
   margin-left: 1.5vw;
 }
 .profile-avatar-image {
-  border: 0.2vw solid white;
   border-radius: 50%;
   width: 5vw;
   height: 5vw;
   background-size: cover;
-  background-image: url("../../images/mainPageImages/avatarPhoto.jpg");
+  background-image: url("../../images/globalsImages/emptyProfilePhoto.png");
 }
 @media (max-width: 900px) {
   .profile-avatar-image {
     width: 8vw;
     height: 8vw;
-    border: 0.6vw solid white;
   }
 }
 .profile-avatar-fio {
@@ -587,9 +585,9 @@ svg * {
 .profile-actions-container .rewards-button {
   text-align: center;
   width: 80%;
-  background-color: #FF4A15;
+  background-color: #D9D9D9;
   border-radius: 1vw;
-  color: white;
+  color: #AEAEAE;
   box-shadow: 0 0.2vw 0.5vw 0 rgba(0, 0, 0, 0.2509803922);
   font-family: "Akshar", sans-serif;
   font-weight: 600;
@@ -602,7 +600,7 @@ svg * {
   position: relative;
 }
 .profile-actions-container .rewards-button:hover {
-  background-color: #932d16;
+  background-color: #D9D9D9;
 }
 .profile-actions-container .rewards-button:active {
   top: 0.1vw;

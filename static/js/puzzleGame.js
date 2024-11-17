@@ -23,7 +23,7 @@ document.querySelector('.puzzle-game-heading-cross').addEventListener('click', a
 
 
 async function getGiftPuzzleGame() {
-    const response = await fetch('https://promo.tdanix.ru/api/users_gifts', {
+    const response = await fetch(`${URL_API}/users_gifts`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',

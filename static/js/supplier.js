@@ -318,7 +318,7 @@ async function handleAddReview(event) {
     }
     const reviewText = document.querySelector('.review-add-textarea').value;
 
-    const response = await fetch('https://promo.tdanix.ru/api/comments', {
+    const response = await fetch(`${URL_API}/comments`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -348,7 +348,7 @@ const uploadImage = async (e) => {
     formData.append('file', file);
     console.log("formData", formData);
 
-    const response = await fetch('https://media.tdanix.ru/api/attachments', {
+    const response = await fetch(`${URL_API}/attachments`, {
         method: 'POST',
         body: formData,
     });

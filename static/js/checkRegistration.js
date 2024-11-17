@@ -31,7 +31,7 @@ const handleRegCheck = async (event) => {
         const checkNumber = document.getElementById('numberCheck').value;
         console.log(userPhone);
 
-        const response = await fetch('https://promo.tdanix.ru/api/add_code_web', {
+        const response = await fetch(`${URL_API}/add_code_web`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

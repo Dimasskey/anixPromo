@@ -29,7 +29,7 @@ const updateTree = (goldBall) => {
 
 const updateBalls = (user) => {
     const countSteps = user.count_steps
-    const goldBall = document.querySelector('.toy-gold-icon-icon');
+    const goldBall = document.querySelector('.toy-gold-icon');
     let goldBallCount = parseInt(document.querySelector("#toy-gold-count").textContent);
     if (countSteps > 59) {
         goldBall.src = "../static/images/globalsImages/goldToy.png"

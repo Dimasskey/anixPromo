@@ -28,7 +28,7 @@ document.querySelector('.tic-tac-game-heading-cross').addEventListener('click', 
 resetBut.addEventListener('click', resetGame);
 
 async function getGiftTicTacGame() {
-    const response = await fetch('https://promo.tdanix.ru/api/users_gifts', {
+    const response = await fetch(`${URL_API}/users_gifts`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
