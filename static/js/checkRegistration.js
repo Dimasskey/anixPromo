@@ -51,7 +51,7 @@ const handleRegCheck = async (event) => {
 
         const result = await response.json();
         if (response.ok) {
-            console.log(await response.json());
+            window.location.reload()
         } else {
             document.querySelector('.registration-check-response').textContent = result.message;
         }
