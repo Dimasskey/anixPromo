@@ -5,22 +5,10 @@
 
 @import "../header",
         "../mainPageStyle/mainLogo",
-        "../mainPageStyle/suppliersPreview",
-        "../mainPageStyle/profileAndDateInfo",
-        "../mainPageStyle/mainGame",
         "../footer";
 
-@import "../miniGamesStyle/treasureGame",
-        "../miniGamesStyle/ticTacGame",
-        "../miniGamesStyle/puzzleGame",
-        "../miniGamesStyle/wheelStyle";
-
 @import "../shared/soundSwitch",
-        "../shared/onload",
-        "../shared/popUpBalls",
-        "../shared/gameGift",
-        "../shared/addFio",
-        "../shared/checkRegistration";
+        "../shared/onload";
 
 body {
   background-color: var(--background-color);
@@ -28,15 +16,14 @@ body {
   color: #fff;
 }
 
-.main-page-wrapper {
+.conditions-page-wrapper {
   display: grid;
   grid-template-columns: 1fr calc(100dvw/1.55) 1fr;
   grid-template-rows: auto auto auto 1fr;
   grid-template-areas:
     ". header ."
     ". mainLogo ."
-    ". infoBlock ."
-    ". mainGame ."
+    ". conditions ."
     "footer footer footer";
   row-gap: 1.5vw;
 
@@ -46,10 +33,14 @@ body {
     grid-template-areas:
     "header"
     "mainLogo"
-    "infoBlock"
-    "mainGame";
+    "conditions";
     row-gap: 2vw;
   }
 }
 
-
+.conditions-text-container {
+  grid-area: conditions;
+  background-color: var(--background-color-el);
+  border-radius: 1vw;
+  padding: 1vw;
+}

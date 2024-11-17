@@ -31,13 +31,13 @@
                     <nav class="header-inner__navigation navigation" >
                         <ul class="navigation-menu">
                             <li class="navigation-menu__item">
-                                Условия
+                                <a href="/conditions">Условия</a>
                             </li>
                             <li class="navigation-menu__item">
                                 <a href="/gifts">Подарки</a>
                             </li>
                             <li class="navigation-menu__item">
-                                Победители
+                                <a href="/winners">Победители</a>
                             </li>
                         </ul>
                     </nav>
@@ -192,13 +192,14 @@
         </div>
     </div>
     <div class="sound-switch">
-        <img class="sound-switch-icon" id="soundSwitch" src="../static/images/globalsImages/soundOnIcon.png"/>
+        <img class="sound-switch-icon" id="soundSwitch" src="../static/images/globalsImages/soundOffIcon.png"/>
     </div>
     <footer class="footer" id="footer">
         <img class="footer-elka" src="../static/images/globalsImages/treeZeroGif.gif" />
         <img class="footer-gifts" src="../static/images/globalsImages/giftsImage.png" />
     </footer>
+    <audio id="audio" loop><source src="../static/sounds/sound.mp3" type="audio/mpeg"/></audio>
+    <script src="../static/js/const.js"></script>
+    <script src="../static/js/soundSwitch.js"></script>
 </body>
-<script src="../static/js/const.js"></script>
-<script src="../static/js/soundSwitch.js"></script>
 </html>

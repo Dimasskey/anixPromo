@@ -2491,42 +2491,4 @@ body {
   }
 }
 
-.sound-wrapper {
-  display: flex;
-  z-index: 100;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  background: rgba(255, 255, 255, 0.7215686275);
-  backdrop-filter: blur(7px);
-  overflow: hidden;
-  justify-content: center;
-  align-items: center;
-}
-
-.sound-container {
-  display: flex;
-  width: 20vw;
-  height: 11vw;
-  background-color: var(--background-color-alt);
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  border-radius: 3vw;
-}
-@media (max-width: 900px) {
-  .sound-container {
-    width: 70vw;
-    height: 40vw;
-  }
-}
-.sound-container .onload-text {
-  font-size: 3vw;
-}
-@media (max-width: 900px) {
-  .sound-container .onload-text {
-    font-size: 11vw;
-  }
-}
-
 /*# sourceMappingURL=mainStyle.css.map */

@@ -21,3 +21,9 @@ app.get('/suppliers', async (req, res) => {
 app.get('/stage_two', async (req, res) => {
     res.sendFile('templates/gameStageTwo.html', {root: __dirname });
 });
+app.get('/conditions', async (req, res) => {
+    res.sendFile('templates/conditions.html', {root: __dirname });
+});
+app.get('/winners', async (req, res) => {
+    res.sendFile('templates/winners.html', {root: __dirname });
+});
