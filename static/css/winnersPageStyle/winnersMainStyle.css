@@ -244,15 +244,12 @@ svg * {
   border-radius: 1.5vw;
   height: 8vw;
   justify-content: center;
-  flex-direction: row;
   align-items: center;
   column-gap: 5vw;
-  padding: 1%;
 }
 @media (max-width: 900px) {
   .main-logo {
     height: 12vw;
-    padding: 7%;
   }
 }
 .main-logo__heading {
@@ -430,7 +427,7 @@ body {
   .conditions-page-wrapper {
     justify-content: center;
     grid-template-columns: 95vw;
-    grid-template-areas: "header" "mainLogo" "conditions";
+    grid-template-areas: "header" "mainLogo" "winners";
     row-gap: 2vw;
   }
 }
@@ -445,6 +442,11 @@ body {
   height: 10vw;
   border-radius: 1.5vw;
   font-size: 2vw;
+}
+@media (max-width: 900px) {
+  .winners-main-container {
+    font-size: 4vw;
+  }
 }
 
 /*# sourceMappingURL=winnersMainStyle.css.map */

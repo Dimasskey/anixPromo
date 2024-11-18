@@ -244,15 +244,12 @@ svg * {
   border-radius: 1.5vw;
   height: 8vw;
   justify-content: center;
-  flex-direction: row;
   align-items: center;
   column-gap: 5vw;
-  padding: 1%;
 }
 @media (max-width: 900px) {
   .main-logo {
     height: 12vw;
-    padding: 7%;
   }
 }
 .main-logo__heading {
