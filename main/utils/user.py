@@ -2,7 +2,7 @@ from fastapi import HTTPException, Header
 from main.models.database import engine, Users, UsersGifts, Checks
 from main.models.CRUD import CRUD
 from main.models.session import SessionHandler
-from main.schemas.user import UserSignUp, UserRegular, UserLogin
+from main.schemas.user import UserSignUp, UserRegular, UserLogin, CustomUser
 from main.utils.user_gift import create_user_gift
 
 
@@ -142,3 +142,63 @@ async def get_count_steps_user(user_id: str) -> int:
     )
 
     return count_steps.sum // 500 if count_steps else 0
+
+
+async def add_custom_user(custom_user: CustomUser):
+    if custom_user.sum < 500:
+        raise HTTPException(
+            status_code=400,
+            detail={"result": False, "message": '"Sum check" is lower 500 rub', "data": {}}
+        )
+
+    user: Users = await get_user(phone_number=custom_user.phone, with_except=False)
+
+    check: Checks = await CRUD(
+        session=SessionHandler.create(engine=engine), model=Checks
+    ).read(
+        _where=[Checks.code_check == f'tornado-{custom_user.order_id}']
+    )
+
+    if user is None:
+        if check is None:
+            new_user: Users = await CRUD(
+                session=SessionHandler.create(engine=engine), model=Users
+            ).create(
+                _values=dict(fio=None, phone_number=custom_user.phone)
+            )
+
+            await CRUD(
+                session=SessionHandler.create(engine=engine), model=Checks
+            ).create(
+                _values=dict(
+                    raw_code_check=f'tornado-{custom_user.order_id}',
+                    code_check=f'tornado-{custom_user.order_id}',
+                    amount=custom_user.sum,
+                    platform='web',
+                    user_id=new_user.id
+                )
+            )
+        else:
+            raise HTTPException(
+                status_code=409,
+                detail={"result": False, "message": 'This OrderID already exists', "data": {}}
+            )
+    else:
+        if check is None:
+            await CRUD(
+                session=SessionHandler.create(engine=engine), model=Checks
+            ).create(
+                _values=dict(
+                    raw_code_check=f'tornado-{custom_user.order_id}',
+                    code_check=f'tornado-{custom_user.order_id}',
+                    amount=custom_user.sum,
+                    platform='web',
+                    user_id=user.id
+                )
+            )
+        else:
+            raise HTTPException(
+                status_code=409,
+                detail={"result": False, "message": 'This OrderID already exists', "data": {}}
+            )
+
