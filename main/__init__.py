@@ -9,7 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from starlette.responses import JSONResponse
 
 
-main = FastAPI(title='anix_promo_v2')  # , docs_url=None, redoc_url=None
+main = FastAPI(title='anix_promo_v2', docs_url=None, redoc_url=None)  #
 main.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
