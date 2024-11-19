@@ -150,7 +150,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
             if web:
                 raise HTTPException(
                     status_code=200,
-                    detail={"result": True, "message": "Вы успешно зарегистрировали код!", "data": {}}
+                    detail={"result": True, "message": f"Вы успешно зарегистрировали чек!", "data": {}}
                 )
             else:
                 continue
@@ -184,7 +184,11 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                 if web:
                     raise HTTPException(
                         status_code=200,
-                        detail={"result": True, "message": "Вы успешно зарегистрировали код!", "data": {}}
+                        detail={
+                            "result": True,
+                            "message": f"Вы успешно зарегистрировали чек!",
+                            "data": {}
+                        }
                     )
                 else:
                     continue
@@ -204,7 +208,11 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                 if web:
                     raise HTTPException(
                         status_code=200,
-                        detail={"result": True, "message": "Вы успешно зарегистрировали код!", "data": {}}
+                        detail={
+                            "result": True,
+                            "message": f"Вы успешно зарегистрировали чек!",
+                            "data": {}
+                        }
                     )
                 else:
                     continue
@@ -236,7 +244,11 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                     if web:
                         raise HTTPException(
                             status_code=200,
-                            detail={"result": True, "message": "Вы успешно зарегистрировали код!", "data": {}}
+                            detail={
+                                "result": True,
+                                "message": f"Вы успешно зарегистрировали чек!",
+                                "data": {}
+                            }
                         )
                     else:
                         continue
@@ -253,7 +265,11 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                     if web:
                         raise HTTPException(
                             status_code=200,
-                            detail={"result": True, "message": "Вы успешно зарегистрировали код!", "data": {}}
+                            detail={
+                                "result": True,
+                                "message": f"Вы успешно зарегистрировали чек!",
+                                "data": {}
+                            }
                         )
                     else:
                         continue
@@ -266,9 +282,15 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                     await update_check(code_check=code_check["code_check"], fio_cassir=fio_cassir)
 
                 if web:
+                    exist_user: Users = await get_user(user_id=find_check.user_id)
+
                     raise HTTPException(
                         status_code=400,
-                        detail={"result": False, "message": "Данный чек уже зарегистрирован!", "data": {}}
+                        detail={
+                            "result": False,
+                            "message": f"Чек зарегистрирован на номер 8-***-***-{str(exist_user.phone_number)[-4:]}",
+                            "data": {}
+                        }
                     )
                 else:
                     continue
@@ -283,7 +305,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
             if web:
                 raise HTTPException(
                     status_code=200,
-                    detail={"result": True, "message": "Вы успешно зарегистрировали код!", "data": {}}
+                    detail={"result": True, "message": f"Вы успешно зарегистрировали чек!", "data": {}}
                 )
             else:
                 continue
