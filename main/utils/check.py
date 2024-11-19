@@ -150,7 +150,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
             if web:
                 raise HTTPException(
                     status_code=200,
-                    detail={"result": True, "message": "Вы успешно зарегистрировали код!", "data": {}}
+                    detail={"result": True, "message": f"Вы успешно зарегистрировали чек!", "data": {}}
                 )
             else:
                 continue
@@ -184,7 +184,11 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                 if web:
                     raise HTTPException(
                         status_code=200,
-                        detail={"result": True, "message": "Вы успешно зарегистрировали код!", "data": {}}
+                        detail={
+                            "result": True,
+                            "message": f"Вы успешно зарегистрировали чек для номера {str(phone)[-4:]}!",
+                            "data": {}
+                        }
                     )
                 else:
                     continue
@@ -204,7 +208,11 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                 if web:
                     raise HTTPException(
                         status_code=200,
-                        detail={"result": True, "message": "Вы успешно зарегистрировали код!", "data": {}}
+                        detail={
+                            "result": True,
+                            "message": f"Вы успешно зарегистрировали чек для номера {str(phone)[-4:]}!",
+                            "data": {}
+                        }
                     )
                 else:
                     continue
@@ -236,7 +244,11 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                     if web:
                         raise HTTPException(
                             status_code=200,
-                            detail={"result": True, "message": "Вы успешно зарегистрировали код!", "data": {}}
+                            detail={
+                                "result": True,
+                                "message": f"Вы успешно зарегистрировали чек для номера {str(phone)[-4:]}!",
+                                "data": {}
+                            }
                         )
                     else:
                         continue
@@ -253,7 +265,11 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                     if web:
                         raise HTTPException(
                             status_code=200,
-                            detail={"result": True, "message": "Вы успешно зарегистрировали код!", "data": {}}
+                            detail={
+                                "result": True,
+                                "message": f"Вы успешно зарегистрировали чек для номера {str(phone)[-4:]}!",
+                                "data": {}
+                            }
                         )
                     else:
                         continue
@@ -283,7 +299,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
             if web:
                 raise HTTPException(
                     status_code=200,
-                    detail={"result": True, "message": "Вы успешно зарегистрировали код!", "data": {}}
+                    detail={"result": True, "message": f"Вы успешно зарегистрировали чек!", "data": {}}
                 )
             else:
                 continue
