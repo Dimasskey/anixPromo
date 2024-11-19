@@ -244,8 +244,8 @@ svg * {
   border-radius: 1.5vw;
   height: 8vw;
   justify-content: center;
-  align-items: center;
   column-gap: 5vw;
+  align-items: center;
 }
 @media (max-width: 900px) {
   .main-logo {
@@ -253,12 +253,13 @@ svg * {
   }
 }
 .main-logo__heading {
-  font-size: 6vw;
-  font-family: "Bebas Neue", sans-serif;
+  width: 28vw;
+  height: 6vw;
 }
 @media (max-width: 900px) {
   .main-logo__heading {
-    font-size: 9vw;
+    width: 42vw;
+    height: 8.5vw;
   }
 }
 .main-logo__image {
@@ -2463,6 +2464,152 @@ svg * {
     border-radius: 4vw;
     margin-right: 3.5vw;
     font-size: 3.1vw;
+  }
+}
+
+.rewards-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.rewards-container {
+  background-color: var(--background-color);
+  width: 30vw;
+  height: 14vw;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  border-radius: 1.5vw;
+  row-gap: 1vw;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  padding: 1vw 0 0 0;
+}
+@media (max-width: 900px) {
+  .rewards-container {
+    width: 68vw;
+    height: 39vw;
+    row-gap: 3vw;
+  }
+}
+.rewards-container .rewards-heading {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2vw;
+}
+@media (max-width: 900px) {
+  .rewards-container .rewards-heading {
+    font-size: 5vw;
+  }
+}
+.rewards-container .rewards-heading__cross {
+  width: 1.5vw;
+  position: absolute;
+  right: 1vw;
+  top: 0;
+  cursor: pointer;
+}
+@media (max-width: 900px) {
+  .rewards-container .rewards-heading__cross {
+    width: 4.5vw;
+    right: 2vw;
+    top: 1vw;
+  }
+}
+
+.reward-step-container {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.5vw;
+}
+@media (max-width: 900px) {
+  .reward-step-container {
+    width: 100%;
+    column-gap: 2vw;
+  }
+}
+
+.reward-container {
+  display: flex;
+  line-height: 1.25;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5vw;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1vw;
+  transition: margin-top 1s ease;
+}
+@media (max-width: 900px) {
+  .reward-container {
+    row-gap: 2vw;
+    font-size: 3.5vw;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.reward_arrow {
+  height: 3vw;
+}
+@media (max-width: 900px) {
+  .reward_arrow {
+    height: 10vw;
+  }
+}
+
+.reward_step1 {
+  font-size: 1.5vw;
+  display: flex;
+  width: 5vw;
+  height: 5vw;
+  background-color: orange;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  border: 0.6vw solid #fff;
+}
+@media (max-width: 900px) {
+  .reward_step1 {
+    width: 15vw;
+    height: 15vw;
+    font-size: 4.5vw;
+    border: 2vw solid #fff;
+  }
+}
+
+.reward_step2 {
+  font-size: 1.5vw;
+  display: flex;
+  width: 5vw;
+  height: 5vw;
+  background-color: orange;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  border: 0.6vw solid #fff;
+}
+@media (max-width: 900px) {
+  .reward_step2 {
+    width: 15vw;
+    height: 15vw;
+    font-size: 4.5vw;
+    border: 2vw solid #fff;
   }
 }
 

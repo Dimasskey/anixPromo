@@ -51,7 +51,11 @@ const handleRegCheck = async (event) => {
 
         const result = await response.json();
         if (response.ok) {
-            window.location.reload()
+            document.querySelector('.registration-check-response').textContent = result.message;
+            document.querySelector('.registration-check-response').style.color = "#95ff00";
+            setTimeout(() => {
+                window.location.reload();
+            }, 1500)
         } else {
             document.querySelector('.registration-check-response').textContent = result.message;
         }

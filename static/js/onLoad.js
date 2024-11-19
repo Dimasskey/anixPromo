@@ -10,7 +10,6 @@ function updateDOM(user) {
     show_steps(user)
 }
 
-
 const updateUserName = (user) => {
     if (user.fio) {
         fio.className = "profile-avatar-fio";
@@ -73,6 +72,10 @@ const updateGameButtons = (user) => {
         countGameSuccess += 1;
         buttons["step_10"].removeEventListener('click', treasureHandlers[0]);
         buttons["step_10"].style.backgroundImage = 'none';
+        addReward()
+        document.querySelector(".rewards-button").style.backgroundColor = '#FF4A15';
+        document.querySelector(".rewards-button").style.color = '#fff';
+        document.querySelector(".rewards-button").addEventListener('click', openRewards);
     }
 
     Object.entries(games).forEach(([key, game], index) => {
@@ -83,6 +86,8 @@ const updateGameButtons = (user) => {
                 buttons[buttonKey].style.backgroundImage = 'none';
                 buttons[buttonKey].style.backgroundColor = "orange";
                 countGameSuccess += 1;
+            } else {
+
             }
         }
     });

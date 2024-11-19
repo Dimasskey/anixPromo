@@ -5,19 +5,20 @@
   border-radius: 1.5vw;
   height: 8vw;
   justify-content: center;
-  align-items: center;
   column-gap: 5vw;
+  align-items: center;
 
   @include mobile {
     height: 12vw;
   }
 
   &__heading {
-    font-size: 6vw;
-    font-family: "Bebas Neue", sans-serif;
+    width: 28vw;
+    height: 6vw;
 
     @include mobile {
-      font-size: 9vw;
+      width: 42vw;
+      height: 8.5vw;
     }
   }
 
