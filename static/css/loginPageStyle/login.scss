@@ -400,19 +400,19 @@
 
   @include mobile {
     width: 70vw;
-    height: 50vw;
+    height: 30vw;
     row-gap: 3vw;
     border-radius: 3vw;
   }
 
   .pop-up-check-reg-text {
     text-align: center;
-    width: 50%;
+    width: 56%;
     font-size: 1.1vw;
 
     @include mobile {
-      font-size: 3vw;
-      width: 72%;
+      font-size: 4vw;
+      width: 67%;
     }
   }
 }
