@@ -339,12 +339,16 @@ svg * {
   border-radius: 3vw;
   justify-content: center;
   font-size: 1.5vw;
+  overflow: hidden;
 }
 @media (max-width: 900px) {
   .reviews-wrapper .reviews-container-supplier .reviews-supplier-photo .reviews-gift {
     width: 35vw;
     height: 35vw;
   }
+}
+.reviews-wrapper .reviews-container-supplier .reviews-supplier-photo .reviews-gift__photo {
+  object-fit: contain;
 }
 .reviews-wrapper .reviews-container-supplier .reviews-description {
   display: flex;
@@ -376,8 +380,22 @@ svg * {
     font-size: 2vw;
   }
 }
-.reviews-wrapper .reviews-container-supplier .reviews-description .reviews-description-container .reviews-text {
-  text-align: center;
+.reviews-wrapper .reviews-container-supplier .reviews-description .reviews-description-container .reviews-description__text {
+  max-height: 15vw;
+  overflow-y: scroll;
+}
+@media (max-width: 900px) {
+  .reviews-wrapper .reviews-container-supplier .reviews-description .reviews-description-container .reviews-description__text {
+    max-height: 33vw;
+  }
+}
+.reviews-wrapper .reviews-container-supplier .reviews-description .reviews-description-container .reviews-description__text::-webkit-scrollbar {
+  display: block;
+  width: 0.5vw;
+}
+.reviews-wrapper .reviews-container-supplier .reviews-description .reviews-description-container .reviews-description__text::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2509803922);
+  border-radius: 24px;
 }
 .reviews-wrapper .reviews-comment-wrapper {
   display: flex;

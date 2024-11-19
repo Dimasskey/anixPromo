@@ -149,11 +149,19 @@ document.addEventListener('DOMContentLoaded', async function() {
     const previewImage = document.querySelector('.review-add-attachment-preview__image');
     const clearInput = document.querySelector('.review-add-attachment-preview__delete');
     const headerLogo = document.querySelector('.reviews-supplier-logo');
+    const imageSupplier = document.querySelector('.reviews-gift__photo');
     const supplierDescription = document.querySelector('.reviews-description__text');
 
     if (supplierId) {
         const supplierData = await getSupplier(supplierId);
-        const response = await fetch(`https://media.tdanix.ru/api/attachments/${supplierData.data.logo_attachment_id}`, {
+        const responseLogoURL = await fetch(`https://media.tdanix.ru/api/attachments/${supplierData.data.logo_attachment_id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });
+
+        const responseImageURL = await fetch(`https://media.tdanix.ru/api/attachments/${supplierData.data.attachment_id}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -168,7 +176,8 @@ document.addEventListener('DOMContentLoaded', async function() {
             }
 
         }
-        headerLogo.src = response.url
+        headerLogo.src = responseLogoURL.url
+        imageSupplier.src = responseImageURL.url
         supplierDescription.textContent = supplierData.data.about
         await loadReviews(supplierId);
     }
