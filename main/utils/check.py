@@ -186,7 +186,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                         status_code=200,
                         detail={
                             "result": True,
-                            "message": f"Вы успешно зарегистрировали чек для номера {str(phone)[-4:]}!",
+                            "message": f"Вы успешно зарегистрировали чек!",
                             "data": {}
                         }
                     )
@@ -210,7 +210,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                         status_code=200,
                         detail={
                             "result": True,
-                            "message": f"Вы успешно зарегистрировали чек для номера {str(phone)[-4:]}!",
+                            "message": f"Вы успешно зарегистрировали чек!",
                             "data": {}
                         }
                     )
@@ -246,7 +246,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                             status_code=200,
                             detail={
                                 "result": True,
-                                "message": f"Вы успешно зарегистрировали чек для номера {str(phone)[-4:]}!",
+                                "message": f"Вы успешно зарегистрировали чек!",
                                 "data": {}
                             }
                         )
@@ -267,7 +267,7 @@ async def processed_check(checks: [Check], web: bool = False, header=None):
                             status_code=200,
                             detail={
                                 "result": True,
-                                "message": f"Вы успешно зарегистрировали чек для номера {str(phone)[-4:]}!",
+                                "message": f"Вы успешно зарегистрировали чек!",
                                 "data": {}
                             }
                         )
