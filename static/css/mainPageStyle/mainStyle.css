@@ -2432,13 +2432,13 @@ svg * {
   color: red;
   margin-left: 1vw;
   font-size: 1vw;
-  width: 57%;
+  width: 54%;
 }
 @media (max-width: 900px) {
   .registration-check-container .registration-check-form .registration-check-button-container .registration-check-response {
     font-size: 2.6vw;
     margin-left: 3vw;
-    width: 58%;
+    width: 56%;
   }
 }
 .registration-check-container .registration-check-form .registration-check-button-container .registration-check-button {
