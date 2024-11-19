@@ -59,3 +59,19 @@ class UserRegular(BaseModel):
 
 class UserDefault(DefaultResponse):
     data: UserRegular | list[UserRegular] | list | None
+
+
+class CustomUser(BaseModel):
+    order_id: int
+    sum: int
+    phone: str | int
+
+    @field_validator("phone")
+    def check_phone_number_(cls, phone_number_):
+        phone_number_ = check_phone_number(phone_number_=str(phone_number_))
+        if not phone_number_:
+            raise HTTPException(
+                status_code=400,
+                detail={"result": False, "message": "Поле «Телефон» введено некорректно!", "data": {}}
+            )
+        return phone_number_

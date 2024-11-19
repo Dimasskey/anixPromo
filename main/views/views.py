@@ -43,3 +43,24 @@ async def conditions(request: Request):
 @main.get("/winners", status_code=200, tags=["Views"], response_class=HTMLResponse)
 async def winners(request: Request):
     return templates.TemplateResponse("winners.html", context={"request": request})
+
+
+@main.get(
+    '/add_user_0JzQvtGH0LAg0YHRitC10LvQsCDQs9C+0LLQvdC+',
+    status_code=200,
+    tags=["Views"],
+    response_class=HTMLResponse
+)
+def shop_add_user(request: Request):
+    return templates.TemplateResponse('add_user.html', context={"request": request})
+
+
+@main.get(
+    '/check_code_check_0JzQvtGH0LAg0YHRitC10LvQsCDQs9C+0LLQvdC+',
+    status_code=200,
+    tags=["Views"],
+    response_class=HTMLResponse
+)
+def check_code_check_web(request: Request):
+    return templates.TemplateResponse('check_code.html', context={"request": request})
+
