@@ -33,7 +33,7 @@ body {
     grid-template-areas:
     "header"
     "mainLogo"
-    "conditions";
+    "winners";
     row-gap: 2vw;
   }
 }
@@ -48,4 +48,8 @@ body {
   height: 10vw;
   border-radius: 1.5vw;
   font-size: 2vw;
+
+  @include mobile {
+    font-size: 4vw;
+  }
 }

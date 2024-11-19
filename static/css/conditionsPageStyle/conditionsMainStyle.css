@@ -244,15 +244,12 @@ svg * {
   border-radius: 1.5vw;
   height: 8vw;
   justify-content: center;
-  flex-direction: row;
   align-items: center;
   column-gap: 5vw;
-  padding: 1%;
 }
 @media (max-width: 900px) {
   .main-logo {
     height: 12vw;
-    padding: 7%;
   }
 }
 .main-logo__heading {
@@ -440,6 +437,24 @@ body {
   background-color: var(--background-color-el);
   border-radius: 1vw;
   padding: 1vw;
+  word-break: break-word;
+}
+@media (max-width: 900px) {
+  .conditions-text-container {
+    padding: 4vw;
+    line-height: 1.25;
+  }
+  .conditions-text-container > p {
+    margin-bottom: 5vw;
+  }
+  .conditions-text-container > h2 {
+    font-size: 5vw;
+    margin-bottom: 1.5vw;
+    line-height: 1.1;
+  }
+  .conditions-text-container > ol, .conditions-text-container ul {
+    margin-bottom: 5vw;
+  }
 }
 
 /*# sourceMappingURL=conditionsMainStyle.css.map */
