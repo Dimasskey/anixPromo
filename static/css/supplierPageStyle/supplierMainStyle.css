@@ -485,12 +485,21 @@ svg * {
   height: 6vw;
   padding: 0.5% 1%;
   font-size: 0.8vw;
+  overflow-y: scroll;
 }
 @media (max-width: 900px) {
   .reviews-wrapper .reviews-comment-wrapper .reviews-container .review-container .review-text-container {
     height: 12vw;
     font-size: 2.5vw;
   }
+}
+.reviews-wrapper .reviews-comment-wrapper .reviews-container .review-container .review-text-container::-webkit-scrollbar {
+  display: block;
+  width: 0.5vw;
+}
+.reviews-wrapper .reviews-comment-wrapper .reviews-container .review-container .review-text-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2509803922);
+  border-radius: 24px;
 }
 .reviews-wrapper .reviews-comment-wrapper .reviews-container .review-container .review-image-container {
   display: flex;

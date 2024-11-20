@@ -202,10 +202,21 @@
           height: 6vw;
           padding: 0.5% 1%;
           font-size: 0.8vw;
+          overflow-y: scroll;
 
           @include mobile {
             height: 12vw;
             font-size: 2.5vw;
+          }
+
+          &::-webkit-scrollbar {
+            display: block;
+            width: 0.5vw;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background-color: #00000040;
+            border-radius: 24px;
           }
         }
 
